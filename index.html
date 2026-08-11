@@ -10,7 +10,7 @@
         :root {
             --graphite: #1C2321;
             --ivoire: #F9F8F6;
-            --or-academique: #C5A059;
+            --or-academique: #8F6A1F;
             --sauge: #557A64;
             --terre-cuite: #A74A38;
             --gris-doux: #EAE6E1;
@@ -24,16 +24,13 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: var(--font-texte); background-color: var(--ivoire); color: var(--texte-sombre); line-height: 1.7; overflow-x: hidden; }
         
-        /* Barre de Progression Globale */
         #progress-bar-container { position: fixed; top: 0; left: 0; width: 100%; height: 5px; background: var(--gris-doux); z-index: 1000; }
         #progress-bar { height: 100%; width: 0%; background: var(--or-academique); transition: width 0.5s ease-out; }
 
-        /* Navigation SPA */
         .vue { display: none; opacity: 0; transition: opacity 0.6s ease; min-height: 100vh; padding-bottom: 5rem; }
         .vue.active { display: block; opacity: 1; animation: fadeIn 0.6s forwards; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* En-tête */
         header { background: linear-gradient(135deg, var(--graphite) 0%, #2A3431 100%); color: var(--texte-clair); padding: 5rem 2rem; text-align: center; border-bottom: 4px solid var(--or-academique); position: relative; }
         .titre-professeur { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 4px; color: var(--or-academique); margin-bottom: 1.5rem; font-weight: 700; }
         header h1 { font-family: var(--font-titre); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 1.5rem; }
@@ -42,59 +39,60 @@
         .btn-retour { position: absolute; top: 2rem; left: 2rem; background: rgba(255,255,255,0.05); color: var(--or-academique); border: 1px solid var(--or-academique); padding: 0.6rem 1.2rem; border-radius: 4px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1.5px; font-weight: 700; backdrop-filter: blur(5px); }
         .btn-retour:hover { background: var(--or-academique); color: var(--graphite); }
         
-        /* Grille et Cartes */
         .conteneur { max-width: 1100px; margin: -4rem auto 0; padding: 0 2rem; position: relative; z-index: 10; }
-        .grille-hub { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 2.5rem; }
+        .grille-hub { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
         
         .carte-hub { background: #FFFFFF; border-radius: 8px; padding: 3rem 2.5rem; box-shadow: var(--shadow-subtile); border-top: 6px solid var(--graphite); cursor: pointer; transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s; display: flex; flex-direction: column; justify-content: space-between; }
         .carte-hub:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.12); }
         .carte-hub.eval { border-top-color: var(--terre-cuite); grid-column: 1 / -1; text-align: center; }
         
-        .carte-hub h2 { font-family: var(--font-titre); color: var(--graphite); font-size: 1.9rem; margin-bottom: 1.2rem; }
+        .carte-hub h2 { font-family: var(--font-titre); color: var(--graphite); font-size: 1.7rem; margin-bottom: 1.2rem; }
         .carte-hub p { color: #5C5C5C; margin-bottom: 2.5rem; font-size: 1.05rem; }
         
         .btn-prim { background: var(--graphite); color: var(--texte-clair); border: none; padding: 1.2rem 2rem; font-size: 1rem; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: background 0.3s; border-radius: 4px; width: 100%; font-weight: 700; font-family: var(--font-texte); }
         .btn-prim:hover { background: var(--or-academique); color: var(--graphite); }
         .eval .btn-prim { background: var(--terre-cuite); max-width: 400px; margin: 0 auto; color: white; }
-        .eval .btn-prim:hover { background: #8A3D2E; color: white;}
         
-        /* Contenu Didactique & Pédagogie */
         .section-cours { background: #FFFFFF; padding: 3.5rem; margin-bottom: 3rem; border-radius: 8px; box-shadow: var(--shadow-subtile); }
         .section-cours h3 { font-family: var(--font-titre); font-size: 2.2rem; color: var(--graphite); border-bottom: 2px solid var(--gris-doux); padding-bottom: 1rem; margin-bottom: 2.5rem; }
         
-        .encadre-grammaire { background: #FDFCF8; border-left: 5px solid var(--or-academique); padding: 2.5rem; margin-bottom: 3rem; border-radius: 0 8px 8px 0; }
+        .encadre-grammaire { background: #FDFCF8; border-left: 5px solid var(--or-academique); padding: 2.5rem; margin-bottom: 3rem; border-radius: 0 8px 8px 0; position: relative; }
         .encadre-grammaire h4 { font-family: var(--font-titre); color: var(--or-academique); font-size: 1.5rem; margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
         .encadre-grammaire ul { margin-left: 1.8rem; margin-bottom: 1rem; }
-        .encadre-grammaire li { margin-bottom: 0.8rem; font-size: 1.05rem;}
+        .encadre-grammaire li { margin-bottom: 0.8rem; font-size: 1.05rem; }
+        
+        /* Bouton de Traduction Interactif */
+        .btn-traduction { position: absolute; top: 1.5rem; right: 1.5rem; background: transparent; border: 1px solid var(--or-academique); color: var(--or-academique); padding: 0.4rem 0.8rem; font-size: 0.8rem; font-weight: 700; border-radius: 4px; cursor: pointer; transition: 0.3s; }
+        .btn-traduction:hover { background: var(--or-academique); color: white; }
+        .texte-espanol { display: none; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px dashed var(--gris-doux); color: #4A4A4A; font-style: italic; }
+        
         code { background: #EFEBE0; color: var(--graphite); padding: 3px 8px; border-radius: 4px; font-weight: 700; font-size: 1rem; font-family: var(--font-texte); }
         
-        /* Exercices Interactifs */
         .titre-exo { font-size: 1.3rem; font-weight: 700; color: var(--graphite); margin-bottom: 2rem; display: flex; align-items: center; gap: 12px; }
         .titre-exo::before { content: "✒️"; font-size: 1.5rem; }
         
-        .q-bloc { margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px dashed var(--gris-doux); position: relative;}
+        .q-bloc { margin-bottom: 2.5rem; padding-bottom: 2rem; border-bottom: 1px dashed var(--gris-doux); }
         .q-bloc:last-child { border-bottom: none; padding-bottom: 0; }
-        .q-texte { font-size: 1.15rem; margin-bottom: 1.5rem; font-weight: 400;}
+        .q-texte { font-size: 1.15rem; margin-bottom: 1.5rem; }
         
         input.saisie { border: none; border-bottom: 2px solid var(--graphite); background: transparent; font-family: var(--font-texte); font-size: 1.2rem; color: var(--graphite); text-align: center; padding: 5px 10px; outline: none; transition: all 0.3s; width: 250px; font-weight: 700; }
-        input.saisie:focus { border-bottom-color: var(--or-academique); background: rgba(197, 160, 89, 0.05); }
+        input.saisie:focus { border-bottom-color: var(--or-academique); background: rgba(143, 106, 31, 0.05); }
         input.saisie.correct { border-bottom-color: var(--sauge); color: var(--sauge); }
         input.saisie.erreur { border-bottom-color: var(--terre-cuite); color: var(--terre-cuite); }
         
         .grille-options { display: flex; flex-wrap: wrap; gap: 15px; }
-        .btn-opt { background: #FFFFFF; border: 2px solid var(--gris-doux); color: var(--graphite); padding: 0.8rem 1.8rem; border-radius: 30px; cursor: pointer; transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1); font-family: var(--font-texte); font-size: 1.05rem; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.02);}
-        .btn-opt:hover { border-color: var(--graphite); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.05);}
+        .btn-opt { background: #FFFFFF; border: 2px solid var(--gris-doux); color: var(--graphite); padding: 0.8rem 1.8rem; border-radius: 30px; cursor: pointer; transition: all 0.2s; font-family: var(--font-texte); font-size: 1.05rem; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
+        .btn-opt:hover { border-color: var(--graphite); transform: translateY(-2px); }
         .q-bloc.verrouille .btn-opt { cursor: default; transform: none; }
         .btn-opt.correct { background: var(--sauge); color: white; border-color: var(--sauge); }
         .btn-opt.erreur { background: #FADBD8; color: var(--terre-cuite); border-color: var(--terre-cuite); text-decoration: line-through; }
-        .btn-opt.reveler { background: var(--sauge); color: white; border-color: var(--sauge); box-shadow: 0 0 15px rgba(85, 122, 100, 0.4); }
+        .btn-opt.reveler { background: var(--sauge); color: white; border-color: var(--sauge); }
         
-        /* Feedback Pédagogique Dynamique */
-        .feedback { display: none; margin-top: 1.5rem; padding: 1rem 1.5rem; border-radius: 6px; font-size: 1rem; font-weight: 600; animation: fadeIn 0.4s; }
+        .feedback { display: none; margin-top: 1.5rem; padding: 1rem 1.5rem; border-radius: 6px; font-size: 1rem; font-weight: 600; }
         .feedback.succes { display: block; background: #E8F5E9; color: var(--sauge); border-left: 4px solid var(--sauge); }
         .feedback.erreur { display: block; background: #FDEDEC; color: var(--terre-cuite); border-left: 4px solid var(--terre-cuite); }
 
-        .btn-reinitialiser { margin-top: 2rem; background: transparent; border: 1px solid var(--graphite); color: var(--graphite); padding: 0.8rem 1.5rem; cursor: pointer; font-family: var(--font-texte); font-weight: 700; border-radius: 4px; transition: 0.3s;}
+        .btn-reinitialiser { margin-top: 2rem; background: transparent; border: 1px solid var(--graphite); color: var(--graphite); padding: 0.8rem 1.5rem; cursor: pointer; font-weight: 700; border-radius: 4px; transition: 0.3s; }
         .btn-reinitialiser:hover { background: var(--gris-doux); }
 
         footer { text-align: center; padding: 5rem 1rem 3rem; color: #888; font-size: 0.95rem; }
@@ -107,106 +105,109 @@
     <div id="vue-hub" class="vue active">
         <header>
             <div class="titre-professeur">Professeur Miguel Tillero</div>
-            <h1>Dossier d'Excellence B2</h1>
-            <p>Préparation avancée au DELF B2. Ce programme intensif requiert rigueur, autonomie et précision argumentative. Vos progrès sont automatiquement sauvegardés.</p>
+            <h1>Dossier de Révision B2</h1>
+            <p>Espace de travail interactif. Fondations du niveau B2 : grammaire en action, explications approfondies avec traduction en espagnol et exercices auto-corrigés.</p>
         </header>
 
         <div class="conteneur">
             <div class="grille-hub">
                 <div class="carte-hub" onclick="naviguer('vue-mod1')">
                     <div>
-                        <h2>Module 1 : Francophonie & Logique</h2>
-                        <p>Manier les <b>indéfinis</b> statistiques et maîtriser l'articulation complexe de la <b>cause</b> et de la <b>conséquence</b>.</p>
+                        <h2>Module 1 : Indéfinis & Proportions</h2>
+                        <p>Maîtrisez l'expression des quantités (<b>tous, la plupart, aucun</b>) à travers l'analyse des données de la Francophonie.</p>
                     </div>
-                    <button class="btn-prim">Ouvrir le module</button>
+                    <button class="btn-prim">Accéder</button>
                 </div>
                 
                 <div class="carte-hub" onclick="naviguer('vue-mod2')">
                     <div>
-                        <h2>Module 2 : Esthétique & Récits</h2>
-                        <p>Appréciation de l'art via le <b>Subjonctif Passé</b> et immersion littéraire par la reconnaissance du <b>Passé Simple</b>.</p>
+                        <h2>Module 2 : Cause & Conséquence</h2>
+                        <p>Articulez vos arguments logiquement avec <b>grâce à, puisque, étant donné que</b> et l'intensité de <b>tellement... que</b>.</p>
                     </div>
-                    <button class="btn-prim">Ouvrir le module</button>
+                    <button class="btn-prim">Accéder</button>
                 </div>
 
                 <div class="carte-hub" onclick="naviguer('vue-mod3')">
                     <div>
-                        <h2>Module 3 : Bioéthique & Concession</h2>
-                        <p>Structuration de la pensée critique. Savoir concéder (<b>Même si, Bien que</b>) et anticiper (<b>Futur Antérieur</b>).</p>
+                        <h2>Module 3 : La Forme Passive</h2>
+                        <p>Mettez l'accent sur l'objet de l'action dans les contextes formels et journalistiques (<b>être + participe passé</b>).</p>
                     </div>
-                    <button class="btn-prim">Ouvrir le module</button>
+                    <button class="btn-prim">Accéder</button>
                 </div>
 
                 <div class="carte-hub" onclick="naviguer('vue-mod4')">
                     <div>
-                        <h2>Module 4 : Méthodologie DELF</h2>
-                        <p>Techniques rédactionnelles. Structure formelle de la <b>lettre de protestation</b> et pronominalisation avancée.</p>
+                        <h2>Module 4 : Pronoms Démonstratifs & Possessifs</h2>
+                        <p>Évitez les répétitions nominales avec élégance (<b>celui, celle, le mien, la nôtre</b>).</p>
                     </div>
-                    <button class="btn-prim">Ouvrir le module</button>
+                    <button class="btn-prim">Accéder</button>
+                </div>
+
+                <div class="carte-hub" onclick="naviguer('vue-mod5')">
+                    <div>
+                        <h2>Module 5 : Conditionnel & Le But</h2>
+                        <p>Imaginez la salle de classe idéale et justifiez vos choix avec <b>pour, afin de</b> et <b>pour que</b> + subjonctif.</p>
+                    </div>
+                    <button class="btn-prim">Accéder</button>
                 </div>
 
                 <div class="carte-hub eval" onclick="naviguer('vue-eval')">
                     <div>
-                        <h2>Examen Certificatif Global</h2>
-                        <p>Une mise en situation réelle évaluant l'intégralité des compétences grammaticales et syntaxiques requises au niveau B2.4.</p>
+                        <h2>Évaluation Finale B2</h2>
+                        <p>Testez vos connaissances sur l'ensemble des modules fondamentaux de ce dossier.</p>
                     </div>
-                    <button class="btn-prim">Débuter l'épreuve</button>
+                    <button class="btn-prim">Lancer l'évaluation</button>
                 </div>
             </div>
         </div>
         <footer>
-            <button class="btn-reinitialiser" onclick="reinitialiserProgression()">Effacer ma progression</button><br><br>
-            © 2026 Édition d'Excellence B2 &nbsp;|&nbsp; Direction Pédagogique : Professeur Miguel Tillero
+            <button class="btn-reinitialiser" onclick="reinitialiserProgression()">Réinitialiser ma progression</button><br><br>
+            © 2026 Dossier de Révision B2 &nbsp;|&nbsp; Direction Pédagogique : Professeur Miguel Tillero
         </footer>
     </div>
 
-    <!-- ================= MODULE 1 : Logique ================= -->
-    <div id="vue-mod1" class="vue" data-module="1">
+    <!-- ================= MODULE 1 : INDÉFINIS ================= -->
+    <div id="vue-mod1" class="vue">
         <header>
             <button class="btn-retour" onclick="naviguer('vue-hub')">Menu Principal</button>
             <div class="titre-professeur">Module 1</div>
-            <h1>Francophonie & Articulation</h1>
+            <h1>Les Indéfinis & Proportions</h1>
         </header>
 
         <div class="conteneur">
             <div class="section-cours">
-                <h3>1. Les Indéfinis (Nuances statistiques)</h3>
+                <h3>Règles et Usages</h3>
                 <div class="encadre-grammaire">
-                    <h4>Précision B2</h4>
+                    <button class="btn-traduction" onclick="toggleTrad('trad-1')">🇪🇸 Ver en español</button>
+                    <h4>Totalité, Majorité et Quantité Nulle</h4>
                     <ul>
-                        <li><b>La plupart :</b> Exige un verbe au <b>pluriel</b>. <i>Ex : La plupart des pays <code>sont</code> africains.</i></li>
-                        <li><b>Chaque / Aucun :</b> Exigent un verbe au <b>singulier</b>. <i>Ex : Chaque pays <code>a</code> son accent. Aucun <code>n'est</code> ignoré.</i></li>
+                        <li><b>100% :</b> <code>tous les pays</code>, <code>chaque pays</code> (suivi d'un nom au singulier).</li>
+                        <li><b>Majorité (+50%) :</b> <code>la plupart des pays</code> (exige un verbe au pluriel).</li>
+                        <li><b>Fractions :</b> <code>la moitié</code>, <code>un tiers</code>, <code>un quart</code>, <code>les trois quarts</code>.</li>
+                        <li><b>Quantité nulle (0%) :</b> <code>aucun pays</code> (suivi du singulier et de la négation <i>ne</i>).</li>
                     </ul>
+                    <div id="trad-1" class="texte-espanol">
+                        <b>Traducción explicativa :</b><br>
+                        • <i>Tous les pays / chaque pays</i> (100%) : "todos los países" (con plural) / "cada país" (con singular).<br>
+                        • <i>La plupart des pays</i> (+50%) : "la mayoría de los países" (exige verbo en plural).<br>
+                        • <i>Aucun pays</i> (0%) : "ningún país" (va en singular y requiere la partícula negativa <i>ne</i>).
+                    </div>
                 </div>
                 
-                <div class="titre-exo">Choisissez l'indéfini respectant la règle d'accord.</div>
+                <div class="titre-exo">Exercice pratique : Complétez avec l'indéfini correct.</div>
                 <div class="q-bloc qcm" id="q1-1">
-                    <div class="q-texte">1. ________ pays européen n'a été exclu de cette étude démographique.</div>
+                    <div class="q-texte">1. ________ pays de la liste ne présente un taux de francophonie égal à 0 %.</div>
                     <div class="grille-options">
-                        <button class="btn-opt" data-correct="false" data-feedback="Attention : 'Plusieurs' demande un verbe au pluriel et ne s'utilise pas avec la négation 'ne'.">Plusieurs</button>
-                        <button class="btn-opt" data-correct="true" data-feedback="Excellent ! 'Aucun' s'utilise au singulier et s'accompagne obligatoirement de la particule 'ne'.">Aucun</button>
+                        <button class="btn-opt" data-correct="false" data-feedback="Incorrect. 'Plusieurs' demande une affirmation et un verbe affirmatif.">Plusieurs</button>
+                        <button class="btn-opt" data-correct="true" data-feedback="Exact ! 'Aucun' s'accorde au singulier et s'associe à la négation.">Aucun</button>
                     </div>
                     <div class="feedback"></div>
                 </div>
-            </div>
-
-            <div class="section-cours">
-                <h3>2. Cause et Conséquence (Niveau Soutenu)</h3>
-                <div class="encadre-grammaire">
-                    <h4>Subtilités argumentatives</h4>
-                    <ul>
-                        <li><code>Grâce à</code> : S'utilise uniquement pour une cause <b>positive</b> (+ nom).</li>
-                        <li><code>Étant donné que</code> : Présente une cause comme un fait objectif et irréfutable.</li>
-                        <li><code>En conséquence</code> : Très formel, idéal pour la production écrite du DELF.</li>
-                    </ul>
-                </div>
-                
-                <div class="titre-exo">Complétez avec précision.</div>
                 <div class="q-bloc qcm" id="q1-2">
-                    <div class="q-texte">1. L'entreprise a connu une croissance record ________ la nouvelle stratégie hybride.</div>
+                    <div class="q-texte">2. ________ pays francophone possède sa propre richesse linguistique.</div>
                     <div class="grille-options">
-                        <button class="btn-opt" data-correct="false" data-feedback="Erreur : 'Étant donné que' doit être suivi d'une proposition complète (sujet + verbe).">Étant donné que</button>
-                        <button class="btn-opt" data-correct="true" data-feedback="Parfait ! La cause est positive et suivie directement d'un groupe nominal.">grâce à</button>
+                        <button class="btn-opt" data-correct="false" data-feedback="Incorrect. 'Tous' exige un nom au pluriel (tous les pays).">Tous</button>
+                        <button class="btn-opt" data-correct="true" data-feedback="Parfait ! 'Chaque' est suivi d'un nom au singulier.">Chaque</button>
                     </div>
                     <div class="feedback"></div>
                 </div>
@@ -214,55 +215,40 @@
         </div>
     </div>
 
-    <!-- ================= MODULE 2 : Subjonctif Passé & Passé Simple ================= -->
-    <div id="vue-mod2" class="vue" data-module="2">
+    <!-- ================= MODULE 2 : CAUSE ET CONSÉQUENCE ================= -->
+    <div id="vue-mod2" class="vue">
         <header>
             <button class="btn-retour" onclick="naviguer('vue-hub')">Menu Principal</button>
             <div class="titre-professeur">Module 2</div>
-            <h1>Esthétique & Récits</h1>
+            <h1>La Cause et la Conséquence</h1>
         </header>
 
         <div class="conteneur">
             <div class="section-cours">
-                <h3>1. Le Subjonctif Passé</h3>
+                <h3>Règles et Usages</h3>
                 <div class="encadre-grammaire">
-                    <h4>Exprimer une émotion sur une action achevée</h4>
-                    <p>Structure indispensable au B2 pour formuler un jugement sur un fait passé.</p>
+                    <button class="btn-traduction" onclick="toggleTrad('trad-2')">🇪🇸 Ver en español</button>
+                    <h4>Articulation Logique</h4>
                     <ul>
-                        <li><b>Formation :</b> Auxiliaire <i>être/avoir</i> au subjonctif présent + Participe passé.</li>
-                        <li><i>Exemple :</i> "Je suis ravi que cette exposition <code>ait attiré</code> autant de public."</li>
+                        <li><b>Cause positive :</b> <code>grâce à</code> + nom (ex: <i>grâce à son aide</i>).</li>
+                        <li><b>Cause évidente :</b> <code>puisque</code> ou <code>étant donné que</code> + proposition.</li>
+                        <li><b>Conséquence formelle :</b> <code>en conséquence</code>.</li>
+                        <li><b>Conséquence avec intensité :</b> <code>tellement... que</code>.</li>
                     </ul>
+                    <div id="trad-2" class="texte-espanol">
+                        <b>Traducción explicativa :</b><br>
+                        • <i>Grâce à</i> : se usa para causas positivas ("gracias a").<br>
+                        • <i>Puisque / Étant donné que</i> : indican una causa evidente o un hecho probado ("puesto que / dado que").<br>
+                        • <i>Tellement... que</i> : expresa intensidad con resultado ("tanto... que").
+                    </div>
                 </div>
                 
-                <div class="titre-exo">Conjuguez correctement (faites attention à l'accord avec l'auxiliaire être).</div>
-                <div id="exo-subj-passe">
-                    <div class="q-bloc">
-                        <div class="q-texte">1. C'est scandaleux que la mairie (détruire) <input type="text" class="saisie" data-rep="ait detruit"> cette fresque murale !</div>
-                    </div>
-                    <div class="q-bloc">
-                        <div class="q-texte">2. Je suis désolé qu'ils (partir) <input type="text" class="saisie" data-rep="soient partis"> avant la fin du vernissage.</div>
-                    </div>
-                    <button class="btn-prim" onclick="validerSaisies('exo-subj-passe', 'N\'oubliez pas : avec l\'auxiliaire être, le participe passé s\'accorde avec le sujet.')">Vérifier l'orthographe</button>
-                    <div class="feedback" id="feedback-exo-subj-passe"></div>
-                </div>
-            </div>
-
-            <div class="section-cours">
-                <h3>2. Reconnaissance du Passé Simple</h3>
-                <div class="encadre-grammaire">
-                    <h4>Le temps du récit</h4>
-                    <p>Essentiel pour la compréhension écrite (CE) du DELF.</p>
-                    <ul>
-                        <li>Verbes irréguliers à reconnaître : <code>il fut</code> (être), <code>il eut</code> (avoir), <code>il fit</code> (faire), <code>il vit</code> (voir/vivre selon contexte).</li>
-                    </ul>
-                </div>
-                
-                <div class="titre-exo">Quel est l'équivalent au passé composé&nbsp;?</div>
+                <div class="titre-exo">Exercice pratique : Choisissez le connecteur idoné.</div>
                 <div class="q-bloc qcm" id="q2-1">
-                    <div class="q-texte">1. "En 1950, l'écrivain <b>vécut</b> en exil."</div>
+                    <div class="q-texte">1. Il faisait ________ froid que les étudiants sont restés chez eux.</div>
                     <div class="grille-options">
-                        <button class="btn-opt" data-correct="false" data-feedback="Non, 'voyait' est l'imparfait du verbe voir.">a vu</button>
-                        <button class="btn-opt" data-correct="true" data-feedback="Exactement ! Il s'agit du verbe 'vivre' à la 3e personne du singulier.">a vécu</button>
+                        <button class="btn-opt" data-correct="false" data-feedback="Incorrect. 'Puisque' introduit une cause, non une conséquence intensive.">puisque</button>
+                        <button class="btn-opt" data-correct="true" data-feedback="Excellent ! Structure d'intensité 'tellement... que'.">tellement</button>
                     </div>
                     <div class="feedback"></div>
                 </div>
@@ -270,86 +256,75 @@
         </div>
     </div>
 
-    <!-- ================= MODULE 3 : Futur Antérieur & Concession ================= -->
-    <div id="vue-mod3" class="vue" data-module="3">
+    <!-- ================= MODULE 3 : FORME PASSIVE ================= -->
+    <div id="vue-mod3" class="vue">
         <header>
             <button class="btn-retour" onclick="naviguer('vue-hub')">Menu Principal</button>
             <div class="titre-professeur">Module 3</div>
-            <h1>Bioéthique & Débats</h1>
+            <h1>La Forme Passive</h1>
         </header>
 
         <div class="conteneur">
             <div class="section-cours">
-                <h3>1. Le Futur Antérieur</h3>
+                <h3>Règles et Usages</h3>
                 <div class="encadre-grammaire">
-                    <h4>Projection dans l'avenir</h4>
-                    <p>Marque l'antériorité d'une action future par rapport à une autre action future.</p>
+                    <button class="btn-traduction" onclick="toggleTrad('trad-3')">🇪🇸 Ver en español</button>
+                    <h4>Mettre en valeur l'objet</h4>
+                    <p>La voix passive focalise l'attention sur l'élément qui subit l'action.</p>
                     <ul>
-                        <li><b>Indicateurs :</b> <i>Dès que, une fois que, quand...</i></li>
-                        <li><i>Exemple :</i> "Dès que les chercheurs <code>auront découvert</code> le vaccin, la société sera soulagée."</li>
+                        <li><b>Structure :</b> <code>Être</code> (conjugué) + <code>Participe Passé</code> (accordé en genre et nombre avec le sujet).</li>
+                        <li><i>Exemple :</i> "Le prix <code>a été remis</code> par le jury."</li>
                     </ul>
+                    <div id="trad-3" class="texte-espanol">
+                        <b>Traducción explicativa :</b><br>
+                        La voz pasiva invierte el orden habitual: el objeto pasa a ser sujeto paciente, empleando el verbo auxiliar <i>être</i> más el participio pasado (que concuerda en género y número). Ejemplo: "El premio fue entregado por el jurado".
+                    </div>
                 </div>
                 
-                <div class="titre-exo">Sélectionnez la conjugaison logique.</div>
+                <div class="titre-exo">Exercice pratique : Identifiez la forme passive correcte.</div>
                 <div class="q-bloc qcm" id="q3-1">
-                    <div class="q-texte">1. Une fois que la loi contre la discrimination ________ , la situation s'améliorera.</div>
+                    <div class="q-texte">1. "Le Comité international olympique a choisi un pays." ➔ Un pays ________ par le Comité.</div>
                     <div class="grille-options">
-                        <button class="btn-opt" data-correct="true" data-feedback="Bravo ! Voix passive au futur antérieur : Auxiliaire être (au futur) + été + participe passé accordé.">aura été adoptée</button>
-                        <button class="btn-opt" data-correct="false" data-feedback="Erreur de temps. Il s'agit ici du conditionnel passé.">aurait été adoptée</button>
+                        <button class="btn-opt" data-correct="false" data-feedback="Incorrect, c'est une forme active.">a choisi</button>
+                        <button class="btn-opt" data-correct="true" data-feedback="Parfait ! Auxiliaire 'a été' + participe passé.">a été choisi</button>
                     </div>
                     <div class="feedback"></div>
-                </div>
-            </div>
-
-            <div class="section-cours">
-                <h3>2. L'Art de la Concession</h3>
-                <div class="encadre-grammaire">
-                    <h4>Nuancer une opinion (Essentiel pour la Production Orale)</h4>
-                    <ul>
-                        <li><code>Bien que / Quoique</code> + <b>Subjonctif</b>.</li>
-                        <li><code>Même si</code> + <b>Indicatif</b>.</li>
-                        <li><code>Malgré</code> + <b>Nom</b>.</li>
-                    </ul>
-                </div>
-                
-                <div class="titre-exo">Saisie précise (1 mot par espace).</div>
-                <div id="exo-concession">
-                    <div class="q-bloc"><div class="q-texte">1. <input type="text" class="saisie" data-rep="bien" style="width:100px;"> que l'intelligence artificielle soit utile, elle pose des questions éthiques.</div></div>
-                    <div class="q-bloc"><div class="q-texte">2. <input type="text" class="saisie" data-rep="malgre" style="width:120px;"> ses efforts (nom), il n'a pas convaincu le jury.</div></div>
-                    <button class="btn-prim" onclick="validerSaisies('exo-concession', 'Revoyez les règles : Bien que + Subjonctif / Malgré + Nom.')">Valider l'orthographe</button>
-                    <div class="feedback" id="feedback-exo-concession"></div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ================= MODULE 4 : DELF B2 PE ================= -->
-    <div id="vue-mod4" class="vue" data-module="4">
+    <!-- ================= MODULE 4 : PRONOMS ================= -->
+    <div id="vue-mod4" class="vue">
         <header>
             <button class="btn-retour" onclick="naviguer('vue-hub')">Menu Principal</button>
             <div class="titre-professeur">Module 4</div>
-            <h1>Méthodologie DELF B2</h1>
+            <h1>Pronoms Démonstratifs & Possessifs</h1>
         </header>
 
         <div class="conteneur">
             <div class="section-cours">
-                <h3>La Lettre Formelle (Protestation / Proposition)</h3>
+                <h3>Règles et Usages</h3>
                 <div class="encadre-grammaire">
-                    <h4>Codes de la Production Écrite</h4>
-                    <p>Le registre doit être courtois, soutenu et hautement structuré.</p>
+                    <button class="btn-traduction" onclick="toggleTrad('trad-4')">🇪🇸 Ver en español</button>
+                    <h4>Éviter les répétitions</h4>
                     <ul>
-                        <li><b>L'objet :</b> Toujours informatif. <i>Objet : Protestation contre l'abattage des arbres.</i></li>
-                        <li><b>Introduction du but :</b> <code>Je me permets de vous adresser ce courrier afin de...</code></li>
-                        <li><b>Formule finale :</b> <code>Je vous prie d'agréer, Monsieur, l'expression de mes salutations distinguées.</code></li>
+                        <li><b>Démonstratifs :</b> <code>celui, celle, ceux, celles</code> (+ de / qui / que). Ex: "C'est celui de Paul."</li>
+                        <li><b>Possessifs :</b> <code>le mien, la tienne, les nôtres, les vôtres</code>. Ex: "Prête-moi la tienne."</li>
                     </ul>
+                    <div id="trad-4" class="texte-espanol">
+                        <b>Traducción explicativa :</b><br>
+                        • Demostrativos (<i>celui, celle...</i>) equivalen a "el de...", "la de...".<br>
+                        • Posesivos (<i>le mien, la tienne...</i>) equivalen a "el mío", "la tuya", etc., evitando repetir el sustantivo.
+                    </div>
                 </div>
                 
-                <div class="titre-exo">Choisissez la formulation adaptée à un cadre institutionnel.</div>
+                <div class="titre-exo">Exercice pratique : Complétez avec le pronom adapté.</div>
                 <div class="q-bloc qcm" id="q4-1">
-                    <div class="q-texte">1. Pour proposer une alternative au Maire de la ville :</div>
+                    <div class="q-texte">1. J'ai oublié mes lunettes, tu peux me prêter ________ ? (tes lunettes)</div>
                     <div class="grille-options">
-                        <button class="btn-opt" data-correct="false" data-feedback="Trop familier et direct pour le DELF B2. Utilisez le conditionnel pour atténuer.">Il faut absolument que vous fassiez un parc.</button>
-                        <button class="btn-opt" data-correct="true" data-feedback="Excellent. L'utilisation du conditionnel (serait) et d'un vocabulaire riche (judicieux, aménagement) rapporte des points.">Il serait judicieux d'envisager l'aménagement d'un espace vert.</button>
+                        <button class="btn-opt" data-correct="false" data-feedback="Incorrect. 'Celles' nécessite un complément (celles de...).">celles</button>
+                        <button class="btn-opt" data-correct="true" data-feedback="Exact ! Pronom possessif féminin pluriel 'les tiennes'.">les tiennes</button>
                     </div>
                     <div class="feedback"></div>
                 </div>
@@ -357,18 +332,57 @@
         </div>
     </div>
 
-    <!-- ================= EXAMEN FINAL ================= -->
+    <!-- ================= MODULE 5 : CONDITIONNEL ET BUT ================= -->
+    <div id="vue-mod5" class="vue">
+        <header>
+            <button class="btn-retour" onclick="naviguer('vue-hub')">Menu Principal</button>
+            <div class="titre-professeur">Module 5</div>
+            <h1>Conditionnel & Expression du But</h1>
+        </header>
+
+        <div class="conteneur">
+            <div class="section-cours">
+                <h3>Règles et Usages</h3>
+                <div class="encadre-grammaire">
+                    <button class="btn-traduction" onclick="toggleTrad('trad-5')">🇪🇸 Ver en español</button>
+                    <h4>Hypothèses et Finalité</h4>
+                    <ul>
+                        <li><b>Conditionnel Présent :</b> Formuler des souhaits ou hypothèses (<i>il y aurait, ce serait, on pourrait</i>).</li>
+                        <li><b>Le But (Même sujet) :</b> <code>afin de / pour</code> + infinitif.</li>
+                        <li><b>Le But (Sujets différents) :</b> <code>pour que</code> + <b>subjonctif</b>.</li>
+                    </ul>
+                    <div id="trad-5" class="texte-espanol">
+                        <b>Traducción explicativa :</b><br>
+                        • Condicional: expresa hipótesis o cortesía ("habría", "sería").<br>
+                        • Finalidad: se usa <i>pour/afin de</i> con infinitivo si el sujeto es el mismo, y <i>pour que</i> seguido de subjuntivo si los sujetos cambian.
+                    </div>
+                </div>
+                
+                <div class="titre-exo">Exercice pratique : Choisissez la bonne structure.</div>
+                <div class="q-bloc qcm" id="q5-1">
+                    <div class="q-texte">1. Il travaille dur ________ ses parents soient fiers de lui.</div>
+                    <div class="grille-options">
+                        <button class="btn-opt" data-correct="false" data-feedback="Incorrect avec 'pour' suivi d'un subjonctif et de sujets différents.">pour</button>
+                        <button class="btn-opt" data-correct="true" data-feedback="Parfait ! 'Pour que' exige le mode subjonctif.">pour que</button>
+                    </div>
+                    <div class="feedback"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= EVALUATION FINALE ================= -->
     <div id="vue-eval" class="vue">
         <header style="background-color: var(--terre-cuite); border-bottom-color: var(--graphite);">
             <button class="btn-retour" onclick="naviguer('vue-hub')" style="color:white; border-color:white;">Abandonner l'épreuve</button>
             <div class="titre-professeur" style="color: white;">Évaluation Certificative</div>
-            <h1>Le Grand Bilan B2.4</h1>
+            <h1>Bilan Global B2</h1>
         </header>
 
         <div class="conteneur">
             <div class="section-cours">
                 <p style="font-size: 1.15rem; color: var(--terre-cuite); margin-bottom: 2.5rem; font-weight: 700; text-align: center;">
-                    ATTENTION : Cette épreuve est une simulation des exigences grammaticales de l'examen officiel. Aucun droit à l'erreur.
+                    Évaluation récapitulative des fondations du niveau B2 (Dossier 00).
                 </p>
                 
                 <div id="conteneur-quiz"></div>
@@ -384,7 +398,6 @@
 
     <!-- ================= SCRIPTS ================= -->
     <script>
-        // --- 1. GESTION DE LA NAVIGATION ET BARRE DE PROGRESSION ---
         function naviguer(id) { 
             window.scrollTo(0, 0); 
             document.querySelectorAll('.vue').forEach(el => el.classList.remove('active')); 
@@ -392,80 +405,47 @@
             majProgressionGlobale();
         }
 
-        // --- 2. FONCTIONS DE NORMALISATION (ORTHOGRAPHE STRICTE MAIS SOUPLE) ---
-        function normaliser(texte) { 
-            return texte.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); 
+        // Fonction de traduction interactive sous demande
+        function toggleTrad(id) {
+            const el = document.getElementById(id);
+            if (el.style.display === 'block') {
+                el.style.display = 'none';
+            } else {
+                el.style.display = 'block';
+            }
         }
 
-        // --- 3. SYSTEME LOCALSTORAGE (SAUVEGARDE DE PROGRESSION B2) ---
-        let progression = JSON.parse(localStorage.getItem('progressionB2Tillero')) || {};
+        let progression = JSON.parse(localStorage.getItem('progressionB2Dossier00')) || {};
 
         function sauvegarderProgression(idQuestion, reussi) {
             progression[idQuestion] = reussi;
-            localStorage.setItem('progressionB2Tillero', JSON.stringify(progression));
+            localStorage.setItem('progressionB2Dossier00', JSON.stringify(progression));
             majProgressionGlobale();
         }
 
         function majProgressionGlobale() {
-            const totalQuestions = document.querySelectorAll('.qcm, .saisie').length;
+            const totalQuestions = document.querySelectorAll('.qcm').length;
             const repondues = Object.keys(progression).length;
             const pourcentage = totalQuestions > 0 ? (repondues / totalQuestions) * 100 : 0;
             document.getElementById('progress-bar').style.width = pourcentage + '%';
         }
 
         function reinitialiserProgression() {
-            if(confirm("Êtes-vous sûr de vouloir effacer tout votre travail ? Cette action est irréversible.")) {
-                localStorage.removeItem('progressionB2Tillero');
+            if(confirm("Voulez-vous effacer votre progression ?")) {
+                localStorage.removeItem('progressionB2Dossier00');
                 location.reload();
             }
         }
 
-        // --- 4. LOGIQUE DES EXERCICES DE SAISIE ---
-        function validerSaisies(containerId, feedbackTexte) {
-            const conteneur = document.getElementById(containerId);
-            let toutCorrect = true;
-            
-            conteneur.querySelectorAll('input.saisie').forEach((input, index) => {
-                const repAttendue = normaliser(input.getAttribute('data-rep'));
-                const valeurSaisie = normaliser(input.value);
-                const idUnique = containerId + '_saisie_' + index;
-                
-                input.classList.remove('correct', 'erreur');
-                
-                if(valeurSaisie === repAttendue) {
-                    input.classList.add('correct');
-                    sauvegarderProgression(idUnique, true);
-                } else {
-                    input.classList.add('erreur');
-                    toutCorrect = false;
-                    sauvegarderProgression(idUnique, false);
-                }
-            });
-
-            const zoneFeedback = document.getElementById('feedback-' + containerId);
-            zoneFeedback.classList.remove('succes', 'erreur');
-            
-            if(toutCorrect) {
-                zoneFeedback.innerText = "Parfait ! Orthographe et grammaire irréprochables.";
-                zoneFeedback.classList.add('succes');
-            } else {
-                zoneFeedback.innerText = feedbackTexte;
-                zoneFeedback.classList.add('erreur');
-            }
-        }
-
-        // --- 5. LOGIQUE DES QCM (AVEC FEEDBACK DYNAMIQUE) ---
         document.querySelectorAll('.qcm').forEach(q => {
             const idQuestion = q.id;
             
-            // Restauration de l'état si déjà répondu
             if(progression[idQuestion] !== undefined) {
                 q.classList.add('verrouille');
                 const bonneReponse = q.querySelector('.btn-opt[data-correct="true"]');
                 bonneReponse.classList.add('reveler');
-                
                 const zoneFeedback = q.querySelector('.feedback');
-                zoneFeedback.innerText = "Exercice déjà complété. " + bonneReponse.getAttribute('data-feedback');
+                zoneFeedback.innerText = "Déjà validé. " + bonneReponse.getAttribute('data-feedback');
                 zoneFeedback.classList.add('succes');
             }
 
@@ -475,10 +455,8 @@
                     q.classList.add('verrouille');
                     
                     const estCorrect = btn.getAttribute('data-correct') === 'true';
-                    const messageFeedback = btn.getAttribute('data-feedback');
                     const zoneFeedback = q.querySelector('.feedback');
-                    
-                    zoneFeedback.innerText = messageFeedback;
+                    zoneFeedback.innerText = btn.getAttribute('data-feedback');
                     
                     if (estCorrect) { 
                         btn.classList.add('correct'); 
@@ -494,15 +472,13 @@
             });
         });
 
-        // --- 6. EXAMEN FINAL GÉNÉRÉ DYNAMIQUEMENT ---
         const dataEval = [
-            { q: "Je suis extrêmement déçu que les instances dirigeantes ________ (prendre) une telle décision.", opt: ["aient pris", "ont pris", "auraient pris"], rep: 0 },
-            { q: "Après ________ (déposer) sa candidature, elle a attendu anxieusement la réponse.", opt: ["avoir déposer", "avoir déposé", "être déposé"], rep: 1 },
-            { q: "Dès que l'Assemblée ________ (voter) la loi, nous pourrons agir.", opt: ["aurait voté", "aura voté", "a voté"], rep: 1 },
-            { q: "Le chercheur a affirmé : \"Je trouverai une solution\". ➔ Il a affirmé qu'il ________ une solution.", opt: ["trouvait", "trouverait", "trouvera"], rep: 1 },
-            { q: "Le Maire refuse tout compromis. Il ne veut ________ entendre ________ discuter.", opt: ["plus / jamais", "pas / plus", "ni / ni"], rep: 2 },
-            { q: "________ le manque de financement public, ce projet artistique a vu le jour.", opt: ["Pourtant", "Malgré", "Bien que"], rep: 1 },
-            { q: "Dans l'attente de votre réponse, je vous prie ________, Monsieur le Directeur, l'expression de mes salutations distinguées.", opt: ["d'accepter", "d'agréer", "de recevoir"], rep: 1 }
+            { q: "________ des pays francophones se trouvent en Afrique.", opt: ["La plupart", "Chaque", "Aucun"], rep: 0 },
+            { q: "Il faisait ________ froid qu'ils sont restés cloîtrés chez eux.", opt: ["puisque", "tellement", "grâce à"], rep: 1 },
+            { q: "Le prix ________ par un jury international.", opt: ["a été remis", "a remis", "est remis"], rep: 0 },
+            { q: "J'ai perdu mon dictionnaire, tu peux me prêter ________ ?", opt: ["celui", "le tien", "la sienne"], rep: 1 },
+            { q: "Dans une classe idéale, il ________ des tables à roulettes.", opt: ["y aura", "y avait", "y aurait"], rep: 2 },
+            { q: "Il travaille dur ________ réussir son examen DELF.", opt: ["pour que", "afin de", "bien que"], rep: 1 }
         ];
 
         let scoreEval = 0; let nbReponduesEval = 0;
@@ -542,16 +518,15 @@
                     document.getElementById('score-affichage').innerText = `${scoreEval} / ${dataEval.length}`;
                     
                     let msg = "";
-                    if (scoreEval === dataEval.length) msg = "Niveau B2.4 validé avec distinction. Excellence grammaticale absolue.";
-                    else if (scoreEval >= 5) msg = "Très bon résultat. La structure de votre discours est solide.";
-                    else msg = "Une reprise approfondie des structures complexes s'impose.";
+                    if (scoreEval === dataEval.length) msg = "Maîtrise absolue des fondations B2. Excellent travail !";
+                    else if (scoreEval >= 4) msg = "Solide parcours. Quelques révisions ciblées vous permettront d'atteindre la perfection.";
+                    else msg = "Il est recommandé de reprendre l'étude des modules théoriques.";
                     
                     document.getElementById('message-affichage').innerText = msg;
-                }, 1200);
+                }, 1000);
             }
         };
         
-        // Initialisation globale
         initialiserEval();
         majProgressionGlobale();
     </script>
