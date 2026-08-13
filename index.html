@@ -96,6 +96,36 @@
         .btn-reinitialiser:hover { background: var(--gris-doux); }
 
         footer { text-align: center; padding: 5rem 1rem 3rem; color: #888; font-size: 0.95rem; }
+
+        /* Espace de dépôt des devoirs */
+        .carte-hub.devoirs { border-top-color: var(--sauge); }
+        .carte-hub.devoirs .btn-prim { background: var(--sauge); color: white; }
+        .carte-hub.devoirs .btn-prim:hover { background: var(--graphite); color: var(--texte-clair); }
+
+        .etapes { list-style: none; counter-reset: etape; margin: 0 0 3rem; }
+        .etapes li { counter-increment: etape; position: relative; padding-left: 4.5rem; margin-bottom: 2rem; font-size: 1.05rem; }
+        .etapes li::before { content: counter(etape); position: absolute; left: 0; top: -0.35rem; width: 3rem; height: 3rem; border-radius: 50%; background: var(--gris-doux); color: var(--graphite); font-family: var(--font-titre); font-size: 1.4rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .etapes li b { display: block; color: var(--graphite); font-size: 1.15rem; margin-bottom: 0.2rem; }
+
+        .zone-depot { text-align: center; background: #FDFCF8; border: 2px dashed var(--sauge); border-radius: 8px; padding: 3.5rem 2rem; margin-bottom: 1.5rem; }
+        .zone-depot .icone { font-size: 3.5rem; line-height: 1; margin-bottom: 1rem; }
+        .zone-depot p { color: #5C5C5C; max-width: 520px; margin: 0 auto 2rem; }
+        .btn-depot { display: inline-block; background: var(--sauge); color: white; text-decoration: none; padding: 1.2rem 3rem; border: none; border-radius: 4px; font-family: var(--font-texte); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: background 0.3s; }
+        .btn-depot:hover { background: var(--graphite); }
+        .btn-depot[aria-disabled="true"] { background: var(--gris-doux); color: #999; cursor: not-allowed; pointer-events: none; }
+        .note-depot { text-align: center; font-size: 0.95rem; color: #888; }
+
+        @media (max-width: 600px) {
+            .etapes li { padding-left: 3.2rem; }
+            .etapes li::before { width: 2.2rem; height: 2.2rem; font-size: 1.1rem; top: 0; }
+            .zone-depot { padding: 2.5rem 1.2rem; }
+            .btn-depot { padding: 1.1rem 1.5rem; letter-spacing: 1px; width: 100%; }
+        }
+
+        .grille-infos { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+        .grille-infos .encadre-grammaire { margin-bottom: 0; }
+        .grille-infos h4 { font-size: 1.2rem; }
+        .grille-infos p { font-size: 1rem; color: #5C5C5C; }
     </style>
 </head>
 <body>
@@ -149,6 +179,14 @@
                         <p>Imaginez la salle de classe idéale et justifiez vos choix avec <b>pour, afin de</b> et <b>pour que</b> + subjonctif.</p>
                     </div>
                     <button class="btn-prim">Accéder</button>
+                </div>
+
+                <div class="carte-hub devoirs" onclick="naviguer('vue-devoirs')">
+                    <div>
+                        <h2>Dépôt des Devoirs</h2>
+                        <p>Remettez vos travaux et vos activités&nbsp;: tous les formats sont acceptés, autant de fichiers que nécessaire. Vos corrections vous seront renvoyées personnellement.</p>
+                    </div>
+                    <button class="btn-prim">Déposer un travail</button>
                 </div>
 
                 <div class="carte-hub eval" onclick="naviguer('vue-eval')">
@@ -396,9 +434,82 @@
         </div>
     </div>
 
+    <!-- ================= DÉPÔT DES DEVOIRS ================= -->
+    <div id="vue-devoirs" class="vue">
+        <header style="background: linear-gradient(135deg, var(--graphite) 0%, #2F4238 100%);">
+            <button class="btn-retour" onclick="naviguer('vue-hub')">Menu Principal</button>
+            <div class="titre-professeur">Travaux et Activités</div>
+            <h1>Espace de Dépôt</h1>
+            <p>Remettez ici vos devoirs, vos rédactions et vos activités. Le professeur est prévenu dès la réception et vous renvoie votre correction personnalisée.</p>
+        </header>
+
+        <div class="conteneur">
+            <div class="section-cours">
+                <h3>Déposer un travail</h3>
+
+                <ol class="etapes">
+                    <li><b>Identifiez-vous</b>Indiquez votre nom complet et votre groupe, puis précisez le module ou l'activité concernée.</li>
+                    <li><b>Ajoutez vos fichiers</b>Tous les formats sont acceptés (PDF, Word, images, audio, vidéo…) et vous pouvez en joindre autant que nécessaire.</li>
+                    <li><b>Validez l'envoi</b>Une confirmation s'affiche et le professeur reçoit immédiatement une notification.</li>
+                </ol>
+
+                <div class="zone-depot">
+                    <div class="icone">📎</div>
+                    <p id="texte-depot">Vous serez redirigé vers l'espace sécurisé de dépôt. La connexion à un compte Google est nécessaire pour garantir la traçabilité de votre remise.</p>
+                    <a id="lien-depot" class="btn-depot" href="#" target="_blank" rel="noopener">Ouvrir l'espace de dépôt</a>
+                </div>
+                <p class="note-depot">Aucune limite de nombre de fichiers · Tous les types de fichiers acceptés</p>
+            </div>
+
+            <div class="section-cours">
+                <h3>Recevoir vos corrections</h3>
+                <div class="grille-infos">
+                    <div class="encadre-grammaire">
+                        <h4>Correction personnelle</h4>
+                        <p>Votre travail annoté vous est renvoyé individuellement, à l'adresse utilisée lors du dépôt. Vos corrections ne sont jamais visibles par les autres étudiants.</p>
+                    </div>
+                    <div class="encadre-grammaire">
+                        <h4>Délai de retour</h4>
+                        <p>Comptez quelques jours après la date de remise. En cas de doute sur un devoir déposé, adressez-vous directement au professeur.</p>
+                    </div>
+                    <div class="encadre-grammaire">
+                        <h4>Conseil de méthode</h4>
+                        <p>Nommez vos fichiers de façon explicite&nbsp;: <code>Nom_Module2_Rédaction</code>. Vous retrouverez ainsi plus facilement chaque retour.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            Direction Pédagogique&nbsp;: Professeur Miguel Tillero
+        </footer>
+    </div>
+
     <!-- ================= SCRIPTS ================= -->
     <script>
-        function naviguer(id) { 
+        /* ═══════════════════════════════════════════════════════════════
+           CONFIGURATION — Espace de dépôt des devoirs
+           Collez ci-dessous le lien du formulaire de dépôt, entre les
+           guillemets. Tant que la ligne reste vide, le bouton s'affiche
+           comme « bientôt disponible » et aucun lien mort n'est proposé
+           aux étudiants.
+           ═══════════════════════════════════════════════════════════════ */
+        const LIEN_DEPOT = "";
+
+        function initialiserDepot() {
+            const lien = document.getElementById('lien-depot');
+            if (LIEN_DEPOT) {
+                lien.href = LIEN_DEPOT;
+                return;
+            }
+            lien.setAttribute('aria-disabled', 'true');
+            lien.removeAttribute('href');
+            lien.textContent = "Bientôt disponible";
+            document.getElementById('texte-depot').textContent =
+                "L'espace de dépôt est en cours d'ouverture. Vos travaux pourront être remis ici très prochainement.";
+        }
+
+        function naviguer(id) {
             window.scrollTo(0, 0); 
             document.querySelectorAll('.vue').forEach(el => el.classList.remove('active')); 
             setTimeout(() => document.getElementById(id).classList.add('active'), 50); 
@@ -528,6 +639,7 @@
         };
         
         initialiserEval();
+        initialiserDepot();
         majProgressionGlobale();
     </script>
 </body>
