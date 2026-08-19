@@ -122,8 +122,11 @@
         .s-lgd.s-gris { font-weight: 400; fill: #8A8880; font-size: 12px; }
         .s-fin { text-anchor: end; }
         .s-sep { fill: var(--gris-doux); }
-        .s-lien { stroke: var(--graphite); stroke-width: 1.5; }
+        .s-lien { fill: none; stroke: var(--graphite); stroke-width: 1.5; }
         .s-connecteurs { font-family: var(--font-texte); font-size: 11.5px; fill: #8A8880; }
+        .s-centre { text-anchor: middle; }
+        .s-souligne { fill: var(--or-academique); font-weight: 700; }
+        .s-etiq2 { font-family: var(--font-texte); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-anchor: middle; }
         .s-ex.s-petit { font-size: 13px; }
         .s-note { font-family: var(--font-texte); font-size: 12px; font-weight: 700; text-anchor: middle; }
         .s-note-sauge { fill: var(--sauge); }
@@ -673,26 +676,84 @@
                 <h3>Règles et Usages</h3>
                 <div class="encadre-grammaire">
                     <button class="btn-traduction" onclick="toggleTrad('trad-4')">🇪🇸 Ver en español</button>
-                    <h4>Éviter les répétitions</h4>
-                    <ul>
-                        <li><b>Démonstratifs&nbsp;:</b> <code>celui, celle, ceux, celles</code> (+ de / qui / que). Ex&nbsp;: "C'est celui de Paul."</li>
-                        <li><b>Possessifs&nbsp;:</b> <code>le mien, la tienne, les nôtres, les vôtres</code>. Ex&nbsp;: "Prête-moi la tienne."</li>
-                    </ul>
+                    <h4>Deux familles, deux fonctions</h4>
+                    <p>Ces pronoms servent tous à ne pas répéter un nom déjà cité. Ils se distinguent par ce qu'ils indiquent&nbsp;: le <b>démonstratif</b> montre et désigne&nbsp;; le <b>possessif</b> attribue.</p>
+
+                    <div class="schema" role="img" aria-label="Comparaison entre le pronom démonstratif, qui désigne, et le pronom possessif, qui attribue un possesseur.">
+                        <svg viewBox="0 0 620 180" xmlns="http://www.w3.org/2000/svg">
+                            <text x="0" y="14" class="s-etiq">DÉMONSTRATIF · IL DÉSIGNE</text>
+                            <rect x="0" y="26" width="290" height="56" rx="4" class="s-objet"/>
+                            <text x="145" y="50" class="s-mot">celui de Paul</text>
+                            <text x="145" y="70" class="s-lgd s-gris">il exige une suite : de, qui, que, -ci, -là</text>
+
+                            <text x="330" y="14" class="s-etiq">POSSESSIF · IL ATTRIBUE</text>
+                            <rect x="330" y="26" width="290" height="56" rx="4" class="s-sujet"/>
+                            <text x="475" y="50" class="s-mot">le mien</text>
+                            <text x="475" y="70" class="s-lgd s-gris">il se suffit à lui-même, avec son article</text>
+
+                            <text x="0" y="112" class="s-ex s-petit">« Ce vélo n'est pas <tspan class="s-souligne">le mien</tspan>, c'est <tspan class="s-souligne">celui de</tspan> mon frère. »</text>
+                            <text x="0" y="140" class="s-connecteurs">Un seul et même nom — « vélo » — repris deux fois sans jamais être répété.</text>
+                            <text x="0" y="164" class="s-connecteurs">Faute courante : « celui » employé seul, ou « le mien de mon frère ».</text>
+                        </svg>
+                    </div>
+
                     <div id="trad-4" class="texte-espanol">
                         <b>Traducción explicativa :</b><br>
-                        • Demostrativos (<i>celui, celle...</i>) equivalen a "el de...", "la de...".<br>
-                        • Posesivos (<i>le mien, la tienne...</i>) equivalen a "el mío", "la tuya", etc., evitando repetir el sustantivo.
+                        • Demostrativos (<i>celui, celle, ceux, celles</i>) equivalen a "el de…", "la de…", "los que…".<br>
+                        • Posesivos (<i>le mien, la tienne, les nôtres</i>) equivalen a "el mío", "la tuya", "los nuestros".<br><br>
+                        Diferencia clave con el español: el pronombre posesivo francés <b>siempre lleva artículo</b> (<i>le mien</i>, no "mien"), y <i>celui</i> <b>nunca puede ir solo</b>: exige un complemento (<i>celui de</i>, <i>celui qui</i>) o un sufijo (<i>celui-ci</i>). En español "el mío" y "el de Pablo" funcionan igual, pero conviene no calcar "el mío de mi hermano", que en francés es un error.
                     </div>
                 </div>
-                
-                <div class="titre-exo">Exercice pratique&nbsp;: Complétez avec le pronom adapté.</div>
-                <div class="q-bloc qcm" id="q4-1">
-                    <div class="q-texte">1. J'ai oublié mes lunettes, tu peux me prêter ________&#8239;? (tes lunettes)</div>
-                    <div class="grille-options">
-                        <button class="btn-opt" data-correct="false" data-feedback="Incorrect. 'Celles' nécessite un complément (celles de...).">celles</button>
-                        <button class="btn-opt" data-correct="true" data-feedback="Exact&#8239;! Pronom possessif féminin pluriel 'les tiennes'.">les tiennes</button>
+
+                <div class="encadre-grammaire">
+                    <h4>Les démonstratifs&nbsp;: celui, celle, ceux, celles</h4>
+                    <p>Ils reprennent un nom précis et s'accordent avec lui. <b>Ils ne s'emploient jamais seuls</b>&nbsp;: il leur faut toujours un prolongement.</p>
+                    <div class="enveloppe-tableau">
+                        <table class="tableau-temps">
+                            <thead><tr><th></th><th>Singulier</th><th>Pluriel</th></tr></thead>
+                            <tbody>
+                                <tr><td>Masculin</td><td>celui</td><td>ceux</td></tr>
+                                <tr><td>Féminin</td><td>celle</td><td>celles</td></tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="feedback"></div>
+                    <p>Trois prolongements possibles&nbsp;:</p>
+                    <div class="exemple">
+                        + <b>de</b> ➔ <i>Mon bureau et <b>celui de</b> ma collègue.</i><br>
+                        + <b>qui / que / dont</b> ➔ <i><b>Ceux qui</b> arrivent en retard attendront.</i><br>
+                        + <b>-ci / -là</b> ➔ <i>Je prends <b>celle-ci</b>, pas <b>celle-là</b>.</i>
+                    </div>
+                    <p><b>Les neutres&nbsp;:</b> <code>ce</code>, <code>ceci</code>, <code>cela</code>, <code>ça</code> ne remplacent pas un nom mais une idée entière. <i>Cela m'inquiète</i> — c'est la situation qui inquiète, non un objet précis.</p>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Les possessifs&nbsp;: le mien, le tien, le sien…</h4>
+                    <p>Ils portent l'article défini et s'accordent avec <b>l'objet possédé</b>, jamais avec le possesseur.</p>
+                    <div class="enveloppe-tableau">
+                        <table class="tableau-temps">
+                            <thead><tr><th>Possesseur</th><th>Masc. sing.</th><th>Fém. sing.</th><th>Pluriel</th></tr></thead>
+                            <tbody>
+                                <tr><td>je</td><td>le mien</td><td>la mienne</td><td>les miens / miennes</td></tr>
+                                <tr><td>tu</td><td>le tien</td><td>la tienne</td><td>les tiens / tiennes</td></tr>
+                                <tr><td>il / elle</td><td>le sien</td><td>la sienne</td><td>les siens / siennes</td></tr>
+                                <tr><td>nous</td><td>le nôtre</td><td>la nôtre</td><td>les nôtres</td></tr>
+                                <tr><td>vous</td><td>le vôtre</td><td>la vôtre</td><td>les vôtres</td></tr>
+                                <tr><td>ils / elles</td><td>le leur</td><td>la leur</td><td>les leurs</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p><b>L'accent circonflexe distingue tout&nbsp;:</b> <i>notre</i> et <i>votre</i> sont des adjectifs et accompagnent un nom&nbsp;; <i>le nôtre</i> et <i>le vôtre</i> sont des pronoms et le remplacent. La prononciation diffère également&nbsp;: le pronom a une voyelle fermée et longue.</p>
+                </div>
+
+                <div class="titre-exo">Exercices&nbsp;: quinze applications sur les démonstratifs et les possessifs.</div>
+                <div id="exos-mod4"></div>
+
+                <div class="fin-module">
+                    <div class="bilan" data-module="mod4"></div>
+                    <div class="actions">
+                        <button class="btn-secondaire" onclick="naviguer('vue-hub')">Menu principal</button>
+                        <button class="btn-suivant" onclick="naviguer('vue-mod5')">Module suivant ➔</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -711,27 +772,105 @@
                 <h3>Règles et Usages</h3>
                 <div class="encadre-grammaire">
                     <button class="btn-traduction" onclick="toggleTrad('trad-5')">🇪🇸 Ver en español</button>
-                    <h4>Hypothèses et Finalité</h4>
-                    <ul>
-                        <li><b>Conditionnel Présent&nbsp;:</b> Formuler des souhaits ou hypothèses (<i>il y aurait, ce serait, on pourrait</i>).</li>
-                        <li><b>Le But (Même sujet)&nbsp;:</b> <code>afin de / pour</code> + infinitif.</li>
-                        <li><b>Le But (Sujets différents)&nbsp;:</b> <code>pour que</code> + <b>subjonctif</b>.</li>
-                    </ul>
+                    <h4>La règle des deux sujets</h4>
+                    <p>Pour exprimer le but, une seule question commande le choix&nbsp;: <b>qui fait quoi&nbsp;?</b> Si le même sujet accomplit les deux actions, on emploie l'infinitif. S'ils diffèrent, il faut une conjonction et le subjonctif.</p>
+
+                    <div class="schema" role="img" aria-label="Schéma de la règle du choix entre infinitif et subjonctif selon que les deux verbes partagent ou non le même sujet.">
+                        <svg viewBox="0 0 620 210" xmlns="http://www.w3.org/2000/svg">
+                            <text x="310" y="16" class="s-note s-note-or">LES DEUX VERBES ONT-ILS LE MÊME SUJET&#8239;?</text>
+
+                            <path d="M 310 26 L 310 44 L 150 44 L 150 60" class="s-lien"/>
+                            <path d="M 310 26 L 310 44 L 470 44 L 470 60" class="s-lien"/>
+
+                            <text x="150" y="76" class="s-etiq2 s-note-sauge">OUI · UN SEUL SUJET</text>
+                            <rect x="20" y="86" width="260" height="44" rx="4" class="s-objet"/>
+                            <text x="150" y="105" class="s-mot">pour · afin de</text>
+                            <text x="150" y="123" class="s-lgd s-gris">+ infinitif</text>
+                            <text x="150" y="154" class="s-ex s-petit s-centre">Elle révise <tspan class="s-souligne">pour réussir</tspan>.</text>
+                            <text x="150" y="176" class="s-connecteurs s-centre">elle révise / elle réussit</text>
+
+                            <text x="470" y="76" class="s-etiq2 s-note-or">NON · DEUX SUJETS</text>
+                            <rect x="340" y="86" width="260" height="44" rx="4" class="s-sujet"/>
+                            <text x="470" y="105" class="s-mot">pour que · afin que</text>
+                            <text x="470" y="123" class="s-lgd s-gris">+ subjonctif</text>
+                            <text x="470" y="154" class="s-ex s-petit s-centre">Elle explique <tspan class="s-souligne">pour qu'ils comprennent</tspan>.</text>
+                            <text x="470" y="176" class="s-connecteurs s-centre">elle explique / ils comprennent</text>
+
+                            <text x="310" y="202" class="s-connecteurs s-centre">Erreur la plus fréquente : « pour que » suivi de l'indicatif, ou « pour » suivi d'une proposition.</text>
+                        </svg>
+                    </div>
+
                     <div id="trad-5" class="texte-espanol">
                         <b>Traducción explicativa :</b><br>
-                        • Condicional: expresa hipótesis o cortesía ("habría", "sería").<br>
-                        • Finalidad: se usa <i>pour/afin de</i> con infinitivo si el sujeto es el mismo, y <i>pour que</i> seguido de subjuntivo si los sujetos cambian.
+                        • Condicional: expresa hipótesis, deseo o cortesía ("habría", "sería", "querría").<br>
+                        • Finalidad: <i>pour / afin de</i> + infinitivo si el sujeto es el mismo; <i>pour que / afin que</i> + subjuntivo si los sujetos cambian.<br><br>
+                        La regla es idéntica en español ("para estudiar" frente a "para que estudien"), así que puedes apoyarte en tu lengua. La diferencia está en la forma del subjuntivo francés, que hay que memorizar aparte, y en un detalle: tras <i>si</i> el francés <b>nunca</b> admite condicional, mientras que en español "si tendría" también es incorrecto pero se oye con frecuencia. Regla fija: <i>si</i> + imperfecto ➔ condicional.
                     </div>
                 </div>
-                
-                <div class="titre-exo">Exercice pratique&nbsp;: Choisissez la bonne structure.</div>
-                <div class="q-bloc qcm" id="q5-1">
-                    <div class="q-texte">1. Il travaille dur ________ ses parents soient fiers de lui.</div>
-                    <div class="grille-options">
-                        <button class="btn-opt" data-correct="false" data-feedback="Incorrect avec 'pour' suivi d'un subjonctif et de sujets différents.">pour</button>
-                        <button class="btn-opt" data-correct="true" data-feedback="Parfait&#8239;! 'Pour que' exige le mode subjonctif.">pour que</button>
+
+                <div class="encadre-grammaire">
+                    <h4>Le conditionnel présent&nbsp;: formation</h4>
+                    <p>Une seule recette, sans exception&nbsp;: <b>le radical du futur simple</b>, auquel on ajoute <b>les terminaisons de l'imparfait</b> (-ais, -ais, -ait, -ions, -iez, -aient).</p>
+                    <div class="enveloppe-tableau">
+                        <table class="tableau-temps">
+                            <thead><tr><th>Infinitif</th><th>Futur (radical)</th><th>Conditionnel présent</th></tr></thead>
+                            <tbody>
+                                <tr><td>parler</td><td>je parler-ai</td><td>je parler<b>ais</b></td></tr>
+                                <tr><td>finir</td><td>je finir-ai</td><td>je finir<b>ais</b></td></tr>
+                                <tr><td>être</td><td>je ser-ai</td><td>je ser<b>ais</b></td></tr>
+                                <tr><td>avoir</td><td>j'aur-ai</td><td>j'aur<b>ais</b></td></tr>
+                                <tr><td>aller</td><td>j'ir-ai</td><td>j'ir<b>ais</b></td></tr>
+                                <tr><td>pouvoir</td><td>je pourr-ai</td><td>je pourr<b>ais</b></td></tr>
+                                <tr><td>vouloir</td><td>je voudr-ai</td><td>je voudr<b>ais</b></td></tr>
+                                <tr><td>faire</td><td>je fer-ai</td><td>je fer<b>ais</b></td></tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="feedback"></div>
+                    <p>Les verbes irréguliers au futur le restent au conditionnel&nbsp;: le radical se retient une seule fois pour les deux temps.</p>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Quatre emplois du conditionnel</h4>
+                    <ul>
+                        <li><b>La politesse</b> — l'emploi le plus quotidien. Il transforme l'exigence en demande.
+                            <div class="exemple">Je <b>voudrais</b> un renseignement.<span class="fleche">·</span><b>Pourriez</b>-vous répéter&nbsp;?</div>
+                        </li>
+                        <li><b>Le souhait et l'imaginaire</b> — pour décrire ce qui n'existe pas encore.
+                            <div class="exemple">Dans ma classe idéale, il y <b>aurait</b> de grandes fenêtres.</div>
+                        </li>
+                        <li><b>L'hypothèse</b> — après une proposition en « si ».
+                            <div class="exemple"><b>Si</b> j'<b>avais</b> le temps, je <b>suivrais</b> ce cours.</div>
+                        </li>
+                        <li><b>L'information non confirmée</b> — courante dans la presse.
+                            <div class="exemple">Le ministre <b>aurait</b> démissionné.</div>
+                        </li>
+                    </ul>
+                    <p><b>La règle absolue&nbsp;:</b> jamais de conditionnel directement après « si ». On écrit <i>si j'avais</i>, jamais « si j'aurais ».</p>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Le but&nbsp;: nuances et registres</h4>
+                    <ul>
+                        <li><b>pour</b> + infinitif — la forme la plus courante, tous registres.</li>
+                        <li><b>afin de</b> + infinitif — même sens, registre plus soutenu.</li>
+                        <li><b>pour que / afin que</b> + subjonctif — quand les sujets diffèrent.</li>
+                        <li><b>de peur que / de crainte que</b> + subjonctif — le but <b>négatif</b>, ce qu'on veut éviter.
+                            <div class="exemple">Elle est partie tôt <b>de peur qu'</b>il n'y <b>ait</b> des embouteillages.</div>
+                        </li>
+                        <li><b>en vue de / dans le but de</b> + nom ou infinitif — registre administratif.</li>
+                    </ul>
+                    <p>Ne confondez pas le but et la cause&nbsp;: le but n'est pas encore réalisé, il est <b>visé</b>&nbsp;; la cause, elle, précède et explique.</p>
+                </div>
+
+                <div class="titre-exo">Exercices&nbsp;: quinze applications sur le conditionnel et le but.</div>
+                <div id="exos-mod5"></div>
+
+                <div class="fin-module">
+                    <div class="bilan" data-module="mod5"></div>
+                    <div class="actions">
+                        <button class="btn-secondaire" onclick="naviguer('vue-hub')">Menu principal</button>
+                        <button class="btn-suivant" onclick="naviguer('vue-eval')">Passer à l'évaluation ➔</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1417,6 +1556,254 @@
                   aide: 'on + verbe',
                   fb: "« On » permet de garder l'agent indéterminé tout en revenant à une tournure active, plus naturelle à l'oral.",
                   fbFaux: "Employez le pronom indéfini « on » suivi du verbe à l'actif." }
+            ],
+
+            /* ── Module 4 · Démonstratifs et possessifs ───────────────── */
+            mod4: [
+                { type: 'qcm',
+                  q: 'J\'ai oublié mes lunettes, tu peux me prêter ________&#8239;? (tes lunettes)',
+                  opt: ['celles', 'les tiennes', 'la tienne'],
+                  rep: 1,
+                  fb: ["« Celles » est démonstratif : il exigerait une suite (« celles de Paul »).",
+                       "Exact ! Possessif féminin pluriel : « les tiennes » remplace « tes lunettes ».",
+                       "Le singulier ne convient pas : « lunettes » est pluriel."] },
+
+                { type: 'qcm',
+                  q: 'Ce n\'est pas mon manteau, c\'est ________ de ma sœur.',
+                  opt: ['celui', 'celle', 'le sien'],
+                  rep: 0,
+                  fb: ["Exact ! « Celui de » remplace « le manteau de », masculin singulier.",
+                       "« Celle » est féminin : « manteau » est masculin.",
+                       "« Le sien » serait correct seul, mais il ne se construit pas avec « de »."] },
+
+                { type: 'qcm',
+                  q: 'Quelle forme complète correctement&nbsp;: « Les résultats de Marie sont meilleurs que ________ » ?',
+                  opt: ['les miens', 'le mien', 'la mienne'],
+                  rep: 0,
+                  fb: ["Exact ! « Les résultats » est masculin pluriel : « les miens ».",
+                       "Le singulier ne s'accorde pas avec « résultats ».",
+                       "Le féminin ne convient pas à « résultats »."] },
+
+                { type: 'qcm',
+                  q: 'À quoi sert le suffixe « -ci » dans « celui-ci » ?',
+                  opt: ["À désigner ce qui est proche ou vient d'être mentionné.",
+                        "À marquer le pluriel.",
+                        "À indiquer la possession."],
+                  rep: 0,
+                  fb: ["Exact ! « -ci » renvoie au proche ou au dernier élément cité ; « -là » au lointain ou au premier cité.",
+                       "Le nombre est déjà porté par « celui / ceux ».",
+                       "La possession relève des pronoms possessifs, pas des démonstratifs."] },
+
+                { type: 'qcm',
+                  q: 'Complétez&nbsp;: « ________ qui veulent participer doivent s\'inscrire. »',
+                  opt: ['Ceux', 'Celui', 'Ce'],
+                  rep: 0,
+                  fb: ["Exact ! « Ceux qui » désigne un ensemble de personnes, masculin pluriel.",
+                       "Le singulier ne s'accorde pas avec « veulent ».",
+                       "« Ce qui » ne désigne pas des personnes mais une chose ou une idée."] },
+
+                { type: 'qcm',
+                  q: '« Notre » ou « le nôtre » : quelle est la différence ?',
+                  opt: ["« Notre » accompagne un nom, « le nôtre » le remplace.",
+                        "Les deux sont interchangeables.",
+                        "« Le nôtre » accompagne un nom, « notre » le remplace."],
+                  rep: 0,
+                  fb: ["Exact ! « Notre voiture » (adjectif + nom) devient « la nôtre » (pronom, seul). Notez l'accent circonflexe du pronom.",
+                       "Leur emploi est strictement complémentaire.",
+                       "C'est exactement l'inverse."] },
+
+                { type: 'qcm',
+                  q: 'Ils ont perdu leurs clés et nous avons perdu ________.',
+                  opt: ['les nôtres', 'les leurs', 'la nôtre'],
+                  rep: 0,
+                  fb: ["Exact ! Le possesseur est « nous » : « les nôtres », féminin pluriel comme « clés ».",
+                       "« Les leurs » renverrait à eux, pas à nous.",
+                       "« Clés » est pluriel : il faut « les nôtres »."] },
+
+                { type: 'qcm',
+                  q: 'Quel pronom neutre convient&nbsp;: « ________ m\'étonne beaucoup. » (en parlant d\'un fait)',
+                  opt: ['Cela', 'Celui', 'Celle'],
+                  rep: 0,
+                  fb: ["Exact ! « Cela » (ou « ça » à l'oral) reprend une idée, un fait, jamais une personne.",
+                       "« Celui » remplace un nom masculin précis.",
+                       "« Celle » remplace un nom féminin précis."] },
+
+                { type: 'qcm',
+                  q: 'Repérez la forme correcte&nbsp;:',
+                  opt: ['C\'est le livre de Paul et celui de Marie.',
+                        'C\'est le livre de Paul et celui Marie.',
+                        'C\'est le livre de Paul et le sien de Marie.'],
+                  rep: 0,
+                  fb: ["Exact ! « Celui » exige un complément : « celui de Marie ».",
+                       "Il manque la préposition « de ».",
+                       "« Le sien » ne se construit jamais avec « de »."] },
+
+                { type: 'qcm',
+                  q: 'J\'hésite entre ces deux vestes&nbsp;: ________ est plus chaude, mais ________ est plus élégante.',
+                  opt: ['celle-ci … celle-là', 'celui-ci … celui-là', 'ceci … cela'],
+                  rep: 0,
+                  fb: ["Exact ! « Veste » est féminin : « celle-ci » désigne la plus proche, « celle-là » l'autre.",
+                       "Le masculin ne convient pas à « veste ».",
+                       "« Ceci / cela » sont neutres et ne remplacent pas un nom déterminé."] },
+
+                { type: 'saisie',
+                  q: 'Remplacez « ma voiture »&nbsp;: « Ta voiture est plus rapide que ________. » (deux mots)',
+                  rep: ['la mienne'],
+                  aide: 'la …',
+                  fb: "Possessif féminin singulier, avec l'article : « la mienne ».",
+                  fbFaux: "N'oubliez pas l'article défini devant le pronom possessif." },
+
+                { type: 'saisie',
+                  q: 'Complétez avec un démonstratif&nbsp;: « Prends ce dossier et donne-moi ________ qui est sur le bureau. »',
+                  rep: ['celui'],
+                  aide: 'un seul mot',
+                  fb: "« Celui qui » reprend « dossier », masculin singulier.",
+                  fbFaux: "Employez le démonstratif masculin singulier, suivi de « qui »." },
+
+                { type: 'saisie',
+                  q: 'Évitez la répétition&nbsp;: « Les problèmes de la ville et les problèmes de la campagne. » ➔ Les problèmes de la ville et ________ de la campagne. (deux mots)',
+                  rep: ['ceux'],
+                  aide: 'un seul mot',
+                  fb: "« Ceux de » évite la répétition du nom masculin pluriel.",
+                  fbFaux: "Le démonstratif masculin pluriel remplace « les problèmes »." },
+
+                { type: 'saisie',
+                  q: 'Possessif de la 3ᵉ personne du pluriel&nbsp;: « Nos enfants jouent avec ________. » (les enfants d\'eux, deux mots)',
+                  rep: ['les leurs'],
+                  aide: 'les …',
+                  fb: "« Les leurs » : plusieurs possesseurs, objet possédé au pluriel.",
+                  fbFaux: "Le possesseur est « eux » et l'objet possédé est au pluriel." },
+
+                { type: 'saisie',
+                  q: 'Neutre&nbsp;: « Il est arrivé en retard, et ________ ne m\'a pas surpris. » (un mot)',
+                  rep: ['cela', 'ça'],
+                  aide: 'un seul mot',
+                  fb: "« Cela » reprend l'ensemble du fait qui précède ; « ça » convient à l'oral.",
+                  fbFaux: "Employez le démonstratif neutre, celui qui reprend une idée entière." }
+            ],
+
+            /* ── Module 5 · Conditionnel et expression du but ─────────── */
+            mod5: [
+                { type: 'qcm',
+                  q: 'Il travaille dur ________ ses parents soient fiers de lui.',
+                  opt: ['pour', 'pour que', 'afin de'],
+                  rep: 1,
+                  fb: ["« Pour » + infinitif suppose un seul sujet ; ici les sujets diffèrent.",
+                       "Exact ! Sujets différents (il / ses parents) ➔ « pour que » + subjonctif.",
+                       "« Afin de » exige l'infinitif, donc un sujet unique."] },
+
+                { type: 'qcm',
+                  q: 'Il économise ________ acheter un appartement.',
+                  opt: ['pour que', 'afin de', 'pour qu\'il'],
+                  rep: 1,
+                  fb: ["« Pour que » demande un second sujet et le subjonctif.",
+                       "Exact ! Même sujet (il économise, il achète) ➔ infinitif après « afin de » ou « pour ».",
+                       "Répéter le sujet serait maladroit : l'infinitif s'impose."] },
+
+                { type: 'qcm',
+                  q: 'Dans une classe idéale, il ________ des tables à roulettes.',
+                  opt: ['y aura', 'y aurait', 'y avait'],
+                  rep: 1,
+                  fb: ["Le futur présenterait le fait comme certain, or il s'agit d'une situation imaginée.",
+                       "Exact ! Le conditionnel présent exprime l'hypothèse et le souhait.",
+                       "L'imparfait situerait le fait dans le passé."] },
+
+                { type: 'qcm',
+                  q: 'Comment se forme le conditionnel présent ?',
+                  opt: ["Radical du futur + terminaisons de l'imparfait.",
+                        "Radical du présent + terminaisons du futur.",
+                        "Radical de l'imparfait + terminaisons du présent."],
+                  rep: 0,
+                  fb: ["Exact ! <b>je ser-ais, tu ser-ais, il ser-ait</b> : le radical vient du futur, les terminaisons de l'imparfait.",
+                       "C'est la formation du futur simple.",
+                       "Cette combinaison n'existe pas."] },
+
+                { type: 'qcm',
+                  q: '« Si j\'avais le temps, je ________ ce roman. »',
+                  opt: ['lirais', 'lirai', 'lirais eu'],
+                  rep: 0,
+                  fb: ["Exact ! <b>Si + imparfait ➔ conditionnel présent.</b> Jamais de conditionnel après « si ».",
+                       "« Lirai » est le futur simple : il suivrait « si + présent ».",
+                       "Cette forme n'existe pas."] },
+
+                { type: 'qcm',
+                  q: 'Quel emploi du conditionnel reconnaissez-vous dans « Le suspect aurait quitté le pays » ?',
+                  opt: ['Un souhait', 'Une information non confirmée', 'Une hypothèse irréelle'],
+                  rep: 1,
+                  fb: ["Le souhait s'exprimerait par « j'aimerais », « je voudrais ».",
+                       "Exact ! C'est le conditionnel journalistique : il rapporte une information sans l'assumer.",
+                       "L'hypothèse supposerait une proposition en « si »."] },
+
+                { type: 'qcm',
+                  q: 'Formule de politesse&nbsp;: laquelle convient à une demande à un professeur ?',
+                  opt: ['Je veux un rendez-vous.',
+                        'Je voudrais un rendez-vous.',
+                        'Je vais vouloir un rendez-vous.'],
+                  rep: 1,
+                  fb: ["« Je veux » est abrupt et peut sembler impoli.",
+                       "Exact ! Le conditionnel atténue la demande : c'est son emploi le plus courant au quotidien.",
+                       "Cette tournure relève d'un français relâché."] },
+
+                { type: 'qcm',
+                  q: 'Après « pour que », quel mode est obligatoire ?',
+                  opt: ['Le subjonctif', "L'indicatif", 'Le conditionnel'],
+                  rep: 0,
+                  fb: ["Exact ! Toutes les locutions de but suivies d'une proposition — pour que, afin que, de peur que — commandent le subjonctif.",
+                       "L'indicatif suit les locutions de cause, pas de but.",
+                       "Le conditionnel n'est jamais commandé par une conjonction de but."] },
+
+                { type: 'qcm',
+                  q: 'Elle a fermé la fenêtre ________ les enfants n\'attrapent froid.',
+                  opt: ['de peur que', 'grâce à', 'si bien que'],
+                  rep: 0,
+                  fb: ["Exact ! « De peur que » (ou « de crainte que ») exprime un but négatif, ce qu'on cherche à éviter.",
+                       "« Grâce à » introduit une cause favorable, suivie d'un nom.",
+                       "« Si bien que » introduit une conséquence, non un but."] },
+
+                { type: 'qcm',
+                  q: 'Quelle phrase exprime un <b>but</b>, et non une cause ?',
+                  opt: ["Il est parti parce qu'il était fatigué.",
+                        "Il est parti afin de se reposer.",
+                        "Il est parti, si bien qu'il a manqué la fin."],
+                  rep: 1,
+                  fb: ["« Parce que » introduit la cause, ce qui précède l'action.",
+                       "Exact ! Le but est visé, il se situe après l'action et n'est pas encore réalisé.",
+                       "« Si bien que » introduit la conséquence effective."] },
+
+                { type: 'saisie',
+                  q: 'Conditionnel présent&nbsp;: « Si nous avions plus de place, nous ________ (organiser) des ateliers. »',
+                  rep: ['organiserions'],
+                  aide: 'verbe conjugué',
+                  fb: "Radical du futur « organiser- » + terminaison « -ions » de l'imparfait.",
+                  fbFaux: "Après « si + imparfait », le verbe principal se met au conditionnel présent." },
+
+                { type: 'saisie',
+                  q: 'Politesse&nbsp;: transformez « Je veux vous parler. » ➔ « Je ________ vous parler. »',
+                  rep: ['voudrais'],
+                  aide: 'verbe conjugué',
+                  fb: "« Je voudrais » : le conditionnel transforme l'exigence en demande.",
+                  fbFaux: "Mettez « vouloir » au conditionnel présent, première personne." },
+
+                { type: 'saisie',
+                  q: 'Même sujet&nbsp;: « Elle révise. Elle veut réussir. » ➔ Elle révise ________ réussir. (deux mots)',
+                  rep: ['afin de', 'pour'],
+                  aide: 'afin …',
+                  fb: "Un seul sujet : la locution de but est suivie de l'infinitif.",
+                  fbFaux: "Avec un sujet unique, employez « pour » ou « afin de » + infinitif." },
+
+                { type: 'saisie',
+                  q: 'Sujets différents&nbsp;: « Le professeur répète ________ tous comprennent. » (deux mots)',
+                  rep: ['pour que', 'afin que'],
+                  aide: 'pour …',
+                  fb: "Deux sujets distincts : « pour que » impose le subjonctif — « comprennent ».",
+                  fbFaux: "Quand les sujets diffèrent, il faut une conjonction suivie du subjonctif." },
+
+                { type: 'saisie',
+                  q: 'Subjonctif après le but&nbsp;: « Je t\'explique afin que tu ________ (pouvoir) travailler seul. »',
+                  rep: ['puisses'],
+                  aide: 'verbe conjugué',
+                  fb: "« Pouvoir » au subjonctif présent, deuxième personne : « que tu puisses ».",
+                  fbFaux: "« Afin que » commande le subjonctif : révisez la forme de « pouvoir »." }
             ]
         };
 
