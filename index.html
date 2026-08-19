@@ -1807,13 +1807,37 @@
             ]
         };
 
+        /* Vingt questions, quatre par module, dans l'ordre du dossier. */
         const dataEval = [
+            // Module 1 · indéfinis et proportions
             { q: "________ des pays francophones se trouvent en Afrique.", opt: ["La plupart", "Chaque", "Aucun"], rep: 0 },
+            { q: "________ candidat doit présenter une pièce d'identité.", opt: ["Tous", "Chaque", "Plusieurs"], rep: 1 },
+            { q: "Il n'y a ________ raison de s'inquiéter.", opt: ["aucune", "aucun", "nulle"], rep: 0 },
+            { q: "La plupart des étudiants ________ déjà répondu.", opt: ["a", "ont", "avait"], rep: 1 },
+
+            // Module 2 · cause et conséquence
             { q: "Il faisait ________ froid qu'ils sont restés cloîtrés chez eux.", opt: ["puisque", "tellement", "grâce à"], rep: 1 },
+            { q: "Le vol a été annulé ________ mauvais temps.", opt: ["grâce au", "en raison du", "malgré le"], rep: 1 },
+            { q: "Il y avait ________ monde que nous sommes repartis.", opt: ["si", "tellement de", "tellement"], rep: 1 },
+            { q: "Les résultats sont insuffisants\u202f; ________, la formation sera prolongée.", opt: ["du coup", "par conséquent", "parce que"], rep: 1 },
+
+            // Module 3 · la forme passive
             { q: "Le prix ________ par un jury international.", opt: ["a été remis", "a remis", "est remis"], rep: 0 },
+            { q: "Les nouvelles mesures ________ par le ministère.", opt: ["a été annoncé", "ont été annoncées", "ont été annoncé"], rep: 1 },
+            { q: "Ce professeur est respecté ________ tous ses étudiants.", opt: ["par", "de", "avec"], rep: 1 },
+            { q: "À cette époque, le courrier ________ à cheval.", opt: ["était transporté", "a été transporté", "serait transporté"], rep: 0 },
+
+            // Module 4 · démonstratifs et possessifs
             { q: "J'ai perdu mon dictionnaire, tu peux me prêter ________\u202f?", opt: ["celui", "le tien", "la sienne"], rep: 1 },
+            { q: "Ce n'est pas mon manteau, c'est ________ de ma sœur.", opt: ["celui", "celle", "le sien"], rep: 0 },
+            { q: "Ils ont perdu leurs clés et nous avons perdu ________.", opt: ["les nôtres", "les leurs", "la nôtre"], rep: 0 },
+            { q: "________ qui veulent participer doivent s'inscrire.", opt: ["Ceux", "Celui", "Ce"], rep: 0 },
+
+            // Module 5 · conditionnel et but
             { q: "Dans une classe idéale, il ________ des tables à roulettes.", opt: ["y aura", "y avait", "y aurait"], rep: 2 },
-            { q: "Il travaille dur ________ réussir son examen DELF.", opt: ["pour que", "afin de", "bien que"], rep: 1 }
+            { q: "Il travaille dur ________ réussir son examen DELF.", opt: ["pour que", "afin de", "bien que"], rep: 1 },
+            { q: "Si j'avais le temps, je ________ ce roman.", opt: ["lirais", "lirai", "aurais lu"], rep: 0 },
+            { q: "Je t'explique afin que tu ________ travailler seul.", opt: ["peux", "puisses", "pourras"], rep: 1 }
         ];
 
         let scoreEval = 0; let nbReponduesEval = 0;
@@ -1854,7 +1878,8 @@
                     
                     let msg = "";
                     if (scoreEval === dataEval.length) msg = "Maîtrise absolue des fondations B2. Excellent travail\u202f!";
-                    else if (scoreEval >= 4) msg = "Solide parcours. Quelques révisions ciblées vous permettront d'atteindre la perfection.";
+                    else if (scoreEval >= dataEval.length * 0.8) msg = "Solide parcours. Quelques révisions ciblées vous permettront d'atteindre la perfection.";
+                    else if (scoreEval >= dataEval.length * 0.6) msg = "Les bases sont là. Reprenez les modules où les erreurs se concentrent avant de retenter l'épreuve.";
                     else msg = "Il est recommandé de reprendre l'étude des modules théoriques.";
                     
                     document.getElementById('message-affichage').innerText = msg;
