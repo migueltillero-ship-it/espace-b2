@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -96,6 +96,57 @@
         .btn-reinitialiser:hover { background: var(--gris-doux); }
 
         footer { text-align: center; padding: 5rem 1rem 3rem; color: #888; font-size: 0.95rem; }
+
+        /* Schémas grammaticaux (SVG dessinés dans la palette du dossier) */
+        .schema { margin: 2rem 0; overflow-x: auto; }
+        .schema svg { width: 100%; min-width: 480px; height: auto; display: block; }
+        .s-etiq { font-family: var(--font-texte); font-size: 12px; font-weight: 700; letter-spacing: 2px; fill: var(--or-academique); }
+        .s-mot { font-family: var(--font-texte); font-size: 16px; font-weight: 700; fill: var(--graphite); text-anchor: middle; }
+        .s-mot.s-clair { fill: var(--texte-clair); }
+        .s-sujet { fill: #EFEBE0; stroke: var(--or-academique); stroke-width: 1.5; }
+        .s-verbe { fill: var(--graphite); }
+        .s-objet { fill: #E4EBE6; stroke: var(--sauge); stroke-width: 1.5; }
+        /* Trait interrompu : le complément d'agent reste facultatif. La
+           couleur reprend celle du sujet actif, pour signaler qu'il s'agit
+           du même élément déplacé. */
+        .s-agent { fill: #FBF8F1; stroke: var(--or-academique); stroke-width: 1.5; stroke-dasharray: 5 4; }
+        .s-fleche { fill: none; stroke-width: 1.5; stroke-dasharray: 5 4; }
+        .s-vers-sujet { stroke: var(--sauge); }
+        .s-vers-agent { stroke: var(--or-academique); }
+        .s-note { font-family: var(--font-texte); font-size: 12px; font-weight: 700; text-anchor: middle; }
+        .s-note-sauge { fill: var(--sauge); }
+        .s-note-or { fill: var(--or-academique); }
+        .s-ex { font-family: var(--font-texte); font-size: 16px; fill: var(--graphite); font-weight: 600; }
+        .s-ex.s-gris { fill: #8A8880; font-weight: 400; }
+        .s-marque { fill: var(--terre-cuite); font-weight: 700; }
+
+        /* Exercices de transformation à saisie libre */
+        .btn-verifier { margin-top: 1.2rem; background: transparent; border: 2px solid var(--graphite); color: var(--graphite); padding: 0.7rem 1.8rem; border-radius: 30px; cursor: pointer; font-family: var(--font-texte); font-size: 1rem; font-weight: 700; transition: all 0.2s; }
+        .btn-verifier:hover { background: var(--graphite); color: var(--texte-clair); }
+        .q-bloc.verrouille .btn-verifier { display: none; }
+        input.saisie:disabled { opacity: 1; -webkit-text-fill-color: currentColor; }
+
+        /* Tableau de conjugaison */
+        .tableau-temps { width: 100%; border-collapse: collapse; margin: 1.2rem 0 0.5rem; font-size: 1rem; }
+        .tableau-temps th, .tableau-temps td { text-align: left; padding: 0.6rem 1rem 0.6rem 0; border-bottom: 1px solid var(--gris-doux); vertical-align: top; }
+        .tableau-temps th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--or-academique); font-weight: 700; }
+        .tableau-temps td:first-child { color: var(--graphite); font-weight: 700; white-space: nowrap; padding-right: 1.5rem; }
+        .enveloppe-tableau { overflow-x: auto; }
+
+        /* Exemple mis en exergue */
+        .exemple { border-left: 3px solid var(--sauge); padding: 0.8rem 0 0.8rem 1.2rem; margin: 1.2rem 0; color: #4A4A4A; }
+        .exemple b { color: var(--graphite); }
+        .exemple .fleche { color: var(--sauge); font-weight: 700; margin: 0 0.4rem; }
+
+        /* Navigation de fin de module */
+        .fin-module { display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 2.5rem; border-top: 2px solid var(--gris-doux); }
+        .fin-module .bilan { font-weight: 700; color: var(--graphite); }
+        .fin-module .bilan span { color: var(--or-academique); }
+        .fin-module .actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .btn-secondaire { background: transparent; border: 2px solid var(--gris-doux); color: var(--graphite); padding: 0.9rem 1.8rem; border-radius: 4px; cursor: pointer; font-family: var(--font-texte); font-weight: 700; font-size: 0.95rem; transition: all 0.2s; }
+        .btn-secondaire:hover { border-color: var(--graphite); }
+        .btn-suivant { background: var(--graphite); border: 2px solid var(--graphite); color: var(--texte-clair); padding: 0.9rem 1.8rem; border-radius: 4px; cursor: pointer; font-family: var(--font-texte); font-weight: 700; font-size: 0.95rem; transition: background 0.3s; }
+        .btn-suivant:hover { background: var(--or-academique); border-color: var(--or-academique); color: var(--graphite); }
 
         /* Espace de dépôt des devoirs */
         .carte-hub.devoirs { border-top-color: var(--sauge); }
@@ -307,26 +358,139 @@
                 <h3>Règles et Usages</h3>
                 <div class="encadre-grammaire">
                     <button class="btn-traduction" onclick="toggleTrad('trad-3')">🇪🇸 Ver en español</button>
-                    <h4>Mettre en valeur l'objet</h4>
-                    <p>La voix passive focalise l'attention sur l'élément qui subit l'action.</p>
-                    <ul>
-                        <li><b>Structure&nbsp;:</b> <code>Être</code> (conjugué) + <code>Participe Passé</code> (accordé en genre et nombre avec le sujet).</li>
-                        <li><i>Exemple&nbsp;:</i> "Le prix <code>a été remis</code> par le jury."</li>
-                    </ul>
+                    <h4>Renverser la perspective</h4>
+                    <p>À la voix active, le sujet accomplit l'action. À la voix passive, il la <b>subit</b>. Le complément d'objet direct de la phrase active devient sujet, et l'ancien sujet — s'il est mentionné — passe en complément d'agent.</p>
+
+                    <div class="schema" role="img" aria-label="Schéma de la transformation d'une phrase active en phrase passive : le complément d'objet devient sujet, le sujet devient complément d'agent.">
+                        <svg viewBox="0 0 620 230" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="pointe-sauge" viewBox="0 0 10 10" refX="9" refY="5"
+                                        markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--sauge)"/>
+                                </marker>
+                                <marker id="pointe-or" viewBox="0 0 10 10" refX="9" refY="5"
+                                        markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--or-academique)"/>
+                                </marker>
+                            </defs>
+
+                            <text x="0" y="14" class="s-etiq">VOIX ACTIVE</text>
+                            <rect x="0" y="26" width="150" height="40" rx="4" class="s-sujet"/>
+                            <text x="75" y="51" class="s-mot">Le jury</text>
+                            <rect x="162" y="26" width="120" height="40" rx="4" class="s-verbe"/>
+                            <text x="222" y="51" class="s-mot s-clair">a remis</text>
+                            <rect x="294" y="26" width="150" height="40" rx="4" class="s-objet"/>
+                            <text x="369" y="51" class="s-mot">le prix</text>
+
+                            <path d="M 369 72 C 369 116, 75 108, 75 152" class="s-fleche s-vers-sujet"
+                                  marker-end="url(#pointe-sauge)"/>
+                            <path d="M 75 72 C 75 120, 411 104, 411 152" class="s-fleche s-vers-agent"
+                                  marker-end="url(#pointe-or)"/>
+
+                            <text x="196" y="100" class="s-note s-note-sauge">devient sujet</text>
+                            <text x="196" y="130" class="s-note s-note-or">devient agent</text>
+
+                            <text x="0" y="176" class="s-etiq">VOIX PASSIVE</text>
+                            <rect x="0" y="186" width="150" height="40" rx="4" class="s-objet"/>
+                            <text x="75" y="211" class="s-mot">Le prix</text>
+                            <rect x="162" y="186" width="160" height="40" rx="4" class="s-verbe"/>
+                            <text x="242" y="211" class="s-mot s-clair">a été remis</text>
+                            <rect x="336" y="186" width="150" height="40" rx="4" class="s-agent"/>
+                            <text x="411" y="211" class="s-mot">par le jury</text>
+                        </svg>
+                    </div>
+
+                    <p>Le sens ne change pas&nbsp;: ce qui change, c'est <b>ce que la phrase met au premier plan</b>. « Le prix a été remis » attire l'attention sur le prix&nbsp;; « Le jury a remis le prix » sur le jury.</p>
+
                     <div id="trad-3" class="texte-espanol">
                         <b>Traducción explicativa :</b><br>
-                        La voz pasiva invierte el orden habitual: el objeto pasa a ser sujeto paciente, empleando el verbo auxiliar <i>être</i> más el participio pasado (que concuerda en género y número). Ejemplo: "El premio fue entregado por el jurado".
+                        La voz pasiva invierte la perspectiva: el objeto directo pasa a ser sujeto paciente y el sujeto original se convierte en complemento agente, introducido por <i>par</i> o <i>de</i>. Se construye con el auxiliar <i>être</i> conjugado más el participio pasado, que concuerda siempre en género y número con el sujeto. Ejemplo: "El premio fue entregado por el jurado".<br><br>
+                        Cuidado con un falso amigo estructural: en español el auxiliar de los tiempos compuestos es <i>haber</i>, mientras que en francés la pasiva usa <i>être</i> en todos los tiempos. <i>A été choisi</i> equivale a "fue elegido", no a "ha sido elegido por sí mismo".
                     </div>
                 </div>
-                
-                <div class="titre-exo">Exercice pratique&nbsp;: Identifiez la forme passive correcte.</div>
-                <div class="q-bloc qcm" id="q3-1">
-                    <div class="q-texte">1. "Le Comité international olympique a choisi un pays." ➔ Un pays ________ par le Comité.</div>
-                    <div class="grille-options">
-                        <button class="btn-opt" data-correct="false" data-feedback="Incorrect, c'est une forme active.">a choisi</button>
-                        <button class="btn-opt" data-correct="true" data-feedback="Parfait&#8239;! Auxiliaire 'a été' + participe passé.">a été choisi</button>
+
+                <div class="encadre-grammaire">
+                    <h4>La formation à tous les temps</h4>
+                    <p>Une seule règle, valable partout&nbsp;: on conjugue <code>être</code> au temps du verbe actif, puis on ajoute le <code>participe passé</code>. C'est donc l'auxiliaire qui porte le temps, jamais le participe.</p>
+
+                    <div class="enveloppe-tableau">
+                        <table class="tableau-temps">
+                            <thead>
+                                <tr><th>Temps</th><th>Voix active</th><th>Voix passive</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Présent</td><td>Le jury choisit le lauréat.</td><td>Le lauréat <b>est choisi</b> par le jury.</td></tr>
+                                <tr><td>Imparfait</td><td>Le jury choisissait…</td><td>Le lauréat <b>était choisi</b>…</td></tr>
+                                <tr><td>Passé composé</td><td>Le jury a choisi…</td><td>Le lauréat <b>a été choisi</b>…</td></tr>
+                                <tr><td>Plus-que-parfait</td><td>Le jury avait choisi…</td><td>Le lauréat <b>avait été choisi</b>…</td></tr>
+                                <tr><td>Futur simple</td><td>Le jury choisira…</td><td>Le lauréat <b>sera choisi</b>…</td></tr>
+                                <tr><td>Conditionnel</td><td>Le jury choisirait…</td><td>Le lauréat <b>serait choisi</b>…</td></tr>
+                                <tr><td>Subjonctif</td><td>… que le jury choisisse…</td><td>… que le lauréat <b>soit choisi</b>…</td></tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="feedback"></div>
+
+                    <p><b>L'accord est obligatoire.</b> Le participe passé s'accorde toujours en genre et en nombre avec le sujet — c'est l'erreur la plus fréquente à ce niveau.</p>
+
+                    <div class="schema" role="img" aria-label="Schéma de l'accord du participe passé avec le sujet, aux quatre genres et nombres.">
+                        <svg viewBox="0 0 620 150" xmlns="http://www.w3.org/2000/svg">
+                            <text x="0" y="16" class="s-etiq">L'ACCORD SUIT LE SUJET</text>
+                            <text x="0" y="48" class="s-ex">Le dossier</text>
+                            <text x="150" y="48" class="s-ex s-gris">est</text>
+                            <text x="200" y="48" class="s-ex">accepté</text>
+                            <text x="0" y="80" class="s-ex">La demande</text>
+                            <text x="150" y="80" class="s-ex s-gris">est</text>
+                            <text x="200" y="80" class="s-ex">accepté<tspan class="s-marque">e</tspan></text>
+                            <text x="0" y="112" class="s-ex">Les dossiers</text>
+                            <text x="150" y="112" class="s-ex s-gris">sont</text>
+                            <text x="200" y="112" class="s-ex">accepté<tspan class="s-marque">s</tspan></text>
+                            <text x="0" y="144" class="s-ex">Les demandes</text>
+                            <text x="150" y="144" class="s-ex s-gris">sont</text>
+                            <text x="200" y="144" class="s-ex">accepté<tspan class="s-marque">es</tspan></text>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Le complément d'agent&nbsp;: par ou de</h4>
+                    <p>Quand on précise qui accomplit l'action, deux prépositions sont possibles, et le choix n'est pas libre.</p>
+                    <ul>
+                        <li><b>par</b> — action concrète, ponctuelle, avec un agent qui agit véritablement.
+                            <div class="exemple">La loi a été votée <b>par</b> l'Assemblée.<span class="fleche">·</span>Le tableau a été restauré <b>par</b> un spécialiste.</div>
+                        </li>
+                        <li><b>de</b> — verbes de sentiment, d'opinion ou de description, où l'agent n'agit pas mais caractérise un état.
+                            <div class="exemple">Il est <b>respecté de</b> tous.<span class="fleche">·</span>La place était <b>bordée d'</b>arbres.<span class="fleche">·</span>Elle est <b>connue de</b> ses collègues.</div>
+                        </li>
+                    </ul>
+                    <p>À retenir pour « de »&nbsp;: <code>aimé</code>, <code>respecté</code>, <code>apprécié</code>, <code>connu</code>, <code>estimé</code>, <code>suivi</code>, <code>précédé</code>, <code>entouré</code>, <code>couvert</code>, <code>bordé</code>, <code>rempli</code>.</p>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Quand l'employer — et quand l'éviter</h4>
+                    <p>Le passif n'est pas un ornement&nbsp;: il répond à des besoins précis, et le plus souvent <b>sans complément d'agent</b>.</p>
+                    <ul>
+                        <li><b>L'auteur de l'action est inconnu.</b> <i>Trois toiles ont été volées cette nuit.</i></li>
+                        <li><b>Il est évident ou sans intérêt.</b> <i>Le musée sera fermé lundi.</i></li>
+                        <li><b>On veut mettre le résultat en avant</b>, dans la presse et les textes administratifs. <i>La réforme a été adoptée.</i></li>
+                        <li><b>On préfère ne pas nommer le responsable.</b> <i>Des erreurs ont été commises.</i></li>
+                    </ul>
+                    <p>En revanche, le français parlé recourt beaucoup moins au passif que l'espagnol ou l'anglais. Trois tournures actives le remplacent avantageusement&nbsp;:</p>
+                    <div class="exemple">
+                        <b>on</b> + verbe actif<span class="fleche">➔</span><i>On a volé trois toiles.</i><br>
+                        <b>se faire</b> + infinitif<span class="fleche">➔</span><i>Il s'est fait voler son sac.</i><br>
+                        forme <b>pronominale</b> de sens passif<span class="fleche">➔</span><i>Ce plat se mange froid.</i>
+                    </div>
+                </div>
+
+                <div class="titre-exo">Exercices&nbsp;: quinze applications, du repérage à la transformation.</div>
+                <div id="exos-mod3"></div>
+
+                <div class="fin-module">
+                    <div class="bilan" data-module="mod3"></div>
+                    <div class="actions">
+                        <button class="btn-secondaire" onclick="naviguer('vue-hub')">Menu principal</button>
+                        <button class="btn-suivant" onclick="naviguer('vue-mod4')">Module suivant ➔</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -532,10 +696,49 @@
             progression[idQuestion] = reussi;
             localStorage.setItem('progressionB2Dossier00', JSON.stringify(progression));
             majProgressionGlobale();
+            majBilans();
+        }
+
+        /* Comparaison souple des réponses écrites : la faute de frappe sur
+           un accent ou une majuscule ne doit pas être comptée comme une
+           faute de grammaire. La ponctuation et les espaces multiples sont
+           également neutralisés. */
+        function normaliser(texte) {
+            return texte
+                .trim()
+                .toLowerCase()
+                .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+                .replace(/[’‘]/g, "'")
+                .replace(/[.!?;,]/g, '')
+                .replace(/\s+/g, ' ');
+        }
+
+        function verifierSaisie(bouton) {
+            const bloc = bouton.closest('.q-bloc');
+            if (bloc.classList.contains('verrouille')) return;
+
+            const champ = bloc.querySelector('input.saisie');
+            const attendues = champ.getAttribute('data-reponses').split('|');
+            const juste = attendues.some(r => normaliser(r) === normaliser(champ.value));
+            const zoneFeedback = bloc.querySelector('.feedback');
+
+            bloc.classList.add('verrouille');
+            champ.disabled = true;
+            champ.classList.add(juste ? 'correct' : 'erreur');
+
+            if (juste) {
+                zoneFeedback.innerHTML = bloc.getAttribute('data-feedback-juste');
+                zoneFeedback.classList.add('succes');
+            } else {
+                zoneFeedback.innerHTML = "Réponse attendue : « " + attendues[0] + " ». "
+                    + bloc.getAttribute('data-feedback-faux');
+                zoneFeedback.classList.add('erreur');
+            }
+            sauvegarderProgression(bloc.id, juste);
         }
 
         function majProgressionGlobale() {
-            const totalQuestions = document.querySelectorAll('.qcm').length;
+            const totalQuestions = document.querySelectorAll('.qcm, .saisie-libre').length;
             const repondues = Object.keys(progression).length;
             const pourcentage = totalQuestions > 0 ? (repondues / totalQuestions) * 100 : 0;
             document.getElementById('progress-bar').style.width = pourcentage + '%';
@@ -548,40 +751,270 @@
             }
         }
 
-        document.querySelectorAll('.qcm').forEach(q => {
-            const idQuestion = q.id;
-            
-            if(progression[idQuestion] !== undefined) {
-                q.classList.add('verrouille');
-                const bonneReponse = q.querySelector('.btn-opt[data-correct="true"]');
-                bonneReponse.classList.add('reveler');
-                const zoneFeedback = q.querySelector('.feedback');
-                zoneFeedback.innerText = "Déjà validé. " + bonneReponse.getAttribute('data-feedback');
-                zoneFeedback.classList.add('succes');
+        /* ── Génération des exercices ────────────────────────────────────
+           Les batteries d'exercices sont décrites dans BANQUE_EXERCICES
+           (plus bas) et rendues ici. Ajouter un exercice = ajouter une
+           ligne de données, jamais un bloc de HTML.
+
+           Deux types :
+             qcm    — choix multiple ; « rep » est l'indice de la bonne
+                      réponse, « fb » le commentaire propre à chaque option.
+             saisie — transformation à rédiger ; « rep » liste les formes
+                      acceptées, la première servant de correction affichée.
+           ──────────────────────────────────────────────────────────────── */
+        function echapper(t) {
+            return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                            .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        function rendreExercice(id, numero, ex) {
+            const enonce = '<div class="q-texte"><b>' + numero + '.</b> ' + ex.q + '</div>';
+
+            if (ex.type === 'saisie') {
+                return '<div class="q-bloc saisie-libre" id="' + id + '"'
+                    + ' data-feedback-juste="' + echapper(ex.fb) + '"'
+                    + ' data-feedback-faux="' + echapper(ex.fbFaux || ex.fb) + '">'
+                    + enonce
+                    + '<input class="saisie" type="text" autocomplete="off" spellcheck="false"'
+                    + ' aria-label="Votre réponse"'
+                    + ' placeholder="' + echapper(ex.aide || 'Votre réponse') + '"'
+                    + ' data-reponses="' + echapper(ex.rep.join('|')) + '">'
+                    + '<div><button class="btn-verifier" onclick="verifierSaisie(this)">Vérifier</button></div>'
+                    + '<div class="feedback"></div></div>';
             }
 
-            q.querySelectorAll('.btn-opt').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    if (q.classList.contains('verrouille')) return;
-                    q.classList.add('verrouille');
-                    
-                    const estCorrect = btn.getAttribute('data-correct') === 'true';
-                    const zoneFeedback = q.querySelector('.feedback');
-                    zoneFeedback.innerText = btn.getAttribute('data-feedback');
-                    
-                    if (estCorrect) { 
-                        btn.classList.add('correct'); 
-                        zoneFeedback.classList.add('succes');
-                        sauvegarderProgression(idQuestion, true);
-                    } else { 
-                        btn.classList.add('erreur'); 
-                        zoneFeedback.classList.add('erreur');
-                        q.querySelector('.btn-opt[data-correct="true"]').classList.add('reveler'); 
-                        sauvegarderProgression(idQuestion, false);
-                    }
-                });
+            const options = ex.opt.map((o, i) =>
+                '<button class="btn-opt" data-correct="' + (i === ex.rep) + '"'
+                + ' data-feedback="' + echapper(ex.fb[i]) + '">' + echapper(o) + '</button>'
+            ).join('');
+
+            return '<div class="q-bloc qcm" id="' + id + '">' + enonce
+                + '<div class="grille-options">' + options + '</div>'
+                + '<div class="feedback"></div></div>';
+        }
+
+        function initialiserExercices() {
+            Object.keys(BANQUE_EXERCICES).forEach(cle => {
+                const hote = document.getElementById('exos-' + cle);
+                if (!hote) return;
+                hote.innerHTML = BANQUE_EXERCICES[cle]
+                    .map((ex, i) => rendreExercice(cle + '-q' + (i + 1), i + 1, ex))
+                    .join('');
             });
+        }
+
+        /* Délégation : un seul écouteur couvre les exercices générés comme
+           ceux écrits directement dans la page. */
+        document.addEventListener('click', e => {
+            const btn = e.target.closest('.btn-opt');
+            if (!btn) return;
+            const bloc = btn.closest('.q-bloc.qcm');
+            if (!bloc || bloc.classList.contains('verrouille')) return;
+
+            bloc.classList.add('verrouille');
+            const zoneFeedback = bloc.querySelector('.feedback');
+            const estCorrect = btn.getAttribute('data-correct') === 'true';
+            zoneFeedback.innerHTML = btn.getAttribute('data-feedback');
+
+            if (estCorrect) {
+                btn.classList.add('correct');
+                zoneFeedback.classList.add('succes');
+            } else {
+                btn.classList.add('erreur');
+                zoneFeedback.classList.add('erreur');
+                bloc.querySelector('.btn-opt[data-correct="true"]').classList.add('reveler');
+            }
+            sauvegarderProgression(bloc.id, estCorrect);
         });
+
+        /* Validation au clavier : Entrée équivaut à « Vérifier ». */
+        document.addEventListener('keydown', e => {
+            if (e.key !== 'Enter' || !e.target.classList.contains('saisie')) return;
+            e.preventDefault();
+            const bouton = e.target.closest('.q-bloc').querySelector('.btn-verifier');
+            if (bouton) verifierSaisie(bouton);
+        });
+
+        /* Restitution de ce qui a déjà été traité lors d'une visite précédente */
+        function restituerProgression() {
+            document.querySelectorAll('.qcm').forEach(bloc => {
+                if (progression[bloc.id] === undefined || bloc.classList.contains('verrouille')) return;
+                const bonneReponse = bloc.querySelector('.btn-opt[data-correct="true"]');
+                if (!bonneReponse) return;
+                bloc.classList.add('verrouille');
+                bonneReponse.classList.add('reveler');
+                const zoneFeedback = bloc.querySelector('.feedback');
+                zoneFeedback.innerHTML = (progression[bloc.id] ? "Déjà validé. " : "À revoir. ")
+                    + bonneReponse.getAttribute('data-feedback');
+                zoneFeedback.classList.add(progression[bloc.id] ? 'succes' : 'erreur');
+            });
+
+            document.querySelectorAll('.saisie-libre').forEach(bloc => {
+                if (progression[bloc.id] === undefined || bloc.classList.contains('verrouille')) return;
+                const reussi = progression[bloc.id];
+                const champ = bloc.querySelector('input.saisie');
+                const zoneFeedback = bloc.querySelector('.feedback');
+
+                bloc.classList.add('verrouille');
+                champ.value = champ.getAttribute('data-reponses').split('|')[0];
+                champ.disabled = true;
+                champ.classList.add(reussi ? 'correct' : 'erreur');
+                zoneFeedback.innerHTML = (reussi ? "Déjà validé. " : "Réponse attendue, à revoir. ")
+                    + bloc.getAttribute(reussi ? 'data-feedback-juste' : 'data-feedback-faux');
+                zoneFeedback.classList.add(reussi ? 'succes' : 'erreur');
+            });
+        }
+
+        /* Bilan affiché en fin de module */
+        function majBilans() {
+            document.querySelectorAll('.fin-module .bilan').forEach(bilan => {
+                const cle = bilan.getAttribute('data-module');
+                const exos = document.querySelectorAll('#exos-' + cle + ' .q-bloc');
+                let traites = 0, reussis = 0;
+                exos.forEach(b => {
+                    if (progression[b.id] === undefined) return;
+                    traites++;
+                    if (progression[b.id]) reussis++;
+                });
+                bilan.innerHTML = traites === 0
+                    ? 'Aucun exercice traité pour l’instant · <span>' + exos.length + ' à faire</span>'
+                    : 'Progression du module : <span>' + reussis + ' / ' + exos.length + '</span> réussis'
+                      + (traites < exos.length ? ' · ' + (exos.length - traites) + ' restants' : '');
+            });
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           BANQUE D'EXERCICES
+           Une entrée = un exercice. Pour en ajouter un, copiez une ligne
+           et modifiez-en le contenu ; la numérotation et le suivi de
+           progression se règlent tout seuls.
+           ═══════════════════════════════════════════════════════════════ */
+        const BANQUE_EXERCICES = {
+
+            /* ── Module 3 · La forme passive ─────────────────────────── */
+            mod3: [
+                { type: 'qcm',
+                  q: '« Le Comité international olympique <b>a choisi</b> un pays. » ➔ Un pays ________ par le Comité.',
+                  opt: ['a choisi', 'a été choisi', 'est choisissant'],
+                  rep: 1,
+                  fb: ["Non : « a choisi » reste la forme active, avec l'auxiliaire « avoir ».",
+                       "Exact ! Le passé composé actif « a choisi » donne au passif « a été choisi » : l'auxiliaire « être » se met au passé composé.",
+                       "Cette forme n'existe pas en français. Le passif se construit avec « être » + participe passé."] },
+
+                { type: 'qcm',
+                  q: 'La cérémonie ________ par le maire de la ville la semaine dernière.',
+                  opt: ['a été ouverte', 'a ouvert', 'est ouvrante'],
+                  rep: 0,
+                  fb: ["Parfait ! Passé composé passif, et le participe s'accorde avec « la cérémonie » : ouvert<b>e</b>.",
+                       "Non : ici, c'est la cérémonie qui subit l'action. Le maire est l'agent, introduit par « par ».",
+                       "Forme inexistante. Retenez : « être » conjugué + participe passé."] },
+
+                { type: 'qcm',
+                  q: 'Accord du participe : « Les nouvelles mesures ________ par le ministère. »',
+                  opt: ['a été annoncé', 'ont été annoncées', 'ont été annoncé'],
+                  rep: 1,
+                  fb: ["Le sujet est pluriel : l'auxiliaire doit être au pluriel, et le participe accordé.",
+                       "Exact ! « Les mesures » est féminin pluriel : ont été annoncé<b>es</b>. Le participe passé passif s'accorde toujours avec le sujet.",
+                       "L'auxiliaire est juste, mais le participe reste invariable ici : il faut « annoncées »."] },
+
+                { type: 'qcm',
+                  q: 'Complément d\'agent : « Ce professeur est respecté ________ tous ses étudiants. »',
+                  opt: ['par', 'de', 'avec'],
+                  rep: 1,
+                  fb: ["« Par » n'est pas faux à l'oral, mais la langue soignée préfère « de » après un verbe de sentiment.",
+                       "Exact ! Après les verbes de sentiment ou d'état (aimé, respecté, connu, apprécié, estimé), l'agent s'introduit par « de ».",
+                       "« Avec » n'introduit jamais le complément d'agent."] },
+
+                { type: 'qcm',
+                  q: '« La vallée était couverte ________ neige. »',
+                  opt: ['par la', 'de', 'pour la'],
+                  rep: 1,
+                  fb: ["Ici la neige n'agit pas : elle décrit un état. On emploie « de ».",
+                       "Exact ! Les verbes de description (couvert, entouré, bordé, rempli, précédé, suivi) prennent « de ».",
+                       "« Pour » n'introduit pas le complément d'agent."] },
+
+                { type: 'qcm',
+                  q: 'Quel énoncé relève du <b>registre journalistique</b> le plus courant ?',
+                  opt: ['On a arrêté trois suspects hier soir.',
+                        'Trois suspects ont été arrêtés hier soir.',
+                        'Trois suspects, ils les ont arrêtés hier soir.'],
+                  rep: 1,
+                  fb: ["Correct à l'oral, mais la presse écrite préfère le passif, qui met le fait en avant.",
+                       "Exact ! Le passif sans agent met l'événement au premier plan et laisse l'auteur de l'action dans l'ombre : c'est la marque du style journalistique.",
+                       "La dislocation appartient au registre familier oral."] },
+
+                { type: 'qcm',
+                  q: 'Futur simple passif : « Les résultats ________ la semaine prochaine. »',
+                  opt: ['seront publiés', 'auront publié', 'sont publiant'],
+                  rep: 0,
+                  fb: ["Exact ! « Être » au futur simple + participe passé accordé : seront publié<b>s</b>.",
+                       "« Auront publié » est un futur antérieur actif : quelqu'un publie quelque chose.",
+                       "Forme inexistante en français."] },
+
+                { type: 'qcm',
+                  q: 'Imparfait passif : « À cette époque, le courrier ________ à cheval. »',
+                  opt: ['était transporté', 'a été transporté', 'serait transporté'],
+                  rep: 0,
+                  fb: ["Exact ! L'imparfait décrit une habitude passée : « était » + participe passé.",
+                       "Le passé composé présenterait un fait ponctuel et achevé, non une habitude.",
+                       "Le conditionnel exprimerait une hypothèse, pas un usage habituel."] },
+
+                { type: 'qcm',
+                  q: 'Pourquoi l\'agent est-il absent dans « Ce pont a été construit en 1885 » ?',
+                  opt: ["Parce que la phrase est incorrecte sans agent.",
+                        "Parce que l'auteur de l'action est inconnu ou sans intérêt ici.",
+                        "Parce que le passif interdit le complément d'agent."],
+                  rep: 1,
+                  fb: ["Le passif se passe très bien d'agent : c'est même le cas le plus fréquent.",
+                       "Exact ! On omet l'agent quand il est inconnu, évident, ou quand seul le résultat compte. C'est la raison d'être principale du passif.",
+                       "Le complément d'agent est possible, simplement facultatif."] },
+
+                { type: 'qcm',
+                  q: 'Quelle phrase exprime le <b>même sens</b> que « On a volé son sac. » ?',
+                  opt: ["Il s'est fait voler son sac.",
+                        "Il a volé son sac.",
+                        "Son sac s'est volé."],
+                  rep: 0,
+                  fb: ["Exact ! « Se faire + infinitif » exprime un passif où le sujet subit l'action : très fréquent à l'oral.",
+                       "Cette phrase dit le contraire : ce serait lui le voleur.",
+                       "La forme pronominale de sens passif ne convient pas à ce verbe."] },
+
+                { type: 'saisie',
+                  q: 'Mettez au passif : « Le jury <b>remettra</b> le prix. » ➔ Le prix ________ par le jury.',
+                  rep: ['sera remis'],
+                  aide: 'sera + participe',
+                  fb: "Futur simple passif : « être » au futur + participe accordé au masculin singulier.",
+                  fbFaux: "Le verbe actif est au futur simple : l'auxiliaire « être » doit donc l'être aussi." },
+
+                { type: 'saisie',
+                  q: 'Mettez au passif : « Les élèves <b>ont écrit</b> ces lettres. » ➔ Ces lettres ________ par les élèves.',
+                  rep: ['ont été écrites'],
+                  aide: 'ont été + participe',
+                  fb: "Passé composé passif, avec accord au féminin pluriel : écrit<b>es</b>.",
+                  fbFaux: "Attention à l'accord : le sujet « ces lettres » est féminin pluriel." },
+
+                { type: 'saisie',
+                  q: 'Repassez à l\'actif : « Ce roman a été traduit par une universitaire. » ➔ Une universitaire ________ ce roman.',
+                  rep: ['a traduit'],
+                  aide: 'auxiliaire + participe',
+                  fb: "À l'actif, l'agent devient sujet et le participe ne s'accorde plus : « a traduit ».",
+                  fbFaux: "L'agent « une universitaire » devient le sujet ; le verbe reprend l'auxiliaire « avoir »." },
+
+                { type: 'saisie',
+                  q: 'Complétez au présent passif : « Chaque année, ce festival ________ (organiser) par la mairie. »',
+                  rep: ['est organisé'],
+                  aide: 'est + participe',
+                  fb: "Présent passif : « est » + participe passé, accordé au masculin singulier avec « ce festival ».",
+                  fbFaux: "Le présent passif se forme avec « être » au présent suivi du participe passé." },
+
+                { type: 'saisie',
+                  q: 'Évitez le passif avec « on » : « La décision a été prise hier. » ➔ ________ la décision hier.',
+                  rep: ['on a pris'],
+                  aide: 'on + verbe',
+                  fb: "« On » permet de garder l'agent indéterminé tout en revenant à une tournure active, plus naturelle à l'oral.",
+                  fbFaux: "Employez le pronom indéfini « on » suivi du verbe à l'actif." }
+            ]
+        };
 
         const dataEval = [
             { q: "________ des pays francophones se trouvent en Afrique.", opt: ["La plupart", "Chaque", "Aucun"], rep: 0 },
@@ -638,6 +1071,9 @@
             }
         };
         
+        initialiserExercices();
+        restituerProgression();
+        majBilans();
         initialiserEval();
         initialiserDepot();
         majProgressionGlobale();
