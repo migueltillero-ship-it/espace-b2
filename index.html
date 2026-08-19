@@ -113,6 +113,18 @@
         .s-fleche { fill: none; stroke-width: 1.5; stroke-dasharray: 5 4; }
         .s-vers-sujet { stroke: var(--sauge); }
         .s-vers-agent { stroke: var(--or-academique); }
+        .s-axe { stroke: var(--gris-doux); stroke-width: 2; }
+        .s-grad { font-family: var(--font-texte); font-size: 12px; font-weight: 700; fill: #8A8880; text-anchor: middle; }
+        .s-point { fill: var(--or-academique); }
+        .s-point-nul { fill: var(--terre-cuite); }
+        .s-point-total { fill: var(--sauge); }
+        .s-lgd { font-family: var(--font-texte); font-size: 13px; font-weight: 700; fill: var(--graphite); text-anchor: middle; }
+        .s-lgd.s-gris { font-weight: 400; fill: #8A8880; font-size: 12px; }
+        .s-fin { text-anchor: end; }
+        .s-sep { fill: var(--gris-doux); }
+        .s-lien { stroke: var(--graphite); stroke-width: 1.5; }
+        .s-connecteurs { font-family: var(--font-texte); font-size: 11.5px; fill: #8A8880; }
+        .s-ex.s-petit { font-size: 13px; }
         .s-note { font-family: var(--font-texte); font-size: 12px; font-weight: 700; text-anchor: middle; }
         .s-note-sauge { fill: var(--sauge); }
         .s-note-or { fill: var(--or-academique); }
@@ -268,37 +280,109 @@
                 <h3>Règles et Usages</h3>
                 <div class="encadre-grammaire">
                     <button class="btn-traduction" onclick="toggleTrad('trad-1')">🇪🇸 Ver en español</button>
-                    <h4>Totalité, Majorité et Quantité Nulle</h4>
-                    <ul>
-                        <li><b>100%&nbsp;:</b> <code>tous les pays</code>, <code>chaque pays</code> (suivi d'un nom au singulier).</li>
-                        <li><b>Majorité (+50%)&nbsp;:</b> <code>la plupart des pays</code> (exige un verbe au pluriel).</li>
-                        <li><b>Fractions&nbsp;:</b> <code>la moitié</code>, <code>un tiers</code>, <code>un quart</code>, <code>les trois quarts</code>.</li>
-                        <li><b>Quantité nulle (0%)&nbsp;:</b> <code>aucun pays</code> (suivi du singulier et de la négation <i>ne</i>).</li>
-                    </ul>
+                    <h4>L'échelle des proportions</h4>
+                    <p>Le français dispose d'une gamme d'expressions qui jalonnent la quantité, de l'absence totale à la totalité. Situer chacune sur cette échelle évite les confusions les plus tenaces.</p>
+
+                    <div class="schema" role="img" aria-label="Échelle des proportions de zéro à cent pour cent, avec les expressions françaises correspondantes.">
+                        <svg viewBox="0 0 620 150" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="20" y1="60" x2="600" y2="60" class="s-axe"/>
+                            <line x1="20" y1="52" x2="20" y2="68" class="s-axe"/>
+                            <line x1="310" y1="52" x2="310" y2="68" class="s-axe"/>
+                            <line x1="600" y1="52" x2="600" y2="68" class="s-axe"/>
+
+                            <text x="20" y="40" class="s-grad">0 %</text>
+                            <text x="310" y="40" class="s-grad">50 %</text>
+                            <text x="600" y="40" class="s-grad s-fin">100 %</text>
+
+                            <circle cx="20" cy="60" r="5" class="s-point s-point-nul"/>
+                            <circle cx="120" cy="60" r="5" class="s-point"/>
+                            <circle cx="215" cy="60" r="5" class="s-point"/>
+                            <circle cx="310" cy="60" r="5" class="s-point"/>
+                            <circle cx="420" cy="60" r="5" class="s-point"/>
+                            <circle cx="600" cy="60" r="5" class="s-point s-point-total"/>
+
+                            <text x="20" y="86" class="s-lgd">aucun</text>
+                            <text x="120" y="86" class="s-lgd">quelques</text>
+                            <text x="215" y="86" class="s-lgd">plusieurs</text>
+                            <text x="310" y="86" class="s-lgd">la moitié</text>
+                            <text x="420" y="86" class="s-lgd">la plupart</text>
+                            <text x="600" y="86" class="s-lgd s-fin">tous</text>
+
+                            <text x="20" y="106" class="s-lgd s-gris">rien</text>
+                            <text x="120" y="106" class="s-lgd s-gris">certains</text>
+                            <text x="310" y="106" class="s-lgd s-gris">un sur deux</text>
+                            <text x="420" y="106" class="s-lgd s-gris">la majorité</text>
+                            <text x="600" y="106" class="s-lgd s-gris s-fin">chaque</text>
+
+                            <text x="215" y="134" class="s-lgd s-gris">un tiers ≈ 33 %<tspan class="s-sep"> · </tspan>un quart = 25 %<tspan class="s-sep"> · </tspan>les trois quarts = 75 %</text>
+                        </svg>
+                    </div>
+
                     <div id="trad-1" class="texte-espanol">
                         <b>Traducción explicativa :</b><br>
-                        • <i>Tous les pays / chaque pays</i> (100%) : "todos los países" (con plural) / "cada país" (con singular).<br>
-                        • <i>La plupart des pays</i> (+50%) : "la mayoría de los países" (exige verbo en plural).<br>
-                        • <i>Aucun pays</i> (0%) : "ningún país" (va en singular y requiere la partícula negativa <i>ne</i>).
+                        • <i>Tous les pays / chaque pays</i> (100 %) : "todos los países" (plural) / "cada país" (singular).<br>
+                        • <i>La plupart des pays</i> (+50 %) : "la mayoría de los países", exige verbo en plural.<br>
+                        • <i>Aucun pays</i> (0 %) : "ningún país", va en singular y requiere la partícula negativa <i>ne</i>.<br><br>
+                        Dos trampas para hispanohablantes: <i>la plupart des</i> lleva el verbo en <b>plural</b> (al contrario que "la mayoría de", que admite ambos), y <i>chaque</i> nunca se usa con plural, mientras que "cada" en español sí aparece en giros como "cada dos días" (en francés: <i>tous les deux jours</i>).
                     </div>
                 </div>
-                
-                <div class="titre-exo">Exercice pratique&nbsp;: Complétez avec l'indéfini correct.</div>
-                <div class="q-bloc qcm" id="q1-1">
-                    <div class="q-texte">1. ________ pays de la liste ne présente un taux de francophonie égal à 0&nbsp;%.</div>
-                    <div class="grille-options">
-                        <button class="btn-opt" data-correct="false" data-feedback="Incorrect. 'Plusieurs' demande une affirmation et un verbe affirmatif.">Plusieurs</button>
-                        <button class="btn-opt" data-correct="true" data-feedback="Exact&#8239;! 'Aucun' s'accorde au singulier et s'associe à la négation.">Aucun</button>
+
+                <div class="encadre-grammaire">
+                    <h4>Totalité&nbsp;: tout, chaque, chacun</h4>
+                    <p>Trois mots proches, trois constructions distinctes. La faute vient presque toujours du nombre du nom qui suit.</p>
+                    <div class="enveloppe-tableau">
+                        <table class="tableau-temps">
+                            <thead><tr><th>Forme</th><th>Nature</th><th>Construction</th></tr></thead>
+                            <tbody>
+                                <tr><td>tout / toute</td><td>adjectif</td><td>+ <b>singulier</b> — <i>tout le pays, toute la classe</i></td></tr>
+                                <tr><td>tous / toutes</td><td>adjectif</td><td>+ <b>pluriel</b> — <i>tous les pays, toutes les régions</i></td></tr>
+                                <tr><td>chaque</td><td>adjectif</td><td>+ <b>singulier</b>, un par un — <i>chaque pays</i></td></tr>
+                                <tr><td>chacun / chacune</td><td>pronom</td><td>seul ou + <i>d'entre</i> — <i>chacun d'entre eux</i></td></tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="feedback"></div>
+                    <p><b>Attention à la prononciation&nbsp;:</b> dans « tous les pays », le <i>s</i> de « tous » est muet&nbsp;; dans « ils sont tous venus », où « tous » est pronom, il se prononce.</p>
                 </div>
-                <div class="q-bloc qcm" id="q1-2">
-                    <div class="q-texte">2. ________ pays francophone possède sa propre richesse linguistique.</div>
-                    <div class="grille-options">
-                        <button class="btn-opt" data-correct="false" data-feedback="Incorrect. 'Tous' exige un nom au pluriel (tous les pays).">Tous</button>
-                        <button class="btn-opt" data-correct="true" data-feedback="Parfait&#8239;! 'Chaque' est suivi d'un nom au singulier.">Chaque</button>
+
+                <div class="encadre-grammaire">
+                    <h4>Majorité, fractions et accord du verbe</h4>
+                    <p>C'est ici que se joue l'erreur la plus fréquente en B2&nbsp;: le verbe s'accorde-t-il avec l'expression collective ou avec son complément&nbsp;?</p>
+                    <ul>
+                        <li><b>la plupart des + pluriel</b> ➔ verbe au <b>pluriel</b>, sans exception.
+                            <div class="exemple">La plupart des étudiants <b>ont</b> réussi.</div>
+                        </li>
+                        <li><b>la majorité / la moitié / un tiers de</b> ➔ le <b>singulier</b> reste la norme écrite, l'accord avec le complément étant toléré.
+                            <div class="exemple">La moitié des candidats <b>a été</b> reçue.<span class="fleche">·</span>La majorité <b>s'est</b> abstenue.</div>
+                        </li>
+                        <li><b>Les fractions usuelles&nbsp;:</b> <code>la moitié</code> (50&nbsp;%), <code>un tiers</code> (33&nbsp;%), <code>un quart</code> (25&nbsp;%), <code>les trois quarts</code> (75&nbsp;%).</li>
+                    </ul>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Quantité nulle et quantités intermédiaires</h4>
+                    <p>La quantité nulle réclame toujours la négation <code>ne</code>, et toujours le singulier.</p>
+                    <div class="exemple">
+                        <b>Aucun</b> pays <b>ne</b> refuse cette langue.<span class="fleche">·</span><b>Nul</b> <b>n'</b>est censé ignorer la loi.<br>
+                        <b>Personne n'</b>est venu.<span class="fleche">·</span><b>Rien ne</b> justifie ce retard.
                     </div>
-                    <div class="feedback"></div>
+                    <p>Entre les deux extrêmes, quatre degrés à distinguer&nbsp;:</p>
+                    <ul>
+                        <li><b>quelques</b> — un petit nombre, vague et modeste.</li>
+                        <li><b>certains</b> — une partie identifiable du groupe, mais non nommée.</li>
+                        <li><b>plusieurs</b> — plus de deux, avec l'idée d'un nombre appréciable.</li>
+                        <li><b>beaucoup de / peu de</b> — l'appréciation subjective de la quantité.</li>
+                    </ul>
+                </div>
+
+                <div class="titre-exo">Exercices&nbsp;: quinze applications sur les proportions et les indéfinis.</div>
+                <div id="exos-mod1"></div>
+
+                <div class="fin-module">
+                    <div class="bilan" data-module="mod1"></div>
+                    <div class="actions">
+                        <button class="btn-secondaire" onclick="naviguer('vue-hub')">Menu principal</button>
+                        <button class="btn-suivant" onclick="naviguer('vue-mod2')">Module suivant ➔</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -317,29 +401,109 @@
                 <h3>Règles et Usages</h3>
                 <div class="encadre-grammaire">
                     <button class="btn-traduction" onclick="toggleTrad('trad-2')">🇪🇸 Ver en español</button>
-                    <h4>Articulation Logique</h4>
-                    <ul>
-                        <li><b>Cause positive&nbsp;:</b> <code>grâce à</code> + nom (ex&nbsp;: <i>grâce à son aide</i>).</li>
-                        <li><b>Cause évidente&nbsp;:</b> <code>puisque</code> ou <code>étant donné que</code> + proposition.</li>
-                        <li><b>Conséquence formelle&nbsp;:</b> <code>en conséquence</code>.</li>
-                        <li><b>Conséquence avec intensité&nbsp;:</b> <code>tellement... que</code>.</li>
-                    </ul>
+                    <h4>Deux sens de lecture</h4>
+                    <p>Un même enchaînement peut s'énoncer dans les deux sens. Ce qui change, c'est le connecteur — et la place que la phrase donne au fait initial.</p>
+
+                    <div class="schema" role="img" aria-label="Schéma montrant qu'un même enchaînement peut être formulé en partant de la cause ou de la conséquence.">
+                        <svg viewBox="0 0 620 200" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="pointe-graphite" viewBox="0 0 10 10" refX="9" refY="5"
+                                        markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--graphite)"/>
+                                </marker>
+                            </defs>
+
+                            <rect x="0" y="30" width="230" height="46" rx="4" class="s-sujet"/>
+                            <text x="115" y="52" class="s-mot">Il neigeait</text>
+                            <text x="115" y="68" class="s-lgd s-gris">la cause</text>
+
+                            <rect x="378" y="30" width="230" height="46" rx="4" class="s-objet"/>
+                            <text x="493" y="52" class="s-mot">Le vol est annulé</text>
+                            <text x="493" y="68" class="s-lgd s-gris">la conséquence</text>
+
+                            <line x1="240" y1="45" x2="368" y2="45" class="s-lien" marker-end="url(#pointe-graphite)"/>
+                            <line x1="368" y1="66" x2="240" y2="66" class="s-lien" marker-end="url(#pointe-graphite)"/>
+
+                            <text x="0" y="112" class="s-etiq">ON PART DE LA CAUSE</text>
+                            <text x="0" y="134" class="s-ex s-petit">Comme il neigeait, le vol a été annulé.</text>
+                            <text x="0" y="152" class="s-connecteurs">comme · puisque · étant donné que</text>
+                            <text x="0" y="168" class="s-connecteurs">car · parce que · vu que</text>
+
+                            <text x="318" y="112" class="s-etiq">ON PART DE LA CONSÉQUENCE</text>
+                            <text x="318" y="134" class="s-ex s-petit">Le vol a été annulé car il neigeait.</text>
+                            <text x="318" y="152" class="s-connecteurs">donc · par conséquent · alors</text>
+                            <text x="318" y="168" class="s-connecteurs">si bien que · c'est pourquoi</text>
+                        </svg>
+                    </div>
+
                     <div id="trad-2" class="texte-espanol">
                         <b>Traducción explicativa :</b><br>
-                        • <i>Grâce à</i> : se usa para causas positivas ("gracias a").<br>
-                        • <i>Puisque / Étant donné que</i> : indican una causa evidente o un hecho probado ("puesto que / dado que").<br>
-                        • <i>Tellement... que</i> : expresa intensidad con resultado ("tanto... que").
+                        • <i>Grâce à</i> : causa con resultado favorable ("gracias a").<br>
+                        • <i>À cause de</i> : causa con resultado desfavorable ("por culpa de").<br>
+                        • <i>En raison de</i> : causa neutra, registro administrativo ("debido a").<br>
+                        • <i>Puisque / Étant donné que</i> : causa ya conocida o probada ("puesto que / dado que").<br>
+                        • <i>Tellement… que</i> : intensidad con resultado ("tanto… que").<br><br>
+                        Trampa frecuente: <i>car</i> nunca puede empezar la frase, al contrario que "pues" o "porque" en español. Y <i>du coup</i>, muy oído en Francia, es coloquial: no debe aparecer en un examen escrito.
                     </div>
                 </div>
-                
-                <div class="titre-exo">Exercice pratique&nbsp;: Choisissez le connecteur idoné.</div>
-                <div class="q-bloc qcm" id="q2-1">
-                    <div class="q-texte">1. Il faisait ________ froid que les étudiants sont restés chez eux.</div>
-                    <div class="grille-options">
-                        <button class="btn-opt" data-correct="false" data-feedback="Incorrect. 'Puisque' introduit une cause, non une conséquence intensive.">puisque</button>
-                        <button class="btn-opt" data-correct="true" data-feedback="Excellent&#8239;! Structure d'intensité 'tellement... que'.">tellement</button>
+
+                <div class="encadre-grammaire">
+                    <h4>Exprimer la cause&nbsp;: quatre nuances</h4>
+                    <p>Toutes ces locutions se construisent avec l'<b>indicatif</b>. Elles se distinguent par la nuance et par la construction.</p>
+                    <div class="enveloppe-tableau">
+                        <table class="tableau-temps">
+                            <thead><tr><th>Locution</th><th>Nuance</th><th>Suivi de</th></tr></thead>
+                            <tbody>
+                                <tr><td>parce que</td><td>information nouvelle, réponse à « pourquoi&nbsp;? »</td><td>proposition</td></tr>
+                                <tr><td>car</td><td>justification, registre écrit — <b>jamais en tête</b></td><td>proposition</td></tr>
+                                <tr><td>puisque</td><td>cause déjà connue de l'interlocuteur</td><td>proposition</td></tr>
+                                <tr><td>comme</td><td>cause annoncée d'abord — <b>toujours en tête</b></td><td>proposition</td></tr>
+                                <tr><td>étant donné que / vu que</td><td>fait établi, registre soutenu</td><td>proposition</td></tr>
+                                <tr><td>grâce à</td><td>résultat <b>heureux</b></td><td>nom</td></tr>
+                                <tr><td>à cause de</td><td>résultat <b>fâcheux</b></td><td>nom</td></tr>
+                                <tr><td>en raison de</td><td>neutre, administratif</td><td>nom</td></tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="feedback"></div>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Exprimer la conséquence</h4>
+                    <p>Le choix se règle presque entièrement sur le <b>registre</b>.</p>
+                    <ul>
+                        <li><b>Courant&nbsp;:</b> <code>donc</code>, <code>alors</code>, <code>c'est pourquoi</code>.</li>
+                        <li><b>Soutenu&nbsp;:</b> <code>par conséquent</code>, <code>en conséquence</code>, <code>de ce fait</code>.</li>
+                        <li><b>Avec proposition&nbsp;:</b> <code>si bien que</code>, <code>de sorte que</code>, <code>au point que</code>.</li>
+                        <li><b>Familier, à éviter à l'écrit&nbsp;:</b> <i>du coup</i>, <i>résultat</i>.</li>
+                    </ul>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>L'intensité qui entraîne une conséquence</h4>
+                    <p>C'est la structure la plus productive du module — et celle où l'on se trompe le plus, car la forme dépend de ce qui suit.</p>
+                    <div class="enveloppe-tableau">
+                        <table class="tableau-temps">
+                            <thead><tr><th>Devant</th><th>Structure</th><th>Exemple</th></tr></thead>
+                            <tbody>
+                                <tr><td>un adjectif</td><td>si / tellement + adj. + que</td><td>Il est <b>si</b> fatigué <b>qu'</b>il dort debout.</td></tr>
+                                <tr><td>un adverbe</td><td>si / tellement + adv. + que</td><td>Elle parle <b>si</b> vite <b>que</b> je perds le fil.</td></tr>
+                                <tr><td>un nom</td><td><b>tellement de / tant de</b> + nom + que</td><td>Il y avait <b>tant de</b> monde <b>que</b> nous sommes partis.</td></tr>
+                                <tr><td>un verbe</td><td>verbe + tellement / tant + que</td><td>Il travaille <b>tellement qu'</b>il en oublie de manger.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p><b>La faute à ne pas commettre&nbsp;:</b> « si » ne se met jamais devant un nom. On dit <i>tellement de monde</i>, jamais « si monde ».</p>
+                </div>
+
+                <div class="titre-exo">Exercices&nbsp;: quinze applications sur la cause, la conséquence et l'intensité.</div>
+                <div id="exos-mod2"></div>
+
+                <div class="fin-module">
+                    <div class="bilan" data-module="mod2"></div>
+                    <div class="actions">
+                        <button class="btn-secondaire" onclick="naviguer('vue-hub')">Menu principal</button>
+                        <button class="btn-suivant" onclick="naviguer('vue-mod3')">Module suivant ➔</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -890,6 +1054,246 @@
            progression se règlent tout seuls.
            ═══════════════════════════════════════════════════════════════ */
         const BANQUE_EXERCICES = {
+
+            /* ── Module 1 · Les indéfinis et les proportions ──────────── */
+            mod1: [
+                { type: 'qcm',
+                  q: '________ pays de la liste ne présente un taux de francophonie égal à 0&nbsp;%.',
+                  opt: ['Plusieurs', 'Aucun', 'Chaque'],
+                  rep: 1,
+                  fb: ["« Plusieurs » exige un verbe affirmatif : on ne peut pas l'associer à « ne ».",
+                       "Exact ! « Aucun » est toujours singulier et réclame « ne » devant le verbe.",
+                       "« Chaque » n'exprime pas la quantité nulle : il désigne les éléments un à un."] },
+
+                { type: 'qcm',
+                  q: '________ pays francophone possède sa propre richesse linguistique.',
+                  opt: ['Tous', 'Chaque', 'La plupart'],
+                  rep: 1,
+                  fb: ["« Tous » demande un nom au pluriel : « tous les pays ».",
+                       "Exact ! « Chaque » est suivi d'un nom au singulier et envisage les éléments un par un.",
+                       "« La plupart » se construit avec « de » et un pluriel : « la plupart des pays »."] },
+
+                { type: 'qcm',
+                  q: 'La plupart des étudiants ________ déjà passé le DELF.',
+                  opt: ['a', 'ont', 'avait'],
+                  rep: 1,
+                  fb: ["Piège classique : malgré le singulier de « la plupart », l'accord se fait avec le complément.",
+                       "Exact ! Après « la plupart des + pluriel », le verbe se met au pluriel.",
+                       "L'accord doit être au pluriel, et le passé composé convient mieux ici."] },
+
+                { type: 'qcm',
+                  q: 'Choisissez la forme correcte : « ________ les livres sont rangés. »',
+                  opt: ['Tout', 'Tous', 'Toute'],
+                  rep: 1,
+                  fb: ["« Tout » s'emploie devant un singulier : « tout le livre ».",
+                       "Exact ! « Tous » s'accorde avec « les livres », masculin pluriel.",
+                       "« Toute » est féminin singulier : « toute la classe »."] },
+
+                { type: 'qcm',
+                  q: '« ________ d\'entre eux a répondu correctement. » (un seul, pris isolément)',
+                  opt: ['Chacun', 'Chaque', 'Tous'],
+                  rep: 0,
+                  fb: ["Exact ! « Chacun » est un pronom : il s'emploie seul ou suivi de « d'entre ».",
+                       "« Chaque » est un adjectif : il lui faut un nom (« chaque étudiant »).",
+                       "« Tous » entraînerait un verbe au pluriel."] },
+
+                { type: 'qcm',
+                  q: 'Quelle proportion « les trois quarts » représente-t-il ?',
+                  opt: ['25 %', '75 %', '30 %'],
+                  rep: 1,
+                  fb: ["25 % correspond à « un quart ».",
+                       "Exact ! Trois parts sur quatre, soit 75 %.",
+                       "30 % ne correspond à aucune fraction usuelle en français."] },
+
+                { type: 'qcm',
+                  q: '« La moitié des candidats ________ reçue. » Quel accord ?',
+                  opt: ['a été', 'ont été', 'avaient'],
+                  rep: 0,
+                  fb: ["Exact ! Avec « la moitié », l'accord au singulier reste correct : c'est le collectif qui commande.",
+                       "L'accord au pluriel s'entend, mais le singulier est la forme attendue à l'écrit soigné.",
+                       "Le temps ne convient pas au contexte."] },
+
+                { type: 'qcm',
+                  q: 'Quelle phrase exprime une quantité <b>intermédiaire</b>, ni nulle ni totale ?',
+                  opt: ['Aucun étudiant n\'est venu.',
+                        'Certains étudiants sont venus.',
+                        'Tous les étudiants sont venus.'],
+                  rep: 1,
+                  fb: ["« Aucun » exprime la quantité nulle.",
+                       "Exact ! « Certains », comme « quelques » ou « plusieurs », désigne une partie indéterminée du groupe.",
+                       "« Tous » exprime la totalité."] },
+
+                { type: 'qcm',
+                  q: 'Complétez : « Il n\'y a ________ raison de s\'inquiéter. »',
+                  opt: ['aucune', 'aucun', 'nulle part'],
+                  rep: 0,
+                  fb: ["Exact ! « Raison » est féminin : « aucune raison », au singulier.",
+                       "« Aucun » est masculin ; « raison » demande le féminin.",
+                       "« Nulle part » est un adverbe de lieu, sans rapport ici."] },
+
+                { type: 'qcm',
+                  q: '« Quelques » et « plusieurs » : quelle différence ?',
+                  opt: ["« Quelques » suggère un petit nombre, « plusieurs » un nombre plus élevé.",
+                        "Les deux sont rigoureusement équivalents.",
+                        "« Quelques » est toujours singulier."],
+                  rep: 0,
+                  fb: ["Exact ! « Quelques » reste vague et modeste ; « plusieurs » insiste sur la pluralité, au-delà de deux.",
+                       "Ils se ressemblent, mais l'intensité diffère nettement.",
+                       "« Quelques » est toujours suivi d'un pluriel."] },
+
+                { type: 'saisie',
+                  q: 'Complétez avec l\'indéfini de totalité : « ________ les régions francophones ont participé. » (masculin pluriel)',
+                  rep: ['toutes', 'Toutes'],
+                  aide: 'un seul mot',
+                  fb: "« Régions » est féminin pluriel : l'accord donne « toutes ».",
+                  fbFaux: "Attention au genre : « les régions » est féminin pluriel." },
+
+                { type: 'saisie',
+                  q: 'Exprimez 50&nbsp;% en toutes lettres : « ________ des participants sont bilingues. »',
+                  rep: ['la moitié'],
+                  aide: 'la …',
+                  fb: "« La moitié » exprime exactement 50 %.",
+                  fbFaux: "On attend l'expression française de 50 %, en deux mots." },
+
+                { type: 'saisie',
+                  q: 'Réécrivez sans « ne… pas » : « Il n\'y a pas un seul étudiant absent. » ➔ ________ étudiant n\'est absent.',
+                  rep: ['aucun'],
+                  aide: 'un seul mot',
+                  fb: "« Aucun » condense la négation totale et s'accompagne toujours de « ne ».",
+                  fbFaux: "Employez l'indéfini de quantité nulle, au masculin singulier." },
+
+                { type: 'saisie',
+                  q: 'Complétez : « ________ des pays africains ont le français comme langue officielle. » (plus de la moitié, deux mots)',
+                  rep: ['la plupart'],
+                  aide: 'la …',
+                  fb: "« La plupart des » + pluriel : le verbe suit au pluriel.",
+                  fbFaux: "L'expression attendue signifie « la majorité » et se construit avec « des »." },
+
+                { type: 'saisie',
+                  q: 'Accordez : « Chaque candidat ________ (devoir) présenter une pièce d\'identité. »',
+                  rep: ['doit'],
+                  aide: 'verbe conjugué',
+                  fb: "« Chaque » impose le singulier : le verbe reste au singulier.",
+                  fbFaux: "« Chaque » est toujours suivi du singulier, verbe compris." }
+            ],
+
+            /* ── Module 2 · Cause et conséquence ──────────────────────── */
+            mod2: [
+                { type: 'qcm',
+                  q: 'Il faisait ________ froid que les étudiants sont restés chez eux.',
+                  opt: ['puisque', 'tellement', 'grâce à'],
+                  rep: 1,
+                  fb: ["« Puisque » introduit une cause, non une intensité.",
+                       "Exact ! « Tellement / si + adjectif + que » exprime l'intensité et sa conséquence.",
+                       "« Grâce à » introduit une cause positive suivie d'un nom."] },
+
+                { type: 'qcm',
+                  q: '________ son travail acharné, elle a obtenu son diplôme avec mention.',
+                  opt: ['À cause de', 'Grâce à', 'Faute de'],
+                  rep: 1,
+                  fb: ["« À cause de » annonce une conséquence fâcheuse : le résultat est ici favorable.",
+                       "Exact ! « Grâce à » signale une cause dont le résultat est heureux.",
+                       "« Faute de » exprime un manque : « faute de temps »."] },
+
+                { type: 'qcm',
+                  q: 'Le vol a été annulé ________ mauvais temps.',
+                  opt: ['grâce au', 'en raison du', 'malgré le'],
+                  rep: 1,
+                  fb: ["« Grâce à » est réservé aux causes favorables.",
+                       "Exact ! « En raison de » est neutre et convient au registre administratif ou journalistique.",
+                       "« Malgré » exprime la concession, c'est-à-dire l'inverse."] },
+
+                { type: 'qcm',
+                  q: 'Quel connecteur ne peut <b>pas</b> commencer une phrase ?',
+                  opt: ['Comme', 'Puisque', 'Car'],
+                  rep: 2,
+                  fb: ["« Comme » se place au contraire volontiers en tête : « Comme il pleut, je reste. »",
+                       "« Puisque » peut ouvrir la phrase : « Puisque tu insistes… »",
+                       "Exact ! « Car » relie deux propositions et ne peut jamais ouvrir la phrase. Il appartient de surcroît au registre écrit."] },
+
+                { type: 'qcm',
+                  q: '« ________ tu connais déjà la réponse, pourquoi poser la question ? » (cause connue de tous)',
+                  opt: ['Puisque', 'Parce que', 'Car'],
+                  rep: 0,
+                  fb: ["Exact ! « Puisque » présente une cause déjà connue de l'interlocuteur, souvent avec une nuance d'évidence.",
+                       "« Parce que » apporte une information nouvelle, en réponse à « pourquoi ? ».",
+                       "« Car » ne peut pas ouvrir la phrase."] },
+
+                { type: 'qcm',
+                  q: 'Il y avait ________ monde que nous n\'avons pas pu entrer.',
+                  opt: ['tellement de', 'tellement', 'si'],
+                  rep: 0,
+                  fb: ["Exact ! Devant un <b>nom</b>, on emploie « tellement de » ou « tant de ».",
+                       "« Tellement » seul se rapporte à un adjectif ou à un verbe, pas à un nom.",
+                       "« Si » ne se combine qu'avec un adjectif ou un adverbe."] },
+
+                { type: 'qcm',
+                  q: 'Quel connecteur relève du registre le plus <b>formel</b> ?',
+                  opt: ['Du coup', 'Par conséquent', 'Alors'],
+                  rep: 1,
+                  fb: ["« Du coup » est familier et à proscrire à l'écrit.",
+                       "Exact ! « Par conséquent » et « en conséquence » appartiennent au registre soutenu, courant dans les écrits administratifs.",
+                       "« Alors » est neutre à l'oral, mais peu adapté à un texte formel."] },
+
+                { type: 'qcm',
+                  q: 'Elle travaille beaucoup&nbsp;; ________, elle réussit.',
+                  opt: ['c\'est pourquoi', 'parce que', 'bien que'],
+                  rep: 0,
+                  fb: ["Exact ! « C'est pourquoi » introduit la conséquence de ce qui précède.",
+                       "« Parce que » introduirait une cause, or la cause est déjà énoncée.",
+                       "« Bien que » exprime la concession et exige le subjonctif."] },
+
+                { type: 'qcm',
+                  q: 'Après « étant donné que », quel mode employer ?',
+                  opt: ["L'indicatif", 'Le subjonctif', 'Le conditionnel'],
+                  rep: 0,
+                  fb: ["Exact ! Toutes les locutions de cause — parce que, puisque, comme, étant donné que, vu que — se construisent avec l'indicatif.",
+                       "Le subjonctif suit les locutions de but ou de concession, pas de cause.",
+                       "Le conditionnel n'est pas commandé par une locution de cause."] },
+
+                { type: 'qcm',
+                  q: 'Le train a été supprimé, ________ nous avons dû prendre le car.',
+                  opt: ['si bien que', 'à cause de', 'grâce à'],
+                  rep: 0,
+                  fb: ["Exact ! « Si bien que » introduit une conséquence et se construit avec une proposition complète.",
+                       "« À cause de » se construit avec un nom, non avec une proposition.",
+                       "« Grâce à » demande un nom et une nuance positive."] },
+
+                { type: 'saisie',
+                  q: 'Cause favorable&nbsp;: « ________ ton aide, j\'ai terminé à temps. » (deux mots)',
+                  rep: ['grâce à'],
+                  aide: 'grâce …',
+                  fb: "« Grâce à » + nom : la cause produit un résultat heureux.",
+                  fbFaux: "On attend la locution de cause à valeur positive, suivie d'un nom." },
+
+                { type: 'saisie',
+                  q: 'Cause défavorable&nbsp;: « Le match a été reporté ________ la pluie. » (trois mots)',
+                  rep: ['à cause de'],
+                  aide: 'à … de',
+                  fb: "« À cause de » + nom : la cause entraîne une conséquence fâcheuse.",
+                  fbFaux: "La locution attendue signale une cause aux effets négatifs." },
+
+                { type: 'saisie',
+                  q: 'Reliez par l\'intensité&nbsp;: « Le livre est passionnant. Je l\'ai lu en une nuit. » ➔ Le livre est ________ passionnant que je l\'ai lu en une nuit.',
+                  rep: ['si', 'tellement'],
+                  aide: 'un seul mot',
+                  fb: "« Si » ou « tellement » + adjectif + « que » : l'intensité appelle sa conséquence.",
+                  fbFaux: "Devant un adjectif, employez « si » ou « tellement »." },
+
+                { type: 'saisie',
+                  q: 'Registre soutenu&nbsp;: « Les résultats sont insuffisants&nbsp;; ________, la formation sera prolongée. » (deux mots)',
+                  rep: ['par conséquent', 'en conséquence'],
+                  aide: 'par …',
+                  fb: "« Par conséquent » convient au registre formel, à l'écrit administratif comme à l'argumentation.",
+                  fbFaux: "On attend une locution de conséquence de registre soutenu." },
+
+                { type: 'saisie',
+                  q: 'Transformez en cause&nbsp;: « Il pleuvait. Nous sommes rentrés. » ➔ ________ il pleuvait, nous sommes rentrés. (cause en tête de phrase)',
+                  rep: ['comme'],
+                  aide: 'un seul mot',
+                  fb: "« Comme » place la cause en tête et prépare la conséquence qui suit.",
+                  fbFaux: "Le connecteur attendu ouvre la phrase et annonce la cause avant sa conséquence." }
+            ],
 
             /* ── Module 3 · La forme passive ─────────────────────────── */
             mod3: [
