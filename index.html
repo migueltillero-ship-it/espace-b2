@@ -121,6 +121,7 @@
         .s-lgd { font-family: var(--font-texte); font-size: 13px; font-weight: 700; fill: var(--graphite); text-anchor: middle; }
         .s-lgd.s-gris { font-weight: 400; fill: #8A8880; font-size: 12px; }
         .s-fin { text-anchor: end; }
+        .s-debut { text-anchor: start; }
         .s-sep { fill: var(--gris-doux); }
         .s-lien { fill: none; stroke: var(--graphite); stroke-width: 1.5; }
         .s-connecteurs { font-family: var(--font-texte); font-size: 11.5px; fill: #8A8880; }
@@ -152,6 +153,16 @@
         .exemple { border-left: 3px solid var(--sauge); padding: 0.8rem 0 0.8rem 1.2rem; margin: 1.2rem 0; color: #4A4A4A; }
         .exemple b { color: var(--graphite); }
         .exemple .fleche { color: var(--sauge); font-weight: 700; margin: 0 0.4rem; }
+
+        /* Tâches de production, à rendre dans l'espace de dépôt */
+        .tache { background: #F1F5F2; border-left: 5px solid var(--sauge); border-radius: 0 8px 8px 0; padding: 2.5rem; margin: 3rem 0; }
+        .tache-etiquette { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--sauge); margin-bottom: 1rem; }
+        .tache h4 { font-family: var(--font-titre); color: var(--graphite); font-size: 1.5rem; margin-bottom: 1rem; }
+        .tache ul { margin: 1rem 0 1rem 1.8rem; }
+        .tache li { margin-bottom: 0.5rem; }
+        .tache-consigne { background: rgba(255,255,255,0.7); border-radius: 6px; padding: 1.2rem 1.5rem; margin: 1.5rem 0; font-size: 1rem; }
+        .tache .btn-secondaire { border-color: var(--sauge); color: var(--sauge); }
+        .tache .btn-secondaire:hover { background: var(--sauge); color: white; border-color: var(--sauge); }
 
         /* Navigation de fin de module */
         .fin-module { display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 2.5rem; border-top: 2px solid var(--gris-doux); }
@@ -243,6 +254,22 @@
                     <div>
                         <h2>Module 5&nbsp;: Conditionnel & Le But</h2>
                         <p>Imaginez la salle de classe idéale et justifiez vos choix avec <b>pour, afin de</b> et <b>pour que</b> + subjonctif.</p>
+                    </div>
+                    <button class="btn-prim">Accéder</button>
+                </div>
+
+                <div class="carte-hub" onclick="naviguer('vue-mod6')">
+                    <div>
+                        <h2>Module 6&nbsp;: Émotions & Sentiments</h2>
+                        <p>Dites ce qui vous touche avec précision&nbsp;: <b>ce qui me rend heureux</b>, <b>ce dont j'ai peur</b>, et le subjonctif après les verbes de sentiment.</p>
+                    </div>
+                    <button class="btn-prim">Accéder</button>
+                </div>
+
+                <div class="carte-hub" onclick="naviguer('vue-mod7')">
+                    <div>
+                        <h2>Module 7&nbsp;: Exprimer son Opinion</h2>
+                        <p>Prenez position et nuancez&nbsp;: l'accord, le désaccord, et la bascule <b>indicatif / subjonctif</b> après <b>je pense que</b>.</p>
                     </div>
                     <button class="btn-prim">Accéder</button>
                 </div>
@@ -865,11 +892,30 @@
                 <div class="titre-exo">Exercices&nbsp;: quinze applications sur le conditionnel et le but.</div>
                 <div id="exos-mod5"></div>
 
+                <div class="tache">
+                    <div class="tache-etiquette">Production — à déposer</div>
+                    <h4>La salle de classe idéale</h4>
+                    <p>À deux, imaginez la salle de classe idéale pour vos cours de français, puis présentez-la. Appuyez-vous sur les éléments suivants&nbsp;:</p>
+                    <ul>
+                        <li>le mobilier&nbsp;;</li>
+                        <li>le numérique&nbsp;;</li>
+                        <li>la lumière et la température&nbsp;;</li>
+                        <li>la décoration et les accessoires&nbsp;;</li>
+                        <li>le règlement de la classe.</li>
+                    </ul>
+                    <div class="exemple">
+                        Toutes les tables <b>seraient</b> sur roulettes <b>pour</b> les déplacer facilement.<br>
+                        L'utilisation des smartphones <b>serait</b> limitée <b>pour que</b> les apprenants <b>soient</b> concentrés.
+                    </div>
+                    <p class="tache-consigne">Tout doit être au <code>conditionnel présent</code>, puisque cette salle n'existe pas encore. Justifiez chaque choix par un but&nbsp;: <code>pour</code> ou <code>afin de</code> + infinitif quand le sujet ne change pas, <code>pour que</code> + subjonctif quand il change.</p>
+                    <button class="btn-secondaire" onclick="naviguer('vue-devoirs')">Aller à l'espace de dépôt</button>
+                </div>
+
                 <div class="fin-module">
                     <div class="bilan" data-module="mod5"></div>
                     <div class="actions">
                         <button class="btn-secondaire" onclick="naviguer('vue-hub')">Menu principal</button>
-                        <button class="btn-suivant" onclick="naviguer('vue-eval')">Passer à l'évaluation ➔</button>
+                        <button class="btn-suivant" onclick="naviguer('vue-mod6')">Module suivant ➔</button>
                     </div>
                 </div>
             </div>
@@ -896,6 +942,270 @@
                     <h3 style="font-size: 5rem; color: var(--graphite); margin-bottom: 0;" id="score-affichage"></h3>
                     <p style="font-size: 1.4rem; color: var(--or-academique); margin-bottom: 3rem; font-weight: 700;" id="message-affichage"></p>
                     <button class="btn-prim" style="width: auto;" onclick="naviguer('vue-hub')">Retourner au tableau de bord</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODULE 6 : ÉMOTIONS ================= -->
+    <div id="vue-mod6" class="vue">
+        <header>
+            <button class="btn-retour" onclick="naviguer('vue-hub')">Menu Principal</button>
+            <div class="titre-professeur">Module 6</div>
+            <h1>Les Émotions et les Sentiments</h1>
+        </header>
+
+        <div class="conteneur">
+            <div class="section-cours">
+                <h3>Règles et Usages</h3>
+
+                <div class="encadre-grammaire">
+                    <button class="btn-traduction" onclick="toggleTrad('trad-6')">🇪🇸 Ver en español</button>
+                    <h4>Ce qui, ce que, ce dont</h4>
+                    <p>Pour dire ce qui vous touche sans nommer la chose, le français dispose de trois relatifs neutres. Le choix ne dépend pas du sens, mais de la <b>fonction</b> du pronom dans la phrase qui suit.</p>
+
+                    <div class="schema" role="img" aria-label="Schéma du choix entre ce qui, ce que et ce dont selon la fonction grammaticale du pronom.">
+                        <svg viewBox="0 0 620 220" xmlns="http://www.w3.org/2000/svg">
+                            <text x="0" y="14" class="s-etiq">QUELLE FONCTION LE PRONOM OCCUPE-T-IL&#8239;?</text>
+
+                            <rect x="0" y="30" width="190" height="44" rx="4" class="s-objet"/>
+                            <text x="95" y="49" class="s-mot">ce qui</text>
+                            <text x="95" y="66" class="s-lgd s-gris">il est SUJET</text>
+                            <text x="95" y="96" class="s-ex s-petit s-centre">ce qui <tspan class="s-souligne">me rend</tspan> heureux</text>
+                            <text x="95" y="116" class="s-connecteurs s-centre">pas d'autre sujet après</text>
+
+                            <rect x="215" y="30" width="190" height="44" rx="4" class="s-sujet"/>
+                            <text x="310" y="49" class="s-mot">ce que</text>
+                            <text x="310" y="66" class="s-lgd s-gris">il est OBJET</text>
+                            <text x="310" y="96" class="s-ex s-petit s-centre">ce que <tspan class="s-souligne">je</tspan> déteste</text>
+                            <text x="310" y="116" class="s-connecteurs s-centre">un sujet suit aussitôt</text>
+
+                            <rect x="430" y="30" width="190" height="44" rx="4" class="s-agent"/>
+                            <text x="525" y="49" class="s-mot">ce dont</text>
+                            <text x="525" y="66" class="s-lgd s-gris">le verbe veut DE</text>
+                            <text x="525" y="96" class="s-ex s-petit s-centre">ce dont <tspan class="s-souligne">j'ai peur</tspan></text>
+                            <text x="525" y="116" class="s-connecteurs s-centre">avoir peur DE, avoir besoin DE</text>
+
+                            <line x1="0" y1="146" x2="620" y2="146" class="s-axe"/>
+                            <text x="0" y="170" class="s-ex s-petit">Le test&#8239;: retirez «&#8239;ce&#8239;» et posez la question au verbe.</text>
+                            <text x="0" y="192" class="s-connecteurs">…me rend heureux — qui est-ce qui rend&#8239;? le pronom ➔ SUJET ➔ ce qui</text>
+                            <text x="0" y="210" class="s-connecteurs">je déteste… — je déteste quoi&#8239;? le pronom ➔ OBJET ➔ ce que</text>
+                        </svg>
+                    </div>
+
+                    <div id="trad-6" class="texte-espanol">
+                        <b>Traducción explicativa :</b><br>
+                        • <i>Ce qui</i> = "lo que" cuando es <b>sujeto</b>: <i>ce qui me rend heureux</i> → "lo que me hace feliz".<br>
+                        • <i>Ce que</i> = "lo que" cuando es <b>complemento directo</b>: <i>ce que je déteste</i> → "lo que detesto".<br>
+                        • <i>Ce dont</i> = "lo que" con verbos que piden <i>de</i>: <i>ce dont j'ai peur</i> → "lo que me da miedo".<br><br>
+                        Aquí está la dificultad para un hispanohablante: el español usa <b>"lo que"</b> en los tres casos, sin distinguir. En francés hay que preguntarse cada vez qué función cumple el pronombre. Truco práctico: si justo después viene un sujeto (<i>je</i>, <i>tu</i>, <i>il</i>…), es <i>ce que</i>; si viene directamente un verbo, es <i>ce qui</i>; si el verbo lleva <i>de</i> (<i>avoir besoin de</i>, <i>avoir peur de</i>, <i>parler de</i>, <i>rêver de</i>), es <i>ce dont</i>.
+                    </div>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Dire l'effet d'une chose sur soi</h4>
+                    <p>Quatre verbes se partagent cette expression, et <b>chacun impose sa construction</b>. Les confondre est l'erreur la plus visible à l'oral.</p>
+
+                    <div class="enveloppe-tableau">
+                        <table class="tableau-temps">
+                            <thead><tr><th>Verbe</th><th>Suivi de</th><th>Exemple</th></tr></thead>
+                            <tbody>
+                                <tr><td>rendre</td><td>un <b>adjectif</b></td><td>Ça me rend <b>heureux</b>, <b>nerveuse</b>, <b>triste</b>.</td></tr>
+                                <tr><td>faire</td><td>un <b>nom</b>, sans article</td><td>Ça me fait <b>peur</b>, <b>plaisir</b>, <b>honte</b>.</td></tr>
+                                <tr><td>mettre</td><td><b>en</b> + nom</td><td>Ça me met <b>en colère</b>, <b>en confiance</b>.</td></tr>
+                                <tr><td>donner</td><td>un nom, souvent + <b>de</b></td><td>Ça me donne <b>envie de</b> partir, <b>le courage de</b> continuer.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p><b>La faute à ne pas commettre&nbsp;:</b> «&#8239;ça me fait triste&#8239;» n'existe pas. Devant un adjectif, c'est toujours <code>rendre</code>.</p>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Le subjonctif après les verbes de sentiment</h4>
+                    <p>Dès qu'un sentiment est exprimé et qu'une seconde proposition suit avec <code>que</code>, le verbe passe au <b>subjonctif</b>. Le sentiment n'énonce pas un fait&nbsp;: il réagit à ce fait.</p>
+                    <div class="exemple">
+                        Je suis <b>ravi que</b> tu <b>puisses</b> venir.<span class="fleche">·</span>Il est <b>dommage qu'</b>elle ne <b>soit</b> pas là.<br>
+                        J'ai <b>peur qu'</b>il ne <b>pleuve</b>.<span class="fleche">·</span>Je <b>regrette que</b> vous <b>partiez</b> si tôt.
+                    </div>
+                    <ul>
+                        <li><b>Les adjectifs&nbsp;:</b> être content, heureux, ravi, désolé, triste, surpris, étonné, furieux <b>que</b>…</li>
+                        <li><b>Les verbes&nbsp;:</b> regretter, craindre, avoir peur, s'étonner, se réjouir <b>que</b>…</li>
+                        <li><b>Les tournures impersonnelles&nbsp;:</b> il est dommage, il est regrettable, cela m'ennuie <b>que</b>…</li>
+                    </ul>
+                    <p>Le <b>«&#8239;ne&#8239;» explétif</b> apparaît après «&#8239;avoir peur que&#8239;» et «&#8239;craindre que&#8239;»&nbsp;: <i>j'ai peur qu'il <b>ne</b> soit trop tard</i>. Ce «&#8239;ne&#8239;» ne nie rien&nbsp;: il appartient au registre soutenu et peut être omis.</p>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Le lexique du sentiment</h4>
+                    <p>Nommer précisément ce qu'on ressent est ce qui distingue un B2 d'un B1. Chaque émotion se décline en intensités.</p>
+                    <div class="enveloppe-tableau">
+                        <table class="tableau-temps">
+                            <thead><tr><th>Émotion</th><th>Faible</th><th>Forte</th></tr></thead>
+                            <tbody>
+                                <tr><td>La joie</td><td>content, satisfait</td><td>ravi, comblé, aux anges</td></tr>
+                                <tr><td>La tristesse</td><td>déçu, morose</td><td>abattu, effondré</td></tr>
+                                <tr><td>La colère</td><td>agacé, contrarié</td><td>furieux, hors de soi</td></tr>
+                                <tr><td>La peur</td><td>inquiet, préoccupé</td><td>angoissé, terrifié</td></tr>
+                                <tr><td>La surprise</td><td>étonné</td><td>stupéfait, abasourdi</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="titre-exo">Exercices&nbsp;: quinze applications sur les relatifs neutres et le sentiment.</div>
+                <div id="exos-mod6"></div>
+
+                <div class="tache">
+                    <div class="tache-etiquette">Production — à déposer</div>
+                    <h4>Ce qui vous touche</h4>
+                    <p>Rédigez un texte d'environ 150 mots où vous répondez à ces cinq questions, en variant les constructions étudiées&nbsp;:</p>
+                    <ul>
+                        <li>ce que vous faites quand vous vous sentez triste&nbsp;;</li>
+                        <li>ce qui vous rend nerveux ou nerveuse&nbsp;;</li>
+                        <li>ce dont vous avez le plus peur&nbsp;;</li>
+                        <li>ce qui vous met en colère&nbsp;;</li>
+                        <li>ce qui vous rend heureux ou heureuse.</li>
+                    </ul>
+                    <p class="tache-consigne">Employez au moins une fois <code>ce qui</code>, <code>ce que</code> et <code>ce dont</code>, ainsi qu'un verbe de sentiment suivi du subjonctif. Déposez votre texte dans l'espace prévu.</p>
+                    <button class="btn-secondaire" onclick="naviguer('vue-devoirs')">Aller à l'espace de dépôt</button>
+                </div>
+
+                <div class="fin-module">
+                    <div class="bilan" data-module="mod6"></div>
+                    <div class="actions">
+                        <button class="btn-secondaire" onclick="naviguer('vue-hub')">Menu principal</button>
+                        <button class="btn-suivant" onclick="naviguer('vue-mod7')">Module suivant ➔</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODULE 7 : OPINION ================= -->
+    <div id="vue-mod7" class="vue">
+        <header>
+            <button class="btn-retour" onclick="naviguer('vue-hub')">Menu Principal</button>
+            <div class="titre-professeur">Module 7</div>
+            <h1>Exprimer son Opinion</h1>
+        </header>
+
+        <div class="conteneur">
+            <div class="section-cours">
+                <h3>Règles et Usages</h3>
+
+                <div class="encadre-grammaire">
+                    <button class="btn-traduction" onclick="toggleTrad('trad-7')">🇪🇸 Ver en español</button>
+                    <h4>L'interrupteur indicatif / subjonctif</h4>
+                    <p>C'est le point le plus rentable du module, et le plus souvent manqué. Le même verbe d'opinion change de mode selon la forme de la phrase&nbsp;: affirmative, ou non.</p>
+
+                    <div class="schema" role="img" aria-label="Schéma montrant que les verbes d'opinion appellent l'indicatif à la forme affirmative et le subjonctif à la forme négative ou interrogative.">
+                        <svg viewBox="0 0 620 210" xmlns="http://www.w3.org/2000/svg">
+                            <text x="310" y="16" class="s-note s-note-or">JE PENSE · JE CROIS · JE TROUVE QUE…</text>
+
+                            <path d="M 310 26 L 310 44 L 150 44 L 150 60" class="s-lien"/>
+                            <path d="M 310 26 L 310 44 L 470 44 L 470 60" class="s-lien"/>
+
+                            <text x="150" y="76" class="s-etiq2 s-note-sauge">AFFIRMATIF · CERTITUDE</text>
+                            <rect x="20" y="86" width="260" height="44" rx="4" class="s-objet"/>
+                            <text x="150" y="105" class="s-mot">INDICATIF</text>
+                            <text x="150" y="123" class="s-lgd s-gris">le fait est posé</text>
+                            <text x="150" y="156" class="s-ex s-petit s-centre">Je pense qu'il <tspan class="s-souligne">a</tspan> raison.</text>
+
+                            <text x="470" y="76" class="s-etiq2 s-note-or">NÉGATIF OU INTERROGATIF · DOUTE</text>
+                            <rect x="340" y="86" width="260" height="44" rx="4" class="s-sujet"/>
+                            <text x="470" y="105" class="s-mot">SUBJONCTIF</text>
+                            <text x="470" y="123" class="s-lgd s-gris">le fait est mis en doute</text>
+                            <text x="470" y="156" class="s-ex s-petit s-centre">Je ne pense pas qu'il <tspan class="s-souligne">ait</tspan> raison.</text>
+
+                            <text x="310" y="188" class="s-connecteurs s-centre">Croyez-vous qu'il ait raison&#8239;? — l'interrogation par inversion bascule elle aussi au subjonctif.</text>
+                            <text x="310" y="206" class="s-connecteurs s-centre">En revanche&#8239;: «&#8239;Est-ce que tu penses qu'il a raison&#8239;?&#8239;» garde l'indicatif.</text>
+                        </svg>
+                    </div>
+
+                    <div id="trad-7" class="texte-espanol">
+                        <b>Traducción explicativa :</b><br>
+                        • <i>Je pense que + indicativo</i> → "creo que + indicativo".<br>
+                        • <i>Je ne pense pas que + subjuntivo</i> → "no creo que + subjuntivo".<br><br>
+                        Buena noticia: <b>la regla es la misma que en español</b>. "Creo que tiene razón" frente a "no creo que tenga razón". Puedes apoyarte directamente en tu lengua para este punto.<br><br>
+                        Dos diferencias que sí conviene retener: en francés la interrogación <b>por inversión</b> (<i>Croyez-vous qu'il ait…</i>) también exige subjuntivo, mientras que con <i>est-ce que</i> se mantiene el indicativo. Y <i>c'est n'importe quoi</i>, aunque se oiga mucho, es coloquial: equivale a "es una tontería" y no debe aparecer en un examen escrito.
+                    </div>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Prendre position</h4>
+                    <p>Avant l'argument vient la formule qui l'annonce. Elle signale à l'auditeur que ce qui suit est un avis, non un fait établi.</p>
+                    <ul>
+                        <li><b>Neutres, tous registres&nbsp;:</b> <code>à mon avis</code>, <code>selon moi</code>, <code>d'après moi</code>, <code>pour moi</code>, <code>personnellement</code>.</li>
+                        <li><b>Avec un verbe d'opinion&nbsp;:</b> <code>je pense que</code>, <code>je crois que</code>, <code>je trouve que</code>, <code>j'estime que</code>, <code>je considère que</code>.</li>
+                        <li><b>Jugement direct, sans proposition&nbsp;:</b> <code>je trouve + nom + adjectif</code> — <i>je trouve ce débat exagéré</i>.</li>
+                    </ul>
+                    <p><b>Ne confondez pas&nbsp;:</b> <i>il paraît que</i> et <i>on dit que</i> rapportent le propos d'autrui&nbsp;; ils n'engagent pas celui qui parle.</p>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>L'accord et le désaccord, par degrés</h4>
+                    <p>Un débat ne se joue pas en oui ou non. Le jury du DELF attend précisément ces nuances intermédiaires.</p>
+
+                    <div class="schema" role="img" aria-label="Échelle allant du désaccord total à l'accord total, avec les formules correspondantes.">
+                        <svg viewBox="0 0 620 130" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="20" y1="46" x2="600" y2="46" class="s-axe"/>
+                            <circle cx="20" cy="46" r="5" class="s-point s-point-nul"/>
+                            <circle cx="180" cy="46" r="5" class="s-point"/>
+                            <circle cx="340" cy="46" r="5" class="s-point"/>
+                            <circle cx="600" cy="46" r="5" class="s-point s-point-total"/>
+
+                            <text x="20" y="30" class="s-etiq">DÉSACCORD</text>
+                            <text x="600" y="30" class="s-etiq s-fin">ACCORD</text>
+
+                            <text x="0" y="70" class="s-lgd s-debut">Je ne suis pas</text>
+                            <text x="0" y="86" class="s-lgd s-debut">de ton avis.</text>
+                            <text x="180" y="70" class="s-lgd">Je ne partage pas</text>
+                            <text x="180" y="86" class="s-lgd">entièrement…</text>
+                            <text x="340" y="70" class="s-lgd">Je vois ce que</text>
+                            <text x="340" y="86" class="s-lgd">tu veux dire, mais…</text>
+                            <text x="600" y="70" class="s-lgd s-fin">Je partage</text>
+                            <text x="600" y="86" class="s-lgd s-fin">entièrement ton avis.</text>
+
+                            <text x="20" y="112" class="s-connecteurs">Registre familier, à éviter à l'écrit&#8239;: «&#8239;C'est n'importe quoi&#8239;!&#8239;» · «&#8239;Tu as tort.&#8239;»</text>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Concéder pour mieux argumenter</h4>
+                    <p>La marque d'un argumentateur solide n'est pas de nier l'objection, mais de la reconnaître avant de la dépasser.</p>
+                    <div class="exemple">
+                        <b>Certes</b>, ces mots sont pratiques, <b>mais</b> ils excluent ceux qui ne les comprennent pas.<br>
+                        <b>Il est vrai que</b> le débat est ancien&#8239;; <b>cependant</b>, il reste d'actualité.<br>
+                        <b>Bien que</b> l'emprunt <b>soit</b> naturel, son rythme actuel interroge.
+                    </div>
+                    <p><b>Attention&nbsp;:</b> <code>bien que</code> et <code>quoique</code> commandent le <b>subjonctif</b>, à la différence de <code>même si</code>, qui garde l'indicatif.</p>
+                </div>
+
+                <div class="tache">
+                    <div class="tache-etiquette">Production — à déposer</div>
+                    <h4>Le débat des anglicismes</h4>
+                    <p>Dans un échange en ligne, quatre positions s'affrontent au sujet des mots anglais employés au travail — <i>forwarder</i>, <i>ASAP</i>, <i>deadline</i>, <i>call</i>&nbsp;:</p>
+                    <ul>
+                        <li>ils créent des modes inutiles et rendent le français inaccessible&nbsp;;</li>
+                        <li>on en dit trop&nbsp;: le phénomène reste marginal&nbsp;;</li>
+                        <li>il faudrait imiter les Québécois et créer des équivalents français&nbsp;;</li>
+                        <li>les langues empruntent depuis toujours&nbsp;: rien de nouveau.</li>
+                    </ul>
+                    <p class="tache-consigne">Rédigez environ 180 mots&nbsp;: dites avec quelle position vous êtes d'accord et pourquoi, en concédant au moins un point à l'opinion adverse. Employez une formule d'opinion, une de désaccord nuancé, et au moins une fois <code>je ne pense pas que</code> + subjonctif.</p>
+                    <button class="btn-secondaire" onclick="naviguer('vue-devoirs')">Aller à l'espace de dépôt</button>
+                </div>
+
+                <div class="titre-exo">Exercices&nbsp;: quinze applications sur l'opinion, l'accord et la concession.</div>
+                <div id="exos-mod7"></div>
+
+                <div class="fin-module">
+                    <div class="bilan" data-module="mod7"></div>
+                    <div class="actions">
+                        <button class="btn-secondaire" onclick="naviguer('vue-hub')">Menu principal</button>
+                        <button class="btn-suivant" onclick="naviguer('vue-eval')">Passer à l'évaluation ➔</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1804,6 +2114,246 @@
                   aide: 'verbe conjugué',
                   fb: "«&#8239;Pouvoir&#8239;» au subjonctif présent, deuxième personne&nbsp;: «&#8239;que tu puisses&#8239;».",
                   fbFaux: "«&#8239;Afin que&#8239;» commande le subjonctif&nbsp;: révisez la forme de «&#8239;pouvoir&#8239;»." }
+            ],
+
+            /* ── Module 6 · Émotions et sentiments ────────────────────── */
+            mod6: [
+                { type: 'qcm',
+                  q: '________ me rend heureux, c\'est de retrouver mes amis.',
+                  opt: ['Ce qui', 'Ce que', 'Ce dont'],
+                  rep: 0,
+                  fb: ["Exact&#8239;! «&#8239;Ce qui&#8239;» est <b>sujet</b> du verbe qui suit&nbsp;: c'est «&#8239;ce&#8239;» qui rend heureux.",
+                       "«&#8239;Ce que&#8239;» est complément d'objet&nbsp;: il faudrait un sujet après lui.",
+                       "«&#8239;Ce dont&#8239;» s'emploie avec les verbes construits avec «&#8239;de&#8239;»."] },
+
+                { type: 'qcm',
+                  q: '________ je déteste, c\'est l\'hypocrisie.',
+                  opt: ['Ce qui', 'Ce que', 'Ce dont'],
+                  rep: 1,
+                  fb: ["«&#8239;Ce qui&#8239;» serait sujet&nbsp;; or «&#8239;je&#8239;» est déjà le sujet de «&#8239;déteste&#8239;».",
+                       "Exact&#8239;! «&#8239;Ce que&#8239;» est <b>complément d'objet direct</b> de «&#8239;déteste&#8239;», qui a déjà son sujet.",
+                       "«&#8239;Détester&#8239;» se construit sans «&#8239;de&#8239;»."] },
+
+                { type: 'qcm',
+                  q: '________ j\'ai le plus peur, c\'est de parler en public.',
+                  opt: ['Ce qui', 'Ce que', 'Ce dont'],
+                  rep: 2,
+                  fb: ["«&#8239;Avoir peur&#8239;» se construit avec «&#8239;de&#8239;»&nbsp;: «&#8239;ce qui&#8239;» ne convient pas.",
+                       "«&#8239;Ce que&#8239;» ne reprend pas la préposition «&#8239;de&#8239;».",
+                       "Exact&#8239;! On dit «&#8239;avoir peur <b>de</b> quelque chose&#8239;»&nbsp;: la préposition impose «&#8239;ce dont&#8239;»."] },
+
+                { type: 'qcm',
+                  q: 'Le bruit constant ________ nerveuse.',
+                  opt: ['me fait', 'me rend', 'me met'],
+                  rep: 1,
+                  fb: ["«&#8239;Faire&#8239;» se construit avec un <b>nom</b>&nbsp;: «&#8239;ça me fait peur&#8239;».",
+                       "Exact&#8239;! <b>Rendre + adjectif</b>&nbsp;: ça me rend nerveuse, triste, heureuse.",
+                       "«&#8239;Mettre&#8239;» exige la préposition «&#8239;en&#8239;»&nbsp;: «&#8239;ça me met en colère&#8239;»."] },
+
+                { type: 'qcm',
+                  q: 'Cette injustice ________ colère.',
+                  opt: ['me rend en', 'me met en', 'me fait en'],
+                  rep: 1,
+                  fb: ["«&#8239;Rendre&#8239;» ne se construit jamais avec «&#8239;en&#8239;».",
+                       "Exact&#8239;! <b>Mettre en + nom</b>&nbsp;: en colère, en confiance, mal à l'aise.",
+                       "«&#8239;Faire&#8239;» est suivi directement du nom, sans «&#8239;en&#8239;»."] },
+
+                { type: 'qcm',
+                  q: 'Ton message ________ très plaisir.',
+                  opt: ['m\'a fait', 'm\'a rendu', 'm\'a mis'],
+                  rep: 0,
+                  fb: ["Exact&#8239;! <b>Faire + nom</b>&nbsp;: faire plaisir, faire peur, faire honte, faire pitié.",
+                       "«&#8239;Rendre&#8239;» demande un adjectif&nbsp;: «&#8239;m'a rendu heureux&#8239;».",
+                       "«&#8239;Mettre&#8239;» demande «&#8239;en&#8239;» ou un adverbe de manière."] },
+
+                { type: 'qcm',
+                  q: 'Je suis ravi que tu ________ venir à la fête.',
+                  opt: ['peux', 'puisses', 'pourras'],
+                  rep: 1,
+                  fb: ["Après un verbe de sentiment, l'indicatif est impossible.",
+                       "Exact&#8239;! Les verbes et adjectifs de sentiment — être ravi, content, triste, avoir peur — commandent le <b>subjonctif</b>.",
+                       "Le futur est un temps de l'indicatif&nbsp;: il ne convient pas ici."] },
+
+                { type: 'qcm',
+                  q: 'J\'ai peur qu\'il ________ en retard.',
+                  opt: ['est', 'soit', 'sera'],
+                  rep: 1,
+                  fb: ["«&#8239;Avoir peur que&#8239;» n'admet pas l'indicatif.",
+                       "Exact&#8239;! «&#8239;Avoir peur que&#8239;» + subjonctif. On rencontre aussi «&#8239;qu'il ne soit&#8239;», avec un «&#8239;ne&#8239;» explétif qui n'est pas une négation.",
+                       "Le futur relève de l'indicatif."] },
+
+                { type: 'qcm',
+                  q: 'Quelle phrase est <b>incorrecte</b>&nbsp;?',
+                  opt: ['Ça me rend triste.', 'Ça me fait triste.', 'Ça me met mal à l\'aise.'],
+                  rep: 1,
+                  fb: ["Correcte&nbsp;: rendre + adjectif.",
+                       "Exact&#8239;! C'est l'erreur à retenir&nbsp;: «&#8239;faire&#8239;» ne se construit pas avec un adjectif. On dit «&#8239;ça me rend triste&#8239;».",
+                       "Correcte&nbsp;: mettre + locution adverbiale."] },
+
+                { type: 'qcm',
+                  q: 'Quel sentiment exprime «&#8239;l\'agacement&#8239;»&nbsp;?',
+                  opt: ['Une joie intense', 'Une irritation légère', 'Une peur profonde'],
+                  rep: 1,
+                  fb: ["La joie intense serait «&#8239;l'euphorie&#8239;» ou «&#8239;l'allégresse&#8239;».",
+                       "Exact&#8239;! L'agacement est une contrariété légère, en deçà de la colère.",
+                       "La peur profonde serait «&#8239;l'angoisse&#8239;» ou «&#8239;l'effroi&#8239;»."] },
+
+                { type: 'saisie',
+                  q: 'Complétez&nbsp;: «&#8239;________ m\'inquiète, c\'est son silence.&#8239;» (deux mots)',
+                  rep: ['ce qui'],
+                  aide: 'ce …',
+                  fb: "«&#8239;Ce qui&#8239;» est sujet du verbe «&#8239;inquiète&#8239;».",
+                  fbFaux: "Le pronom relatif neutre est ici <b>sujet</b> du verbe qui suit." },
+
+                { type: 'saisie',
+                  q: 'Complétez&nbsp;: «&#8239;________ j\'ai besoin, c\'est d\'un peu de calme.&#8239;» (deux mots)',
+                  rep: ['ce dont'],
+                  aide: 'ce …',
+                  fb: "«&#8239;Avoir besoin <b>de</b>&#8239;» impose «&#8239;ce dont&#8239;».",
+                  fbFaux: "Le verbe se construit avec «&#8239;de&#8239;»&nbsp;: quel pronom relatif reprend cette préposition&nbsp;?" },
+
+                { type: 'saisie',
+                  q: 'Construction correcte&nbsp;: «&#8239;Les examens me ________ anxieux.&#8239;» (un verbe)',
+                  rep: ['rendent'],
+                  aide: 'verbe conjugué',
+                  fb: "«&#8239;Anxieux&#8239;» est un adjectif&nbsp;: seul «&#8239;rendre&#8239;» convient, accordé au pluriel.",
+                  fbFaux: "Devant un adjectif, employez «&#8239;rendre&#8239;» — et accordez-le avec «&#8239;les examens&#8239;»." },
+
+                { type: 'saisie',
+                  q: 'Subjonctif&nbsp;: «&#8239;Je suis désolée que vous ne ________ (pouvoir) pas rester.&#8239;»',
+                  rep: ['puissiez'],
+                  aide: 'verbe conjugué',
+                  fb: "Après «&#8239;être désolé que&#8239;», subjonctif présent de «&#8239;pouvoir&#8239;»&nbsp;: que vous puissiez.",
+                  fbFaux: "Un adjectif de sentiment commande le subjonctif&nbsp;: révisez «&#8239;pouvoir&#8239;» à la deuxième personne du pluriel." },
+
+                { type: 'saisie',
+                  q: 'Reformulez avec «&#8239;mettre&#8239;»&nbsp;: «&#8239;Cette remarque m\'a énervé.&#8239;» ➔ Cette remarque m\'a ________ colère. (deux mots)',
+                  rep: ['mis en'],
+                  aide: 'mis …',
+                  fb: "«&#8239;Mettre en colère&#8239;»&nbsp;: le participe «&#8239;mis&#8239;» suivi de la préposition «&#8239;en&#8239;».",
+                  fbFaux: "La construction attendue associe le participe de «&#8239;mettre&#8239;» à la préposition «&#8239;en&#8239;»." }
+            ],
+
+            /* ── Module 7 · Exprimer son opinion ──────────────────────── */
+            mod7: [
+                { type: 'qcm',
+                  q: 'Je pense que cette réforme ________ nécessaire.',
+                  opt: ['soit', 'est', 'ait été'],
+                  rep: 1,
+                  fb: ["À la forme affirmative, «&#8239;je pense que&#8239;» n'appelle pas le subjonctif.",
+                       "Exact&#8239;! <b>Affirmatif ➔ indicatif.</b> L'opinion est présentée comme certaine.",
+                       "Le subjonctif passé ne convient pas davantage ici."] },
+
+                { type: 'qcm',
+                  q: 'Je ne pense pas que cette réforme ________ nécessaire.',
+                  opt: ['est', 'soit', 'sera'],
+                  rep: 1,
+                  fb: ["À la forme négative, l'indicatif n'est plus possible.",
+                       "Exact&#8239;! <b>Négatif ➔ subjonctif.</b> Le doute s'installe, et le mode change avec lui.",
+                       "Le futur appartient à l'indicatif."] },
+
+                { type: 'qcm',
+                  q: 'Quelle formule appartient au registre <b>familier</b>&nbsp;?',
+                  opt: ['Je ne partage pas ton avis.', 'C\'est n\'importe quoi&#8239;!', 'Je ne suis pas de ton avis.'],
+                  rep: 1,
+                  fb: ["Formule neutre, utilisable partout.",
+                       "Exact&#8239;! À réserver aux échanges entre proches&nbsp;: elle est trop abrupte pour un débat ou un examen.",
+                       "Formule neutre et courtoise."] },
+
+                { type: 'qcm',
+                  q: 'Croyez-vous qu\'il ________ raison&#8239;?',
+                  opt: ['a', 'ait', 'aura'],
+                  rep: 1,
+                  fb: ["À la forme interrogative avec inversion, l'indicatif s'efface au profit du doute.",
+                       "Exact&#8239;! L'interrogation par inversion appelle le subjonctif, comme la négation.",
+                       "Le futur relève de l'indicatif."] },
+
+                { type: 'qcm',
+                  q: 'Quelle expression introduit une opinion <b>personnelle</b>&nbsp;?',
+                  opt: ['Il paraît que', 'À mon avis', 'On dit que'],
+                  rep: 1,
+                  fb: ["«&#8239;Il paraît que&#8239;» rapporte le propos d'autrui.",
+                       "Exact&#8239;! Comme «&#8239;selon moi&#8239;», «&#8239;personnellement&#8239;», «&#8239;d'après moi&#8239;»&nbsp;: l'énonciateur prend position.",
+                       "«&#8239;On dit que&#8239;» renvoie à une rumeur, non à un avis assumé."] },
+
+                { type: 'qcm',
+                  q: 'Marquer un désaccord poli&nbsp;: quelle formule choisir&nbsp;?',
+                  opt: ['Tu as tort.', 'Je ne partage pas entièrement ton avis.', 'C\'est faux.'],
+                  rep: 1,
+                  fb: ["«&#8239;Tu as tort&#8239;» est direct et peut heurter dans un débat.",
+                       "Exact&#8239;! L'adverbe «&#8239;entièrement&#8239;» nuance le refus et laisse la discussion ouverte&nbsp;: c'est ce qu'attend l'épreuve du DELF.",
+                       "«&#8239;C'est faux&#8239;» clôt l'échange sans ménagement."] },
+
+                { type: 'qcm',
+                  q: 'Il est vrai que le débat est ancien, ________ il reste actuel.',
+                  opt: ['cependant', 'parce que', 'afin que'],
+                  rep: 0,
+                  fb: ["Exact&#8239;! «&#8239;Certes… cependant&#8239;» concède d'abord un point, puis rétablit sa position&nbsp;: c'est la structure argumentative attendue en B2.",
+                       "«&#8239;Parce que&#8239;» introduit une cause, non une opposition.",
+                       "«&#8239;Afin que&#8239;» introduit un but."] },
+
+                { type: 'qcm',
+                  q: '«&#8239;Je trouve ce débat exagéré.&#8239;» Quelle construction suit «&#8239;trouver&#8239;» ici&nbsp;?',
+                  opt: ['trouver + nom + adjectif', 'trouver que + subjonctif', 'trouver de + infinitif'],
+                  rep: 0,
+                  fb: ["Exact&#8239;! «&#8239;Trouver quelque chose + adjectif&#8239;» exprime un jugement direct, sans proposition.",
+                       "«&#8239;Trouver que&#8239;» à l'affirmative appelle l'indicatif, pas le subjonctif.",
+                       "Cette construction n'existe pas avec «&#8239;trouver&#8239;»."] },
+
+                { type: 'qcm',
+                  q: 'Quel énoncé exprime un accord <b>total</b>&nbsp;?',
+                  opt: ['Je partage entièrement ton avis.',
+                        'Je vois ce que tu veux dire, mais…',
+                        'Ce n\'est pas si simple.'],
+                  rep: 0,
+                  fb: ["Exact&#8239;! L'adverbe «&#8239;entièrement&#8239;» marque l'adhésion sans réserve.",
+                       "«&#8239;Mais&#8239;» annonce une objection&nbsp;: l'accord n'est que partiel.",
+                       "Cette formule prépare une contestation."] },
+
+                { type: 'qcm',
+                  q: 'Dans le débat sur les anglicismes, quel argument relève de l\'<b>histoire de la langue</b>&nbsp;?',
+                  opt: ["Ces mots créent des modes inutiles.",
+                        "Les langues empruntent depuis toujours des mots à d'autres langues.",
+                        "Il faudrait imiter les Québécois."],
+                  rep: 1,
+                  fb: ["C'est un argument sur l'usage contemporain, non sur l'histoire.",
+                       "Exact&#8239;! L'emprunt est un phénomène constant&nbsp;: le français a pris à l'arabe, à l'italien, à l'anglais. C'est l'argument historique.",
+                       "C'est un argument de politique linguistique comparée."] },
+
+                { type: 'saisie',
+                  q: 'Indicatif ou subjonctif&nbsp;? «&#8239;Je crois qu\'il ________ (avoir) raison.&#8239;»',
+                  rep: ['a'],
+                  aide: 'verbe conjugué',
+                  fb: "Affirmatif&nbsp;: «&#8239;je crois que&#8239;» + indicatif présent.",
+                  fbFaux: "La forme est affirmative&nbsp;: l'opinion est assumée, donc l'indicatif s'impose." },
+
+                { type: 'saisie',
+                  q: 'Indicatif ou subjonctif&nbsp;? «&#8239;Je ne crois pas qu\'il ________ (avoir) raison.&#8239;»',
+                  rep: ['ait'],
+                  aide: 'verbe conjugué',
+                  fb: "Négatif&nbsp;: «&#8239;je ne crois pas que&#8239;» + subjonctif présent d'«&#8239;avoir&#8239;».",
+                  fbFaux: "La négation introduit le doute&nbsp;: le subjonctif est alors obligatoire." },
+
+                { type: 'saisie',
+                  q: 'Introduisez une opinion personnelle en trois mots&nbsp;: «&#8239;________, ce débat est utile.&#8239;» (à … avis)',
+                  rep: ['à mon avis'],
+                  aide: 'à … avis',
+                  fb: "«&#8239;À mon avis&#8239;» introduit une prise de position personnelle.",
+                  fbFaux: "La locution attendue commence par «&#8239;à&#8239;» et contient le mot «&#8239;avis&#8239;»." },
+
+                { type: 'saisie',
+                  q: 'Exprimez un désaccord neutre&nbsp;: «&#8239;Je ne suis pas ________ ton avis.&#8239;» (un mot)',
+                  rep: ['de'],
+                  aide: 'une préposition',
+                  fb: "«&#8239;Être de l'avis de quelqu'un&#8239;»&nbsp;: la préposition est «&#8239;de&#8239;».",
+                  fbFaux: "L'expression figée est «&#8239;être de l'avis de&#8239;»." },
+
+                { type: 'saisie',
+                  q: 'Concession&nbsp;: «&#8239;________ que ces mots sont pratiques, mais ils excluent ceux qui ne les comprennent pas.&#8239;» (deux mots, registre soutenu)',
+                  rep: ['il est vrai', 'certes'],
+                  aide: 'il est …',
+                  fb: "«&#8239;Il est vrai que… mais…&#8239;» concède un point avant de rétablir sa position.",
+                  fbFaux: "On attend une formule de concession qui reconnaît d'abord la validité de l'argument adverse." }
             ]
         };
 
@@ -1837,7 +2387,19 @@
             { q: "Dans une classe idéale, il ________ des tables à roulettes.", opt: ["y aura", "y avait", "y aurait"], rep: 2 },
             { q: "Il travaille dur ________ réussir son examen DELF.", opt: ["pour que", "afin de", "bien que"], rep: 1 },
             { q: "Si j'avais le temps, je ________ ce roman.", opt: ["lirais", "lirai", "aurais lu"], rep: 0 },
-            { q: "Je t'explique afin que tu ________ travailler seul.", opt: ["peux", "puisses", "pourras"], rep: 1 }
+            { q: "Je t'explique afin que tu ________ travailler seul.", opt: ["peux", "puisses", "pourras"], rep: 1 },
+
+            // Module 6 · émotions et sentiments
+            { q: "________ me rend heureux, c'est de revoir mes amis.", opt: ["Ce qui", "Ce que", "Ce dont"], rep: 0 },
+            { q: "________ j'ai besoin, c'est d'un peu de calme.", opt: ["Ce qui", "Ce que", "Ce dont"], rep: 2 },
+            { q: "Le bruit constant me ________ nerveuse.", opt: ["fait", "rend", "met"], rep: 1 },
+            { q: "Je suis ravi que tu ________ venir.", opt: ["peux", "puisses", "pourras"], rep: 1 },
+
+            // Module 7 · exprimer son opinion
+            { q: "Je pense que cette réforme ________ nécessaire.", opt: ["soit", "est", "ait été"], rep: 1 },
+            { q: "Je ne pense pas que cette réforme ________ nécessaire.", opt: ["est", "soit", "sera"], rep: 1 },
+            { q: "Il est vrai que le débat est ancien, ________ il reste actuel.", opt: ["cependant", "parce que", "afin que"], rep: 0 },
+            { q: "Bien que l'emprunt ________ naturel, son rythme interroge.", opt: ["est", "soit", "sera"], rep: 1 }
         ];
 
         let scoreEval = 0; let nbReponduesEval = 0;
