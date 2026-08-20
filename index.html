@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
@@ -96,6 +96,102 @@
         .btn-reinitialiser:hover { background: var(--gris-doux); }
 
         footer { text-align: center; padding: 5rem 1rem 3rem; color: #888; font-size: 0.95rem; }
+
+        /* Schémas grammaticaux (SVG dessinés dans la palette du dossier) */
+        .schema { margin: 2rem 0; overflow-x: auto; }
+        .schema svg { width: 100%; min-width: 480px; height: auto; display: block; }
+        .s-etiq { font-family: var(--font-texte); font-size: 12px; font-weight: 700; letter-spacing: 2px; fill: var(--or-academique); }
+        .s-mot { font-family: var(--font-texte); font-size: 16px; font-weight: 700; fill: var(--graphite); text-anchor: middle; }
+        .s-mot.s-clair { fill: var(--texte-clair); }
+        .s-sujet { fill: #EFEBE0; stroke: var(--or-academique); stroke-width: 1.5; }
+        .s-verbe { fill: var(--graphite); }
+        .s-objet { fill: #E4EBE6; stroke: var(--sauge); stroke-width: 1.5; }
+        /* Trait interrompu : le complément d'agent reste facultatif. La
+           couleur reprend celle du sujet actif, pour signaler qu'il s'agit
+           du même élément déplacé. */
+        .s-agent { fill: #FBF8F1; stroke: var(--or-academique); stroke-width: 1.5; stroke-dasharray: 5 4; }
+        .s-fleche { fill: none; stroke-width: 1.5; stroke-dasharray: 5 4; }
+        .s-vers-sujet { stroke: var(--sauge); }
+        .s-vers-agent { stroke: var(--or-academique); }
+        .s-axe { stroke: var(--gris-doux); stroke-width: 2; }
+        .s-grad { font-family: var(--font-texte); font-size: 12px; font-weight: 700; fill: #8A8880; text-anchor: middle; }
+        .s-point { fill: var(--or-academique); }
+        .s-point-nul { fill: var(--terre-cuite); }
+        .s-point-total { fill: var(--sauge); }
+        .s-lgd { font-family: var(--font-texte); font-size: 13px; font-weight: 700; fill: var(--graphite); text-anchor: middle; }
+        .s-lgd.s-gris { font-weight: 400; fill: #8A8880; font-size: 12px; }
+        .s-fin { text-anchor: end; }
+        .s-sep { fill: var(--gris-doux); }
+        .s-lien { fill: none; stroke: var(--graphite); stroke-width: 1.5; }
+        .s-connecteurs { font-family: var(--font-texte); font-size: 11.5px; fill: #8A8880; }
+        .s-centre { text-anchor: middle; }
+        .s-souligne { fill: var(--or-academique); font-weight: 700; }
+        .s-etiq2 { font-family: var(--font-texte); font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-anchor: middle; }
+        .s-ex.s-petit { font-size: 13px; }
+        .s-note { font-family: var(--font-texte); font-size: 12px; font-weight: 700; text-anchor: middle; }
+        .s-note-sauge { fill: var(--sauge); }
+        .s-note-or { fill: var(--or-academique); }
+        .s-ex { font-family: var(--font-texte); font-size: 16px; fill: var(--graphite); font-weight: 600; }
+        .s-ex.s-gris { fill: #8A8880; font-weight: 400; }
+        .s-marque { fill: var(--terre-cuite); font-weight: 700; }
+
+        /* Exercices de transformation à saisie libre */
+        .btn-verifier { margin-top: 1.2rem; background: transparent; border: 2px solid var(--graphite); color: var(--graphite); padding: 0.7rem 1.8rem; border-radius: 30px; cursor: pointer; font-family: var(--font-texte); font-size: 1rem; font-weight: 700; transition: all 0.2s; }
+        .btn-verifier:hover { background: var(--graphite); color: var(--texte-clair); }
+        .q-bloc.verrouille .btn-verifier { display: none; }
+        input.saisie:disabled { opacity: 1; -webkit-text-fill-color: currentColor; }
+
+        /* Tableau de conjugaison */
+        .tableau-temps { width: 100%; border-collapse: collapse; margin: 1.2rem 0 0.5rem; font-size: 1rem; }
+        .tableau-temps th, .tableau-temps td { text-align: left; padding: 0.6rem 1rem 0.6rem 0; border-bottom: 1px solid var(--gris-doux); vertical-align: top; }
+        .tableau-temps th { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--or-academique); font-weight: 700; }
+        .tableau-temps td:first-child { color: var(--graphite); font-weight: 700; white-space: nowrap; padding-right: 1.5rem; }
+        .enveloppe-tableau { overflow-x: auto; }
+
+        /* Exemple mis en exergue */
+        .exemple { border-left: 3px solid var(--sauge); padding: 0.8rem 0 0.8rem 1.2rem; margin: 1.2rem 0; color: #4A4A4A; }
+        .exemple b { color: var(--graphite); }
+        .exemple .fleche { color: var(--sauge); font-weight: 700; margin: 0 0.4rem; }
+
+        /* Navigation de fin de module */
+        .fin-module { display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: space-between; align-items: center; margin-top: 1rem; padding-top: 2.5rem; border-top: 2px solid var(--gris-doux); }
+        .fin-module .bilan { font-weight: 700; color: var(--graphite); }
+        .fin-module .bilan span { color: var(--or-academique); }
+        .fin-module .actions { display: flex; flex-wrap: wrap; gap: 1rem; }
+        .btn-secondaire { background: transparent; border: 2px solid var(--gris-doux); color: var(--graphite); padding: 0.9rem 1.8rem; border-radius: 4px; cursor: pointer; font-family: var(--font-texte); font-weight: 700; font-size: 0.95rem; transition: all 0.2s; }
+        .btn-secondaire:hover { border-color: var(--graphite); }
+        .btn-suivant { background: var(--graphite); border: 2px solid var(--graphite); color: var(--texte-clair); padding: 0.9rem 1.8rem; border-radius: 4px; cursor: pointer; font-family: var(--font-texte); font-weight: 700; font-size: 0.95rem; transition: background 0.3s; }
+        .btn-suivant:hover { background: var(--or-academique); border-color: var(--or-academique); color: var(--graphite); }
+
+        /* Espace de dépôt des devoirs */
+        .carte-hub.devoirs { border-top-color: var(--sauge); }
+        .carte-hub.devoirs .btn-prim { background: var(--sauge); color: white; }
+        .carte-hub.devoirs .btn-prim:hover { background: var(--graphite); color: var(--texte-clair); }
+
+        .etapes { list-style: none; counter-reset: etape; margin: 0 0 3rem; }
+        .etapes li { counter-increment: etape; position: relative; padding-left: 4.5rem; margin-bottom: 2rem; font-size: 1.05rem; }
+        .etapes li::before { content: counter(etape); position: absolute; left: 0; top: -0.35rem; width: 3rem; height: 3rem; border-radius: 50%; background: var(--gris-doux); color: var(--graphite); font-family: var(--font-titre); font-size: 1.4rem; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+        .etapes li b { display: block; color: var(--graphite); font-size: 1.15rem; margin-bottom: 0.2rem; }
+
+        .zone-depot { text-align: center; background: #FDFCF8; border: 2px dashed var(--sauge); border-radius: 8px; padding: 3.5rem 2rem; margin-bottom: 1.5rem; }
+        .zone-depot .icone { font-size: 3.5rem; line-height: 1; margin-bottom: 1rem; }
+        .zone-depot p { color: #5C5C5C; max-width: 520px; margin: 0 auto 2rem; }
+        .btn-depot { display: inline-block; background: var(--sauge); color: white; text-decoration: none; padding: 1.2rem 3rem; border: none; border-radius: 4px; font-family: var(--font-texte); font-size: 1.05rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; cursor: pointer; transition: background 0.3s; }
+        .btn-depot:hover { background: var(--graphite); }
+        .btn-depot[aria-disabled="true"] { background: var(--gris-doux); color: #999; cursor: not-allowed; pointer-events: none; }
+        .note-depot { text-align: center; font-size: 0.95rem; color: #888; }
+
+        @media (max-width: 600px) {
+            .etapes li { padding-left: 3.2rem; }
+            .etapes li::before { width: 2.2rem; height: 2.2rem; font-size: 1.1rem; top: 0; }
+            .zone-depot { padding: 2.5rem 1.2rem; }
+            .btn-depot { padding: 1.1rem 1.5rem; letter-spacing: 1px; width: 100%; }
+        }
+
+        .grille-infos { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+        .grille-infos .encadre-grammaire { margin-bottom: 0; }
+        .grille-infos h4 { font-size: 1.2rem; }
+        .grille-infos p { font-size: 1rem; color: #5C5C5C; }
     </style>
 </head>
 <body>
@@ -106,14 +202,14 @@
         <header>
             <div class="titre-professeur">Professeur Miguel Tillero</div>
             <h1>Dossier de Révision B2</h1>
-            <p>Espace de travail interactif. Fondations du niveau B2 : grammaire en action, explications approfondies avec traduction en espagnol et exercices auto-corrigés.</p>
+            <p>Espace de travail interactif. Fondations du niveau B2&nbsp;: grammaire en action, explications approfondies avec traduction en espagnol et exercices auto-corrigés.</p>
         </header>
 
         <div class="conteneur">
             <div class="grille-hub">
                 <div class="carte-hub" onclick="naviguer('vue-mod1')">
                     <div>
-                        <h2>Module 1 : Indéfinis & Proportions</h2>
+                        <h2>Module 1&nbsp;: Indéfinis & Proportions</h2>
                         <p>Maîtrisez l'expression des quantités (<b>tous, la plupart, aucun</b>) à travers l'analyse des données de la Francophonie.</p>
                     </div>
                     <button class="btn-prim">Accéder</button>
@@ -121,7 +217,7 @@
                 
                 <div class="carte-hub" onclick="naviguer('vue-mod2')">
                     <div>
-                        <h2>Module 2 : Cause & Conséquence</h2>
+                        <h2>Module 2&nbsp;: Cause & Conséquence</h2>
                         <p>Articulez vos arguments logiquement avec <b>grâce à, puisque, étant donné que</b> et l'intensité de <b>tellement... que</b>.</p>
                     </div>
                     <button class="btn-prim">Accéder</button>
@@ -129,7 +225,7 @@
 
                 <div class="carte-hub" onclick="naviguer('vue-mod3')">
                     <div>
-                        <h2>Module 3 : La Forme Passive</h2>
+                        <h2>Module 3&nbsp;: La Forme Passive</h2>
                         <p>Mettez l'accent sur l'objet de l'action dans les contextes formels et journalistiques (<b>être + participe passé</b>).</p>
                     </div>
                     <button class="btn-prim">Accéder</button>
@@ -137,7 +233,7 @@
 
                 <div class="carte-hub" onclick="naviguer('vue-mod4')">
                     <div>
-                        <h2>Module 4 : Pronoms Démonstratifs & Possessifs</h2>
+                        <h2>Module 4&nbsp;: Pronoms Démonstratifs & Possessifs</h2>
                         <p>Évitez les répétitions nominales avec élégance (<b>celui, celle, le mien, la nôtre</b>).</p>
                     </div>
                     <button class="btn-prim">Accéder</button>
@@ -145,10 +241,18 @@
 
                 <div class="carte-hub" onclick="naviguer('vue-mod5')">
                     <div>
-                        <h2>Module 5 : Conditionnel & Le But</h2>
+                        <h2>Module 5&nbsp;: Conditionnel & Le But</h2>
                         <p>Imaginez la salle de classe idéale et justifiez vos choix avec <b>pour, afin de</b> et <b>pour que</b> + subjonctif.</p>
                     </div>
                     <button class="btn-prim">Accéder</button>
+                </div>
+
+                <div class="carte-hub devoirs" onclick="naviguer('vue-devoirs')">
+                    <div>
+                        <h2>Dépôt des Devoirs</h2>
+                        <p>Remettez vos travaux et vos activités&nbsp;: tous les formats sont acceptés, en autant d'envois que nécessaire. Vos corrections vous seront renvoyées personnellement.</p>
+                    </div>
+                    <button class="btn-prim">Déposer un travail</button>
                 </div>
 
                 <div class="carte-hub eval" onclick="naviguer('vue-eval')">
@@ -162,7 +266,7 @@
         </div>
         <footer>
             <button class="btn-reinitialiser" onclick="reinitialiserProgression()">Réinitialiser ma progression</button><br><br>
-            © 2026 Dossier de Révision B2 &nbsp;|&nbsp; Direction Pédagogique : Professeur Miguel Tillero
+            © 2026 Dossier de Révision B2 &nbsp;|&nbsp; Direction Pédagogique&nbsp;: Professeur Miguel Tillero
         </footer>
     </div>
 
@@ -179,37 +283,109 @@
                 <h3>Règles et Usages</h3>
                 <div class="encadre-grammaire">
                     <button class="btn-traduction" onclick="toggleTrad('trad-1')">🇪🇸 Ver en español</button>
-                    <h4>Totalité, Majorité et Quantité Nulle</h4>
-                    <ul>
-                        <li><b>100% :</b> <code>tous les pays</code>, <code>chaque pays</code> (suivi d'un nom au singulier).</li>
-                        <li><b>Majorité (+50%) :</b> <code>la plupart des pays</code> (exige un verbe au pluriel).</li>
-                        <li><b>Fractions :</b> <code>la moitié</code>, <code>un tiers</code>, <code>un quart</code>, <code>les trois quarts</code>.</li>
-                        <li><b>Quantité nulle (0%) :</b> <code>aucun pays</code> (suivi du singulier et de la négation <i>ne</i>).</li>
-                    </ul>
+                    <h4>L'échelle des proportions</h4>
+                    <p>Le français dispose d'une gamme d'expressions qui jalonnent la quantité, de l'absence totale à la totalité. Situer chacune sur cette échelle évite les confusions les plus tenaces.</p>
+
+                    <div class="schema" role="img" aria-label="Échelle des proportions de zéro à cent pour cent, avec les expressions françaises correspondantes.">
+                        <svg viewBox="0 0 620 150" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="20" y1="60" x2="600" y2="60" class="s-axe"/>
+                            <line x1="20" y1="52" x2="20" y2="68" class="s-axe"/>
+                            <line x1="310" y1="52" x2="310" y2="68" class="s-axe"/>
+                            <line x1="600" y1="52" x2="600" y2="68" class="s-axe"/>
+
+                            <text x="20" y="40" class="s-grad">0 %</text>
+                            <text x="310" y="40" class="s-grad">50 %</text>
+                            <text x="600" y="40" class="s-grad s-fin">100 %</text>
+
+                            <circle cx="20" cy="60" r="5" class="s-point s-point-nul"/>
+                            <circle cx="120" cy="60" r="5" class="s-point"/>
+                            <circle cx="215" cy="60" r="5" class="s-point"/>
+                            <circle cx="310" cy="60" r="5" class="s-point"/>
+                            <circle cx="420" cy="60" r="5" class="s-point"/>
+                            <circle cx="600" cy="60" r="5" class="s-point s-point-total"/>
+
+                            <text x="20" y="86" class="s-lgd">aucun</text>
+                            <text x="120" y="86" class="s-lgd">quelques</text>
+                            <text x="215" y="86" class="s-lgd">plusieurs</text>
+                            <text x="310" y="86" class="s-lgd">la moitié</text>
+                            <text x="420" y="86" class="s-lgd">la plupart</text>
+                            <text x="600" y="86" class="s-lgd s-fin">tous</text>
+
+                            <text x="20" y="106" class="s-lgd s-gris">rien</text>
+                            <text x="120" y="106" class="s-lgd s-gris">certains</text>
+                            <text x="310" y="106" class="s-lgd s-gris">un sur deux</text>
+                            <text x="420" y="106" class="s-lgd s-gris">la majorité</text>
+                            <text x="600" y="106" class="s-lgd s-gris s-fin">chaque</text>
+
+                            <text x="215" y="134" class="s-lgd s-gris">un tiers ≈ 33 %<tspan class="s-sep"> · </tspan>un quart = 25 %<tspan class="s-sep"> · </tspan>les trois quarts = 75 %</text>
+                        </svg>
+                    </div>
+
                     <div id="trad-1" class="texte-espanol">
                         <b>Traducción explicativa :</b><br>
-                        • <i>Tous les pays / chaque pays</i> (100%) : "todos los países" (con plural) / "cada país" (con singular).<br>
-                        • <i>La plupart des pays</i> (+50%) : "la mayoría de los países" (exige verbo en plural).<br>
-                        • <i>Aucun pays</i> (0%) : "ningún país" (va en singular y requiere la partícula negativa <i>ne</i>).
+                        • <i>Tous les pays / chaque pays</i> (100 %) : "todos los países" (plural) / "cada país" (singular).<br>
+                        • <i>La plupart des pays</i> (+50 %) : "la mayoría de los países", exige verbo en plural.<br>
+                        • <i>Aucun pays</i> (0 %) : "ningún país", va en singular y requiere la partícula negativa <i>ne</i>.<br><br>
+                        Dos trampas para hispanohablantes: <i>la plupart des</i> lleva el verbo en <b>plural</b> (al contrario que "la mayoría de", que admite ambos), y <i>chaque</i> nunca se usa con plural, mientras que "cada" en español sí aparece en giros como "cada dos días" (en francés: <i>tous les deux jours</i>).
                     </div>
                 </div>
-                
-                <div class="titre-exo">Exercice pratique : Complétez avec l'indéfini correct.</div>
-                <div class="q-bloc qcm" id="q1-1">
-                    <div class="q-texte">1. ________ pays de la liste ne présente un taux de francophonie égal à 0 %.</div>
-                    <div class="grille-options">
-                        <button class="btn-opt" data-correct="false" data-feedback="Incorrect. 'Plusieurs' demande une affirmation et un verbe affirmatif.">Plusieurs</button>
-                        <button class="btn-opt" data-correct="true" data-feedback="Exact ! 'Aucun' s'accorde au singulier et s'associe à la négation.">Aucun</button>
+
+                <div class="encadre-grammaire">
+                    <h4>Totalité&nbsp;: tout, chaque, chacun</h4>
+                    <p>Trois mots proches, trois constructions distinctes. La faute vient presque toujours du nombre du nom qui suit.</p>
+                    <div class="enveloppe-tableau">
+                        <table class="tableau-temps">
+                            <thead><tr><th>Forme</th><th>Nature</th><th>Construction</th></tr></thead>
+                            <tbody>
+                                <tr><td>tout / toute</td><td>adjectif</td><td>+ <b>singulier</b> — <i>tout le pays, toute la classe</i></td></tr>
+                                <tr><td>tous / toutes</td><td>adjectif</td><td>+ <b>pluriel</b> — <i>tous les pays, toutes les régions</i></td></tr>
+                                <tr><td>chaque</td><td>adjectif</td><td>+ <b>singulier</b>, un par un — <i>chaque pays</i></td></tr>
+                                <tr><td>chacun / chacune</td><td>pronom</td><td>seul ou + <i>d'entre</i> — <i>chacun d'entre eux</i></td></tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="feedback"></div>
+                    <p><b>Attention à la prononciation&nbsp;:</b> dans « tous les pays », le <i>s</i> de « tous » est muet&nbsp;; dans « ils sont tous venus », où « tous » est pronom, il se prononce.</p>
                 </div>
-                <div class="q-bloc qcm" id="q1-2">
-                    <div class="q-texte">2. ________ pays francophone possède sa propre richesse linguistique.</div>
-                    <div class="grille-options">
-                        <button class="btn-opt" data-correct="false" data-feedback="Incorrect. 'Tous' exige un nom au pluriel (tous les pays).">Tous</button>
-                        <button class="btn-opt" data-correct="true" data-feedback="Parfait ! 'Chaque' est suivi d'un nom au singulier.">Chaque</button>
+
+                <div class="encadre-grammaire">
+                    <h4>Majorité, fractions et accord du verbe</h4>
+                    <p>C'est ici que se joue l'erreur la plus fréquente en B2&nbsp;: le verbe s'accorde-t-il avec l'expression collective ou avec son complément&nbsp;?</p>
+                    <ul>
+                        <li><b>la plupart des + pluriel</b> ➔ verbe au <b>pluriel</b>, sans exception.
+                            <div class="exemple">La plupart des étudiants <b>ont</b> réussi.</div>
+                        </li>
+                        <li><b>la majorité / la moitié / un tiers de</b> ➔ le <b>singulier</b> reste la norme écrite, l'accord avec le complément étant toléré.
+                            <div class="exemple">La moitié des candidats <b>a été</b> reçue.<span class="fleche">·</span>La majorité <b>s'est</b> abstenue.</div>
+                        </li>
+                        <li><b>Les fractions usuelles&nbsp;:</b> <code>la moitié</code> (50&nbsp;%), <code>un tiers</code> (33&nbsp;%), <code>un quart</code> (25&nbsp;%), <code>les trois quarts</code> (75&nbsp;%).</li>
+                    </ul>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Quantité nulle et quantités intermédiaires</h4>
+                    <p>La quantité nulle réclame toujours la négation <code>ne</code>, et toujours le singulier.</p>
+                    <div class="exemple">
+                        <b>Aucun</b> pays <b>ne</b> refuse cette langue.<span class="fleche">·</span><b>Nul</b> <b>n'</b>est censé ignorer la loi.<br>
+                        <b>Personne n'</b>est venu.<span class="fleche">·</span><b>Rien ne</b> justifie ce retard.
                     </div>
-                    <div class="feedback"></div>
+                    <p>Entre les deux extrêmes, quatre degrés à distinguer&nbsp;:</p>
+                    <ul>
+                        <li><b>quelques</b> — un petit nombre, vague et modeste.</li>
+                        <li><b>certains</b> — une partie identifiable du groupe, mais non nommée.</li>
+                        <li><b>plusieurs</b> — plus de deux, avec l'idée d'un nombre appréciable.</li>
+                        <li><b>beaucoup de / peu de</b> — l'appréciation subjective de la quantité.</li>
+                    </ul>
+                </div>
+
+                <div class="titre-exo">Exercices&nbsp;: quinze applications sur les proportions et les indéfinis.</div>
+                <div id="exos-mod1"></div>
+
+                <div class="fin-module">
+                    <div class="bilan" data-module="mod1"></div>
+                    <div class="actions">
+                        <button class="btn-secondaire" onclick="naviguer('vue-hub')">Menu principal</button>
+                        <button class="btn-suivant" onclick="naviguer('vue-mod2')">Module suivant ➔</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -228,29 +404,109 @@
                 <h3>Règles et Usages</h3>
                 <div class="encadre-grammaire">
                     <button class="btn-traduction" onclick="toggleTrad('trad-2')">🇪🇸 Ver en español</button>
-                    <h4>Articulation Logique</h4>
-                    <ul>
-                        <li><b>Cause positive :</b> <code>grâce à</code> + nom (ex: <i>grâce à son aide</i>).</li>
-                        <li><b>Cause évidente :</b> <code>puisque</code> ou <code>étant donné que</code> + proposition.</li>
-                        <li><b>Conséquence formelle :</b> <code>en conséquence</code>.</li>
-                        <li><b>Conséquence avec intensité :</b> <code>tellement... que</code>.</li>
-                    </ul>
+                    <h4>Deux sens de lecture</h4>
+                    <p>Un même enchaînement peut s'énoncer dans les deux sens. Ce qui change, c'est le connecteur — et la place que la phrase donne au fait initial.</p>
+
+                    <div class="schema" role="img" aria-label="Schéma montrant qu'un même enchaînement peut être formulé en partant de la cause ou de la conséquence.">
+                        <svg viewBox="0 0 620 200" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="pointe-graphite" viewBox="0 0 10 10" refX="9" refY="5"
+                                        markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--graphite)"/>
+                                </marker>
+                            </defs>
+
+                            <rect x="0" y="30" width="230" height="46" rx="4" class="s-sujet"/>
+                            <text x="115" y="52" class="s-mot">Il neigeait</text>
+                            <text x="115" y="68" class="s-lgd s-gris">la cause</text>
+
+                            <rect x="378" y="30" width="230" height="46" rx="4" class="s-objet"/>
+                            <text x="493" y="52" class="s-mot">Le vol est annulé</text>
+                            <text x="493" y="68" class="s-lgd s-gris">la conséquence</text>
+
+                            <line x1="240" y1="45" x2="368" y2="45" class="s-lien" marker-end="url(#pointe-graphite)"/>
+                            <line x1="368" y1="66" x2="240" y2="66" class="s-lien" marker-end="url(#pointe-graphite)"/>
+
+                            <text x="0" y="112" class="s-etiq">ON PART DE LA CAUSE</text>
+                            <text x="0" y="134" class="s-ex s-petit">Comme il neigeait, le vol a été annulé.</text>
+                            <text x="0" y="152" class="s-connecteurs">comme · puisque · étant donné que</text>
+                            <text x="0" y="168" class="s-connecteurs">car · parce que · vu que</text>
+
+                            <text x="318" y="112" class="s-etiq">ON PART DE LA CONSÉQUENCE</text>
+                            <text x="318" y="134" class="s-ex s-petit">Le vol a été annulé car il neigeait.</text>
+                            <text x="318" y="152" class="s-connecteurs">donc · par conséquent · alors</text>
+                            <text x="318" y="168" class="s-connecteurs">si bien que · c'est pourquoi</text>
+                        </svg>
+                    </div>
+
                     <div id="trad-2" class="texte-espanol">
                         <b>Traducción explicativa :</b><br>
-                        • <i>Grâce à</i> : se usa para causas positivas ("gracias a").<br>
-                        • <i>Puisque / Étant donné que</i> : indican una causa evidente o un hecho probado ("puesto que / dado que").<br>
-                        • <i>Tellement... que</i> : expresa intensidad con resultado ("tanto... que").
+                        • <i>Grâce à</i> : causa con resultado favorable ("gracias a").<br>
+                        • <i>À cause de</i> : causa con resultado desfavorable ("por culpa de").<br>
+                        • <i>En raison de</i> : causa neutra, registro administrativo ("debido a").<br>
+                        • <i>Puisque / Étant donné que</i> : causa ya conocida o probada ("puesto que / dado que").<br>
+                        • <i>Tellement… que</i> : intensidad con resultado ("tanto… que").<br><br>
+                        Trampa frecuente: <i>car</i> nunca puede empezar la frase, al contrario que "pues" o "porque" en español. Y <i>du coup</i>, muy oído en Francia, es coloquial: no debe aparecer en un examen escrito.
                     </div>
                 </div>
-                
-                <div class="titre-exo">Exercice pratique : Choisissez le connecteur idoné.</div>
-                <div class="q-bloc qcm" id="q2-1">
-                    <div class="q-texte">1. Il faisait ________ froid que les étudiants sont restés chez eux.</div>
-                    <div class="grille-options">
-                        <button class="btn-opt" data-correct="false" data-feedback="Incorrect. 'Puisque' introduit une cause, non une conséquence intensive.">puisque</button>
-                        <button class="btn-opt" data-correct="true" data-feedback="Excellent ! Structure d'intensité 'tellement... que'.">tellement</button>
+
+                <div class="encadre-grammaire">
+                    <h4>Exprimer la cause&nbsp;: quatre nuances</h4>
+                    <p>Toutes ces locutions se construisent avec l'<b>indicatif</b>. Elles se distinguent par la nuance et par la construction.</p>
+                    <div class="enveloppe-tableau">
+                        <table class="tableau-temps">
+                            <thead><tr><th>Locution</th><th>Nuance</th><th>Suivi de</th></tr></thead>
+                            <tbody>
+                                <tr><td>parce que</td><td>information nouvelle, réponse à « pourquoi&nbsp;? »</td><td>proposition</td></tr>
+                                <tr><td>car</td><td>justification, registre écrit — <b>jamais en tête</b></td><td>proposition</td></tr>
+                                <tr><td>puisque</td><td>cause déjà connue de l'interlocuteur</td><td>proposition</td></tr>
+                                <tr><td>comme</td><td>cause annoncée d'abord — <b>toujours en tête</b></td><td>proposition</td></tr>
+                                <tr><td>étant donné que / vu que</td><td>fait établi, registre soutenu</td><td>proposition</td></tr>
+                                <tr><td>grâce à</td><td>résultat <b>heureux</b></td><td>nom</td></tr>
+                                <tr><td>à cause de</td><td>résultat <b>fâcheux</b></td><td>nom</td></tr>
+                                <tr><td>en raison de</td><td>neutre, administratif</td><td>nom</td></tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="feedback"></div>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Exprimer la conséquence</h4>
+                    <p>Le choix se règle presque entièrement sur le <b>registre</b>.</p>
+                    <ul>
+                        <li><b>Courant&nbsp;:</b> <code>donc</code>, <code>alors</code>, <code>c'est pourquoi</code>.</li>
+                        <li><b>Soutenu&nbsp;:</b> <code>par conséquent</code>, <code>en conséquence</code>, <code>de ce fait</code>.</li>
+                        <li><b>Avec proposition&nbsp;:</b> <code>si bien que</code>, <code>de sorte que</code>, <code>au point que</code>.</li>
+                        <li><b>Familier, à éviter à l'écrit&nbsp;:</b> <i>du coup</i>, <i>résultat</i>.</li>
+                    </ul>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>L'intensité qui entraîne une conséquence</h4>
+                    <p>C'est la structure la plus productive du module — et celle où l'on se trompe le plus, car la forme dépend de ce qui suit.</p>
+                    <div class="enveloppe-tableau">
+                        <table class="tableau-temps">
+                            <thead><tr><th>Devant</th><th>Structure</th><th>Exemple</th></tr></thead>
+                            <tbody>
+                                <tr><td>un adjectif</td><td>si / tellement + adj. + que</td><td>Il est <b>si</b> fatigué <b>qu'</b>il dort debout.</td></tr>
+                                <tr><td>un adverbe</td><td>si / tellement + adv. + que</td><td>Elle parle <b>si</b> vite <b>que</b> je perds le fil.</td></tr>
+                                <tr><td>un nom</td><td><b>tellement de / tant de</b> + nom + que</td><td>Il y avait <b>tant de</b> monde <b>que</b> nous sommes partis.</td></tr>
+                                <tr><td>un verbe</td><td>verbe + tellement / tant + que</td><td>Il travaille <b>tellement qu'</b>il en oublie de manger.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p><b>La faute à ne pas commettre&nbsp;:</b> « si » ne se met jamais devant un nom. On dit <i>tellement de monde</i>, jamais « si monde ».</p>
+                </div>
+
+                <div class="titre-exo">Exercices&nbsp;: quinze applications sur la cause, la conséquence et l'intensité.</div>
+                <div id="exos-mod2"></div>
+
+                <div class="fin-module">
+                    <div class="bilan" data-module="mod2"></div>
+                    <div class="actions">
+                        <button class="btn-secondaire" onclick="naviguer('vue-hub')">Menu principal</button>
+                        <button class="btn-suivant" onclick="naviguer('vue-mod3')">Module suivant ➔</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -269,26 +525,139 @@
                 <h3>Règles et Usages</h3>
                 <div class="encadre-grammaire">
                     <button class="btn-traduction" onclick="toggleTrad('trad-3')">🇪🇸 Ver en español</button>
-                    <h4>Mettre en valeur l'objet</h4>
-                    <p>La voix passive focalise l'attention sur l'élément qui subit l'action.</p>
-                    <ul>
-                        <li><b>Structure :</b> <code>Être</code> (conjugué) + <code>Participe Passé</code> (accordé en genre et nombre avec le sujet).</li>
-                        <li><i>Exemple :</i> "Le prix <code>a été remis</code> par le jury."</li>
-                    </ul>
+                    <h4>Renverser la perspective</h4>
+                    <p>À la voix active, le sujet accomplit l'action. À la voix passive, il la <b>subit</b>. Le complément d'objet direct de la phrase active devient sujet, et l'ancien sujet — s'il est mentionné — passe en complément d'agent.</p>
+
+                    <div class="schema" role="img" aria-label="Schéma de la transformation d'une phrase active en phrase passive : le complément d'objet devient sujet, le sujet devient complément d'agent.">
+                        <svg viewBox="0 0 620 230" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="pointe-sauge" viewBox="0 0 10 10" refX="9" refY="5"
+                                        markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--sauge)"/>
+                                </marker>
+                                <marker id="pointe-or" viewBox="0 0 10 10" refX="9" refY="5"
+                                        markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--or-academique)"/>
+                                </marker>
+                            </defs>
+
+                            <text x="0" y="14" class="s-etiq">VOIX ACTIVE</text>
+                            <rect x="0" y="26" width="150" height="40" rx="4" class="s-sujet"/>
+                            <text x="75" y="51" class="s-mot">Le jury</text>
+                            <rect x="162" y="26" width="120" height="40" rx="4" class="s-verbe"/>
+                            <text x="222" y="51" class="s-mot s-clair">a remis</text>
+                            <rect x="294" y="26" width="150" height="40" rx="4" class="s-objet"/>
+                            <text x="369" y="51" class="s-mot">le prix</text>
+
+                            <path d="M 369 72 C 369 116, 75 108, 75 152" class="s-fleche s-vers-sujet"
+                                  marker-end="url(#pointe-sauge)"/>
+                            <path d="M 75 72 C 75 120, 411 104, 411 152" class="s-fleche s-vers-agent"
+                                  marker-end="url(#pointe-or)"/>
+
+                            <text x="196" y="100" class="s-note s-note-sauge">devient sujet</text>
+                            <text x="196" y="130" class="s-note s-note-or">devient agent</text>
+
+                            <text x="0" y="176" class="s-etiq">VOIX PASSIVE</text>
+                            <rect x="0" y="186" width="150" height="40" rx="4" class="s-objet"/>
+                            <text x="75" y="211" class="s-mot">Le prix</text>
+                            <rect x="162" y="186" width="160" height="40" rx="4" class="s-verbe"/>
+                            <text x="242" y="211" class="s-mot s-clair">a été remis</text>
+                            <rect x="336" y="186" width="150" height="40" rx="4" class="s-agent"/>
+                            <text x="411" y="211" class="s-mot">par le jury</text>
+                        </svg>
+                    </div>
+
+                    <p>Le sens ne change pas&nbsp;: ce qui change, c'est <b>ce que la phrase met au premier plan</b>. « Le prix a été remis » attire l'attention sur le prix&nbsp;; « Le jury a remis le prix » sur le jury.</p>
+
                     <div id="trad-3" class="texte-espanol">
                         <b>Traducción explicativa :</b><br>
-                        La voz pasiva invierte el orden habitual: el objeto pasa a ser sujeto paciente, empleando el verbo auxiliar <i>être</i> más el participio pasado (que concuerda en género y número). Ejemplo: "El premio fue entregado por el jurado".
+                        La voz pasiva invierte la perspectiva: el objeto directo pasa a ser sujeto paciente y el sujeto original se convierte en complemento agente, introducido por <i>par</i> o <i>de</i>. Se construye con el auxiliar <i>être</i> conjugado más el participio pasado, que concuerda siempre en género y número con el sujeto. Ejemplo: "El premio fue entregado por el jurado".<br><br>
+                        Cuidado con un falso amigo estructural: en español el auxiliar de los tiempos compuestos es <i>haber</i>, mientras que en francés la pasiva usa <i>être</i> en todos los tiempos. <i>A été choisi</i> equivale a "fue elegido", no a "ha sido elegido por sí mismo".
                     </div>
                 </div>
-                
-                <div class="titre-exo">Exercice pratique : Identifiez la forme passive correcte.</div>
-                <div class="q-bloc qcm" id="q3-1">
-                    <div class="q-texte">1. "Le Comité international olympique a choisi un pays." ➔ Un pays ________ par le Comité.</div>
-                    <div class="grille-options">
-                        <button class="btn-opt" data-correct="false" data-feedback="Incorrect, c'est une forme active.">a choisi</button>
-                        <button class="btn-opt" data-correct="true" data-feedback="Parfait ! Auxiliaire 'a été' + participe passé.">a été choisi</button>
+
+                <div class="encadre-grammaire">
+                    <h4>La formation à tous les temps</h4>
+                    <p>Une seule règle, valable partout&nbsp;: on conjugue <code>être</code> au temps du verbe actif, puis on ajoute le <code>participe passé</code>. C'est donc l'auxiliaire qui porte le temps, jamais le participe.</p>
+
+                    <div class="enveloppe-tableau">
+                        <table class="tableau-temps">
+                            <thead>
+                                <tr><th>Temps</th><th>Voix active</th><th>Voix passive</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Présent</td><td>Le jury choisit le lauréat.</td><td>Le lauréat <b>est choisi</b> par le jury.</td></tr>
+                                <tr><td>Imparfait</td><td>Le jury choisissait…</td><td>Le lauréat <b>était choisi</b>…</td></tr>
+                                <tr><td>Passé composé</td><td>Le jury a choisi…</td><td>Le lauréat <b>a été choisi</b>…</td></tr>
+                                <tr><td>Plus-que-parfait</td><td>Le jury avait choisi…</td><td>Le lauréat <b>avait été choisi</b>…</td></tr>
+                                <tr><td>Futur simple</td><td>Le jury choisira…</td><td>Le lauréat <b>sera choisi</b>…</td></tr>
+                                <tr><td>Conditionnel</td><td>Le jury choisirait…</td><td>Le lauréat <b>serait choisi</b>…</td></tr>
+                                <tr><td>Subjonctif</td><td>… que le jury choisisse…</td><td>… que le lauréat <b>soit choisi</b>…</td></tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="feedback"></div>
+
+                    <p><b>L'accord est obligatoire.</b> Le participe passé s'accorde toujours en genre et en nombre avec le sujet — c'est l'erreur la plus fréquente à ce niveau.</p>
+
+                    <div class="schema" role="img" aria-label="Schéma de l'accord du participe passé avec le sujet, aux quatre genres et nombres.">
+                        <svg viewBox="0 0 620 150" xmlns="http://www.w3.org/2000/svg">
+                            <text x="0" y="16" class="s-etiq">L'ACCORD SUIT LE SUJET</text>
+                            <text x="0" y="48" class="s-ex">Le dossier</text>
+                            <text x="150" y="48" class="s-ex s-gris">est</text>
+                            <text x="200" y="48" class="s-ex">accepté</text>
+                            <text x="0" y="80" class="s-ex">La demande</text>
+                            <text x="150" y="80" class="s-ex s-gris">est</text>
+                            <text x="200" y="80" class="s-ex">accepté<tspan class="s-marque">e</tspan></text>
+                            <text x="0" y="112" class="s-ex">Les dossiers</text>
+                            <text x="150" y="112" class="s-ex s-gris">sont</text>
+                            <text x="200" y="112" class="s-ex">accepté<tspan class="s-marque">s</tspan></text>
+                            <text x="0" y="144" class="s-ex">Les demandes</text>
+                            <text x="150" y="144" class="s-ex s-gris">sont</text>
+                            <text x="200" y="144" class="s-ex">accepté<tspan class="s-marque">es</tspan></text>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Le complément d'agent&nbsp;: par ou de</h4>
+                    <p>Quand on précise qui accomplit l'action, deux prépositions sont possibles, et le choix n'est pas libre.</p>
+                    <ul>
+                        <li><b>par</b> — action concrète, ponctuelle, avec un agent qui agit véritablement.
+                            <div class="exemple">La loi a été votée <b>par</b> l'Assemblée.<span class="fleche">·</span>Le tableau a été restauré <b>par</b> un spécialiste.</div>
+                        </li>
+                        <li><b>de</b> — verbes de sentiment, d'opinion ou de description, où l'agent n'agit pas mais caractérise un état.
+                            <div class="exemple">Il est <b>respecté de</b> tous.<span class="fleche">·</span>La place était <b>bordée d'</b>arbres.<span class="fleche">·</span>Elle est <b>connue de</b> ses collègues.</div>
+                        </li>
+                    </ul>
+                    <p>À retenir pour « de »&nbsp;: <code>aimé</code>, <code>respecté</code>, <code>apprécié</code>, <code>connu</code>, <code>estimé</code>, <code>suivi</code>, <code>précédé</code>, <code>entouré</code>, <code>couvert</code>, <code>bordé</code>, <code>rempli</code>.</p>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Quand l'employer — et quand l'éviter</h4>
+                    <p>Le passif n'est pas un ornement&nbsp;: il répond à des besoins précis, et le plus souvent <b>sans complément d'agent</b>.</p>
+                    <ul>
+                        <li><b>L'auteur de l'action est inconnu.</b> <i>Trois toiles ont été volées cette nuit.</i></li>
+                        <li><b>Il est évident ou sans intérêt.</b> <i>Le musée sera fermé lundi.</i></li>
+                        <li><b>On veut mettre le résultat en avant</b>, dans la presse et les textes administratifs. <i>La réforme a été adoptée.</i></li>
+                        <li><b>On préfère ne pas nommer le responsable.</b> <i>Des erreurs ont été commises.</i></li>
+                    </ul>
+                    <p>En revanche, le français parlé recourt beaucoup moins au passif que l'espagnol ou l'anglais. Trois tournures actives le remplacent avantageusement&nbsp;:</p>
+                    <div class="exemple">
+                        <b>on</b> + verbe actif<span class="fleche">➔</span><i>On a volé trois toiles.</i><br>
+                        <b>se faire</b> + infinitif<span class="fleche">➔</span><i>Il s'est fait voler son sac.</i><br>
+                        forme <b>pronominale</b> de sens passif<span class="fleche">➔</span><i>Ce plat se mange froid.</i>
+                    </div>
+                </div>
+
+                <div class="titre-exo">Exercices&nbsp;: quinze applications, du repérage à la transformation.</div>
+                <div id="exos-mod3"></div>
+
+                <div class="fin-module">
+                    <div class="bilan" data-module="mod3"></div>
+                    <div class="actions">
+                        <button class="btn-secondaire" onclick="naviguer('vue-hub')">Menu principal</button>
+                        <button class="btn-suivant" onclick="naviguer('vue-mod4')">Module suivant ➔</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -307,26 +676,84 @@
                 <h3>Règles et Usages</h3>
                 <div class="encadre-grammaire">
                     <button class="btn-traduction" onclick="toggleTrad('trad-4')">🇪🇸 Ver en español</button>
-                    <h4>Éviter les répétitions</h4>
-                    <ul>
-                        <li><b>Démonstratifs :</b> <code>celui, celle, ceux, celles</code> (+ de / qui / que). Ex: "C'est celui de Paul."</li>
-                        <li><b>Possessifs :</b> <code>le mien, la tienne, les nôtres, les vôtres</code>. Ex: "Prête-moi la tienne."</li>
-                    </ul>
+                    <h4>Deux familles, deux fonctions</h4>
+                    <p>Ces pronoms servent tous à ne pas répéter un nom déjà cité. Ils se distinguent par ce qu'ils indiquent&nbsp;: le <b>démonstratif</b> montre et désigne&nbsp;; le <b>possessif</b> attribue.</p>
+
+                    <div class="schema" role="img" aria-label="Comparaison entre le pronom démonstratif, qui désigne, et le pronom possessif, qui attribue un possesseur.">
+                        <svg viewBox="0 0 620 180" xmlns="http://www.w3.org/2000/svg">
+                            <text x="0" y="14" class="s-etiq">DÉMONSTRATIF · IL DÉSIGNE</text>
+                            <rect x="0" y="26" width="290" height="56" rx="4" class="s-objet"/>
+                            <text x="145" y="50" class="s-mot">celui de Paul</text>
+                            <text x="145" y="70" class="s-lgd s-gris">il exige une suite : de, qui, que, -ci, -là</text>
+
+                            <text x="330" y="14" class="s-etiq">POSSESSIF · IL ATTRIBUE</text>
+                            <rect x="330" y="26" width="290" height="56" rx="4" class="s-sujet"/>
+                            <text x="475" y="50" class="s-mot">le mien</text>
+                            <text x="475" y="70" class="s-lgd s-gris">il se suffit à lui-même, avec son article</text>
+
+                            <text x="0" y="112" class="s-ex s-petit">« Ce vélo n'est pas <tspan class="s-souligne">le mien</tspan>, c'est <tspan class="s-souligne">celui de</tspan> mon frère. »</text>
+                            <text x="0" y="140" class="s-connecteurs">Un seul et même nom — « vélo » — repris deux fois sans jamais être répété.</text>
+                            <text x="0" y="164" class="s-connecteurs">Faute courante : « celui » employé seul, ou « le mien de mon frère ».</text>
+                        </svg>
+                    </div>
+
                     <div id="trad-4" class="texte-espanol">
                         <b>Traducción explicativa :</b><br>
-                        • Demostrativos (<i>celui, celle...</i>) equivalen a "el de...", "la de...".<br>
-                        • Posesivos (<i>le mien, la tienne...</i>) equivalen a "el mío", "la tuya", etc., evitando repetir el sustantivo.
+                        • Demostrativos (<i>celui, celle, ceux, celles</i>) equivalen a "el de…", "la de…", "los que…".<br>
+                        • Posesivos (<i>le mien, la tienne, les nôtres</i>) equivalen a "el mío", "la tuya", "los nuestros".<br><br>
+                        Diferencia clave con el español: el pronombre posesivo francés <b>siempre lleva artículo</b> (<i>le mien</i>, no "mien"), y <i>celui</i> <b>nunca puede ir solo</b>: exige un complemento (<i>celui de</i>, <i>celui qui</i>) o un sufijo (<i>celui-ci</i>). En español "el mío" y "el de Pablo" funcionan igual, pero conviene no calcar "el mío de mi hermano", que en francés es un error.
                     </div>
                 </div>
-                
-                <div class="titre-exo">Exercice pratique : Complétez avec le pronom adapté.</div>
-                <div class="q-bloc qcm" id="q4-1">
-                    <div class="q-texte">1. J'ai oublié mes lunettes, tu peux me prêter ________ ? (tes lunettes)</div>
-                    <div class="grille-options">
-                        <button class="btn-opt" data-correct="false" data-feedback="Incorrect. 'Celles' nécessite un complément (celles de...).">celles</button>
-                        <button class="btn-opt" data-correct="true" data-feedback="Exact ! Pronom possessif féminin pluriel 'les tiennes'.">les tiennes</button>
+
+                <div class="encadre-grammaire">
+                    <h4>Les démonstratifs&nbsp;: celui, celle, ceux, celles</h4>
+                    <p>Ils reprennent un nom précis et s'accordent avec lui. <b>Ils ne s'emploient jamais seuls</b>&nbsp;: il leur faut toujours un prolongement.</p>
+                    <div class="enveloppe-tableau">
+                        <table class="tableau-temps">
+                            <thead><tr><th></th><th>Singulier</th><th>Pluriel</th></tr></thead>
+                            <tbody>
+                                <tr><td>Masculin</td><td>celui</td><td>ceux</td></tr>
+                                <tr><td>Féminin</td><td>celle</td><td>celles</td></tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="feedback"></div>
+                    <p>Trois prolongements possibles&nbsp;:</p>
+                    <div class="exemple">
+                        + <b>de</b> ➔ <i>Mon bureau et <b>celui de</b> ma collègue.</i><br>
+                        + <b>qui / que / dont</b> ➔ <i><b>Ceux qui</b> arrivent en retard attendront.</i><br>
+                        + <b>-ci / -là</b> ➔ <i>Je prends <b>celle-ci</b>, pas <b>celle-là</b>.</i>
+                    </div>
+                    <p><b>Les neutres&nbsp;:</b> <code>ce</code>, <code>ceci</code>, <code>cela</code>, <code>ça</code> ne remplacent pas un nom mais une idée entière. <i>Cela m'inquiète</i> — c'est la situation qui inquiète, non un objet précis.</p>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Les possessifs&nbsp;: le mien, le tien, le sien…</h4>
+                    <p>Ils portent l'article défini et s'accordent avec <b>l'objet possédé</b>, jamais avec le possesseur.</p>
+                    <div class="enveloppe-tableau">
+                        <table class="tableau-temps">
+                            <thead><tr><th>Possesseur</th><th>Masc. sing.</th><th>Fém. sing.</th><th>Pluriel</th></tr></thead>
+                            <tbody>
+                                <tr><td>je</td><td>le mien</td><td>la mienne</td><td>les miens / miennes</td></tr>
+                                <tr><td>tu</td><td>le tien</td><td>la tienne</td><td>les tiens / tiennes</td></tr>
+                                <tr><td>il / elle</td><td>le sien</td><td>la sienne</td><td>les siens / siennes</td></tr>
+                                <tr><td>nous</td><td>le nôtre</td><td>la nôtre</td><td>les nôtres</td></tr>
+                                <tr><td>vous</td><td>le vôtre</td><td>la vôtre</td><td>les vôtres</td></tr>
+                                <tr><td>ils / elles</td><td>le leur</td><td>la leur</td><td>les leurs</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p><b>L'accent circonflexe distingue tout&nbsp;:</b> <i>notre</i> et <i>votre</i> sont des adjectifs et accompagnent un nom&nbsp;; <i>le nôtre</i> et <i>le vôtre</i> sont des pronoms et le remplacent. La prononciation diffère également&nbsp;: le pronom a une voyelle fermée et longue.</p>
+                </div>
+
+                <div class="titre-exo">Exercices&nbsp;: quinze applications sur les démonstratifs et les possessifs.</div>
+                <div id="exos-mod4"></div>
+
+                <div class="fin-module">
+                    <div class="bilan" data-module="mod4"></div>
+                    <div class="actions">
+                        <button class="btn-secondaire" onclick="naviguer('vue-hub')">Menu principal</button>
+                        <button class="btn-suivant" onclick="naviguer('vue-mod5')">Module suivant ➔</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -345,27 +772,105 @@
                 <h3>Règles et Usages</h3>
                 <div class="encadre-grammaire">
                     <button class="btn-traduction" onclick="toggleTrad('trad-5')">🇪🇸 Ver en español</button>
-                    <h4>Hypothèses et Finalité</h4>
-                    <ul>
-                        <li><b>Conditionnel Présent :</b> Formuler des souhaits ou hypothèses (<i>il y aurait, ce serait, on pourrait</i>).</li>
-                        <li><b>Le But (Même sujet) :</b> <code>afin de / pour</code> + infinitif.</li>
-                        <li><b>Le But (Sujets différents) :</b> <code>pour que</code> + <b>subjonctif</b>.</li>
-                    </ul>
+                    <h4>La règle des deux sujets</h4>
+                    <p>Pour exprimer le but, une seule question commande le choix&nbsp;: <b>qui fait quoi&nbsp;?</b> Si le même sujet accomplit les deux actions, on emploie l'infinitif. S'ils diffèrent, il faut une conjonction et le subjonctif.</p>
+
+                    <div class="schema" role="img" aria-label="Schéma de la règle du choix entre infinitif et subjonctif selon que les deux verbes partagent ou non le même sujet.">
+                        <svg viewBox="0 0 620 210" xmlns="http://www.w3.org/2000/svg">
+                            <text x="310" y="16" class="s-note s-note-or">LES DEUX VERBES ONT-ILS LE MÊME SUJET&#8239;?</text>
+
+                            <path d="M 310 26 L 310 44 L 150 44 L 150 60" class="s-lien"/>
+                            <path d="M 310 26 L 310 44 L 470 44 L 470 60" class="s-lien"/>
+
+                            <text x="150" y="76" class="s-etiq2 s-note-sauge">OUI · UN SEUL SUJET</text>
+                            <rect x="20" y="86" width="260" height="44" rx="4" class="s-objet"/>
+                            <text x="150" y="105" class="s-mot">pour · afin de</text>
+                            <text x="150" y="123" class="s-lgd s-gris">+ infinitif</text>
+                            <text x="150" y="154" class="s-ex s-petit s-centre">Elle révise <tspan class="s-souligne">pour réussir</tspan>.</text>
+                            <text x="150" y="176" class="s-connecteurs s-centre">elle révise / elle réussit</text>
+
+                            <text x="470" y="76" class="s-etiq2 s-note-or">NON · DEUX SUJETS</text>
+                            <rect x="340" y="86" width="260" height="44" rx="4" class="s-sujet"/>
+                            <text x="470" y="105" class="s-mot">pour que · afin que</text>
+                            <text x="470" y="123" class="s-lgd s-gris">+ subjonctif</text>
+                            <text x="470" y="154" class="s-ex s-petit s-centre">Elle explique <tspan class="s-souligne">pour qu'ils comprennent</tspan>.</text>
+                            <text x="470" y="176" class="s-connecteurs s-centre">elle explique / ils comprennent</text>
+
+                            <text x="310" y="202" class="s-connecteurs s-centre">Erreur la plus fréquente : « pour que » suivi de l'indicatif, ou « pour » suivi d'une proposition.</text>
+                        </svg>
+                    </div>
+
                     <div id="trad-5" class="texte-espanol">
                         <b>Traducción explicativa :</b><br>
-                        • Condicional: expresa hipótesis o cortesía ("habría", "sería").<br>
-                        • Finalidad: se usa <i>pour/afin de</i> con infinitivo si el sujeto es el mismo, y <i>pour que</i> seguido de subjuntivo si los sujetos cambian.
+                        • Condicional: expresa hipótesis, deseo o cortesía ("habría", "sería", "querría").<br>
+                        • Finalidad: <i>pour / afin de</i> + infinitivo si el sujeto es el mismo; <i>pour que / afin que</i> + subjuntivo si los sujetos cambian.<br><br>
+                        La regla es idéntica en español ("para estudiar" frente a "para que estudien"), así que puedes apoyarte en tu lengua. La diferencia está en la forma del subjuntivo francés, que hay que memorizar aparte, y en un detalle: tras <i>si</i> el francés <b>nunca</b> admite condicional, mientras que en español "si tendría" también es incorrecto pero se oye con frecuencia. Regla fija: <i>si</i> + imperfecto ➔ condicional.
                     </div>
                 </div>
-                
-                <div class="titre-exo">Exercice pratique : Choisissez la bonne structure.</div>
-                <div class="q-bloc qcm" id="q5-1">
-                    <div class="q-texte">1. Il travaille dur ________ ses parents soient fiers de lui.</div>
-                    <div class="grille-options">
-                        <button class="btn-opt" data-correct="false" data-feedback="Incorrect avec 'pour' suivi d'un subjonctif et de sujets différents.">pour</button>
-                        <button class="btn-opt" data-correct="true" data-feedback="Parfait ! 'Pour que' exige le mode subjonctif.">pour que</button>
+
+                <div class="encadre-grammaire">
+                    <h4>Le conditionnel présent&nbsp;: formation</h4>
+                    <p>Une seule recette, sans exception&nbsp;: <b>le radical du futur simple</b>, auquel on ajoute <b>les terminaisons de l'imparfait</b> (-ais, -ais, -ait, -ions, -iez, -aient).</p>
+                    <div class="enveloppe-tableau">
+                        <table class="tableau-temps">
+                            <thead><tr><th>Infinitif</th><th>Futur (radical)</th><th>Conditionnel présent</th></tr></thead>
+                            <tbody>
+                                <tr><td>parler</td><td>je parler-ai</td><td>je parler<b>ais</b></td></tr>
+                                <tr><td>finir</td><td>je finir-ai</td><td>je finir<b>ais</b></td></tr>
+                                <tr><td>être</td><td>je ser-ai</td><td>je ser<b>ais</b></td></tr>
+                                <tr><td>avoir</td><td>j'aur-ai</td><td>j'aur<b>ais</b></td></tr>
+                                <tr><td>aller</td><td>j'ir-ai</td><td>j'ir<b>ais</b></td></tr>
+                                <tr><td>pouvoir</td><td>je pourr-ai</td><td>je pourr<b>ais</b></td></tr>
+                                <tr><td>vouloir</td><td>je voudr-ai</td><td>je voudr<b>ais</b></td></tr>
+                                <tr><td>faire</td><td>je fer-ai</td><td>je fer<b>ais</b></td></tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="feedback"></div>
+                    <p>Les verbes irréguliers au futur le restent au conditionnel&nbsp;: le radical se retient une seule fois pour les deux temps.</p>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Quatre emplois du conditionnel</h4>
+                    <ul>
+                        <li><b>La politesse</b> — l'emploi le plus quotidien. Il transforme l'exigence en demande.
+                            <div class="exemple">Je <b>voudrais</b> un renseignement.<span class="fleche">·</span><b>Pourriez</b>-vous répéter&nbsp;?</div>
+                        </li>
+                        <li><b>Le souhait et l'imaginaire</b> — pour décrire ce qui n'existe pas encore.
+                            <div class="exemple">Dans ma classe idéale, il y <b>aurait</b> de grandes fenêtres.</div>
+                        </li>
+                        <li><b>L'hypothèse</b> — après une proposition en « si ».
+                            <div class="exemple"><b>Si</b> j'<b>avais</b> le temps, je <b>suivrais</b> ce cours.</div>
+                        </li>
+                        <li><b>L'information non confirmée</b> — courante dans la presse.
+                            <div class="exemple">Le ministre <b>aurait</b> démissionné.</div>
+                        </li>
+                    </ul>
+                    <p><b>La règle absolue&nbsp;:</b> jamais de conditionnel directement après « si ». On écrit <i>si j'avais</i>, jamais « si j'aurais ».</p>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Le but&nbsp;: nuances et registres</h4>
+                    <ul>
+                        <li><b>pour</b> + infinitif — la forme la plus courante, tous registres.</li>
+                        <li><b>afin de</b> + infinitif — même sens, registre plus soutenu.</li>
+                        <li><b>pour que / afin que</b> + subjonctif — quand les sujets diffèrent.</li>
+                        <li><b>de peur que / de crainte que</b> + subjonctif — le but <b>négatif</b>, ce qu'on veut éviter.
+                            <div class="exemple">Elle est partie tôt <b>de peur qu'</b>il n'y <b>ait</b> des embouteillages.</div>
+                        </li>
+                        <li><b>en vue de / dans le but de</b> + nom ou infinitif — registre administratif.</li>
+                    </ul>
+                    <p>Ne confondez pas le but et la cause&nbsp;: le but n'est pas encore réalisé, il est <b>visé</b>&nbsp;; la cause, elle, précède et explique.</p>
+                </div>
+
+                <div class="titre-exo">Exercices&nbsp;: quinze applications sur le conditionnel et le but.</div>
+                <div id="exos-mod5"></div>
+
+                <div class="fin-module">
+                    <div class="bilan" data-module="mod5"></div>
+                    <div class="actions">
+                        <button class="btn-secondaire" onclick="naviguer('vue-hub')">Menu principal</button>
+                        <button class="btn-suivant" onclick="naviguer('vue-eval')">Passer à l'évaluation ➔</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -396,9 +901,82 @@
         </div>
     </div>
 
+    <!-- ================= DÉPÔT DES DEVOIRS ================= -->
+    <div id="vue-devoirs" class="vue">
+        <header style="background: linear-gradient(135deg, var(--graphite) 0%, #2F4238 100%);">
+            <button class="btn-retour" onclick="naviguer('vue-hub')">Menu Principal</button>
+            <div class="titre-professeur">Travaux et Activités</div>
+            <h1>Espace de Dépôt</h1>
+            <p>Remettez ici vos devoirs, vos rédactions et vos activités. Le professeur est prévenu dès la réception et vous renvoie votre correction personnalisée.</p>
+        </header>
+
+        <div class="conteneur">
+            <div class="section-cours">
+                <h3>Déposer un travail</h3>
+
+                <ol class="etapes">
+                    <li><b>Identifiez-vous</b>Indiquez votre nom complet et votre groupe, puis précisez le module ou l'activité concernée.</li>
+                    <li><b>Ajoutez vos fichiers</b>Tous les formats sont acceptés (PDF, Word, images, audio, vidéo…). Joignez plusieurs fichiers à la fois et renouvelez l'envoi autant de fois que nécessaire.</li>
+                    <li><b>Validez l'envoi</b>Une confirmation s'affiche et le professeur reçoit immédiatement une notification.</li>
+                </ol>
+
+                <div class="zone-depot">
+                    <div class="icone">📎</div>
+                    <p id="texte-depot">Vous serez redirigé vers l'espace sécurisé de dépôt. La connexion à un compte Google est nécessaire pour garantir la traçabilité de votre remise.</p>
+                    <a id="lien-depot" class="btn-depot" href="#" target="_blank" rel="noopener">Ouvrir l'espace de dépôt</a>
+                </div>
+                <p class="note-depot">Plusieurs fichiers par envoi · Tous les types de fichiers acceptés · Envois multiples possibles</p>
+            </div>
+
+            <div class="section-cours">
+                <h3>Recevoir vos corrections</h3>
+                <div class="grille-infos">
+                    <div class="encadre-grammaire">
+                        <h4>Correction personnelle</h4>
+                        <p>Votre travail annoté vous est renvoyé individuellement, à l'adresse utilisée lors du dépôt. Vos corrections ne sont jamais visibles par les autres étudiants.</p>
+                    </div>
+                    <div class="encadre-grammaire">
+                        <h4>Délai de retour</h4>
+                        <p>Comptez quelques jours après la date de remise. En cas de doute sur un devoir déposé, adressez-vous directement au professeur.</p>
+                    </div>
+                    <div class="encadre-grammaire">
+                        <h4>Conseil de méthode</h4>
+                        <p>Nommez vos fichiers de façon explicite&nbsp;: <code>Nom_Module2_Rédaction</code>. Vous retrouverez ainsi plus facilement chaque retour.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            Direction Pédagogique&nbsp;: Professeur Miguel Tillero
+        </footer>
+    </div>
+
     <!-- ================= SCRIPTS ================= -->
     <script>
-        function naviguer(id) { 
+        /* ═══════════════════════════════════════════════════════════════
+           CONFIGURATION — Espace de dépôt des devoirs
+           Collez ci-dessous le lien du formulaire de dépôt, entre les
+           guillemets. Tant que la ligne reste vide, le bouton s'affiche
+           comme « bientôt disponible » et aucun lien mort n'est proposé
+           aux étudiants.
+           ═══════════════════════════════════════════════════════════════ */
+        const LIEN_DEPOT = "";
+
+        function initialiserDepot() {
+            const lien = document.getElementById('lien-depot');
+            if (LIEN_DEPOT) {
+                lien.href = LIEN_DEPOT;
+                return;
+            }
+            lien.setAttribute('aria-disabled', 'true');
+            lien.removeAttribute('href');
+            lien.textContent = "Bientôt disponible";
+            document.getElementById('texte-depot').textContent =
+                "L'espace de dépôt est en cours d'ouverture. Vos travaux pourront être remis ici très prochainement.";
+        }
+
+        function naviguer(id) {
             window.scrollTo(0, 0); 
             document.querySelectorAll('.vue').forEach(el => el.classList.remove('active')); 
             setTimeout(() => document.getElementById(id).classList.add('active'), 50); 
@@ -421,64 +999,845 @@
             progression[idQuestion] = reussi;
             localStorage.setItem('progressionB2Dossier00', JSON.stringify(progression));
             majProgressionGlobale();
+            majBilans();
+        }
+
+        /* Comparaison souple des réponses écrites : la faute de frappe sur
+           un accent ou une majuscule ne doit pas être comptée comme une
+           faute de grammaire. La ponctuation et les espaces multiples sont
+           également neutralisés. */
+        function normaliser(texte) {
+            return texte
+                .trim()
+                .toLowerCase()
+                .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+                .replace(/[’‘]/g, "'")
+                .replace(/[.!?;,]/g, '')
+                .replace(/\s+/g, ' ');
+        }
+
+        function verifierSaisie(bouton) {
+            const bloc = bouton.closest('.q-bloc');
+            if (bloc.classList.contains('verrouille')) return;
+
+            const champ = bloc.querySelector('input.saisie');
+            const attendues = champ.getAttribute('data-reponses').split('|');
+            const juste = attendues.some(r => normaliser(r) === normaliser(champ.value));
+            const zoneFeedback = bloc.querySelector('.feedback');
+
+            bloc.classList.add('verrouille');
+            champ.disabled = true;
+            champ.classList.add(juste ? 'correct' : 'erreur');
+
+            if (juste) {
+                zoneFeedback.innerHTML = bloc.getAttribute('data-feedback-juste');
+                zoneFeedback.classList.add('succes');
+            } else {
+                zoneFeedback.innerHTML = "Réponse attendue : « " + attendues[0] + " ». "
+                    + bloc.getAttribute('data-feedback-faux');
+                zoneFeedback.classList.add('erreur');
+            }
+            sauvegarderProgression(bloc.id, juste);
         }
 
         function majProgressionGlobale() {
-            const totalQuestions = document.querySelectorAll('.qcm').length;
+            const totalQuestions = document.querySelectorAll('.qcm, .saisie-libre').length;
             const repondues = Object.keys(progression).length;
             const pourcentage = totalQuestions > 0 ? (repondues / totalQuestions) * 100 : 0;
             document.getElementById('progress-bar').style.width = pourcentage + '%';
         }
 
         function reinitialiserProgression() {
-            if(confirm("Voulez-vous effacer votre progression ?")) {
+            if(confirm("Voulez-vous effacer votre progression\u202f?")) {
                 localStorage.removeItem('progressionB2Dossier00');
                 location.reload();
             }
         }
 
-        document.querySelectorAll('.qcm').forEach(q => {
-            const idQuestion = q.id;
-            
-            if(progression[idQuestion] !== undefined) {
-                q.classList.add('verrouille');
-                const bonneReponse = q.querySelector('.btn-opt[data-correct="true"]');
-                bonneReponse.classList.add('reveler');
-                const zoneFeedback = q.querySelector('.feedback');
-                zoneFeedback.innerText = "Déjà validé. " + bonneReponse.getAttribute('data-feedback');
-                zoneFeedback.classList.add('succes');
+        /* ── Génération des exercices ────────────────────────────────────
+           Les batteries d'exercices sont décrites dans BANQUE_EXERCICES
+           (plus bas) et rendues ici. Ajouter un exercice = ajouter une
+           ligne de données, jamais un bloc de HTML.
+
+           Deux types :
+             qcm    — choix multiple ; « rep » est l'indice de la bonne
+                      réponse, « fb » le commentaire propre à chaque option.
+             saisie — transformation à rédiger ; « rep » liste les formes
+                      acceptées, la première servant de correction affichée.
+           ──────────────────────────────────────────────────────────────── */
+        function echapper(t) {
+            return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                            .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        function rendreExercice(id, numero, ex) {
+            const enonce = '<div class="q-texte"><b>' + numero + '.</b> ' + ex.q + '</div>';
+
+            if (ex.type === 'saisie') {
+                return '<div class="q-bloc saisie-libre" id="' + id + '"'
+                    + ' data-feedback-juste="' + echapper(ex.fb) + '"'
+                    + ' data-feedback-faux="' + echapper(ex.fbFaux || ex.fb) + '">'
+                    + enonce
+                    + '<input class="saisie" type="text" autocomplete="off" spellcheck="false"'
+                    + ' aria-label="Votre réponse"'
+                    + ' placeholder="' + echapper(ex.aide || 'Votre réponse') + '"'
+                    + ' data-reponses="' + echapper(ex.rep.join('|')) + '">'
+                    + '<div><button class="btn-verifier" onclick="verifierSaisie(this)">Vérifier</button></div>'
+                    + '<div class="feedback"></div></div>';
             }
 
-            q.querySelectorAll('.btn-opt').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    if (q.classList.contains('verrouille')) return;
-                    q.classList.add('verrouille');
-                    
-                    const estCorrect = btn.getAttribute('data-correct') === 'true';
-                    const zoneFeedback = q.querySelector('.feedback');
-                    zoneFeedback.innerText = btn.getAttribute('data-feedback');
-                    
-                    if (estCorrect) { 
-                        btn.classList.add('correct'); 
-                        zoneFeedback.classList.add('succes');
-                        sauvegarderProgression(idQuestion, true);
-                    } else { 
-                        btn.classList.add('erreur'); 
-                        zoneFeedback.classList.add('erreur');
-                        q.querySelector('.btn-opt[data-correct="true"]').classList.add('reveler'); 
-                        sauvegarderProgression(idQuestion, false);
-                    }
-                });
+            const options = ex.opt.map((o, i) =>
+                '<button class="btn-opt" data-correct="' + (i === ex.rep) + '"'
+                + ' data-feedback="' + echapper(ex.fb[i]) + '">' + echapper(o) + '</button>'
+            ).join('');
+
+            return '<div class="q-bloc qcm" id="' + id + '">' + enonce
+                + '<div class="grille-options">' + options + '</div>'
+                + '<div class="feedback"></div></div>';
+        }
+
+        function initialiserExercices() {
+            Object.keys(BANQUE_EXERCICES).forEach(cle => {
+                const hote = document.getElementById('exos-' + cle);
+                if (!hote) return;
+                hote.innerHTML = BANQUE_EXERCICES[cle]
+                    .map((ex, i) => rendreExercice(cle + '-q' + (i + 1), i + 1, ex))
+                    .join('');
             });
+        }
+
+        /* Délégation : un seul écouteur couvre les exercices générés comme
+           ceux écrits directement dans la page. */
+        document.addEventListener('click', e => {
+            const btn = e.target.closest('.btn-opt');
+            if (!btn) return;
+            const bloc = btn.closest('.q-bloc.qcm');
+            if (!bloc || bloc.classList.contains('verrouille')) return;
+
+            bloc.classList.add('verrouille');
+            const zoneFeedback = bloc.querySelector('.feedback');
+            const estCorrect = btn.getAttribute('data-correct') === 'true';
+            zoneFeedback.innerHTML = btn.getAttribute('data-feedback');
+
+            if (estCorrect) {
+                btn.classList.add('correct');
+                zoneFeedback.classList.add('succes');
+            } else {
+                btn.classList.add('erreur');
+                zoneFeedback.classList.add('erreur');
+                bloc.querySelector('.btn-opt[data-correct="true"]').classList.add('reveler');
+            }
+            sauvegarderProgression(bloc.id, estCorrect);
         });
 
+        /* Validation au clavier : Entrée équivaut à « Vérifier ». */
+        document.addEventListener('keydown', e => {
+            if (e.key !== 'Enter' || !e.target.classList.contains('saisie')) return;
+            e.preventDefault();
+            const bouton = e.target.closest('.q-bloc').querySelector('.btn-verifier');
+            if (bouton) verifierSaisie(bouton);
+        });
+
+        /* Restitution de ce qui a déjà été traité lors d'une visite précédente */
+        function restituerProgression() {
+            document.querySelectorAll('.qcm').forEach(bloc => {
+                if (progression[bloc.id] === undefined || bloc.classList.contains('verrouille')) return;
+                const bonneReponse = bloc.querySelector('.btn-opt[data-correct="true"]');
+                if (!bonneReponse) return;
+                bloc.classList.add('verrouille');
+                bonneReponse.classList.add('reveler');
+                const zoneFeedback = bloc.querySelector('.feedback');
+                zoneFeedback.innerHTML = (progression[bloc.id] ? "Déjà validé. " : "À revoir. ")
+                    + bonneReponse.getAttribute('data-feedback');
+                zoneFeedback.classList.add(progression[bloc.id] ? 'succes' : 'erreur');
+            });
+
+            document.querySelectorAll('.saisie-libre').forEach(bloc => {
+                if (progression[bloc.id] === undefined || bloc.classList.contains('verrouille')) return;
+                const reussi = progression[bloc.id];
+                const champ = bloc.querySelector('input.saisie');
+                const zoneFeedback = bloc.querySelector('.feedback');
+
+                bloc.classList.add('verrouille');
+                champ.value = champ.getAttribute('data-reponses').split('|')[0];
+                champ.disabled = true;
+                champ.classList.add(reussi ? 'correct' : 'erreur');
+                zoneFeedback.innerHTML = (reussi ? "Déjà validé. " : "Réponse attendue, à revoir. ")
+                    + bloc.getAttribute(reussi ? 'data-feedback-juste' : 'data-feedback-faux');
+                zoneFeedback.classList.add(reussi ? 'succes' : 'erreur');
+            });
+        }
+
+        /* Bilan affiché en fin de module */
+        function majBilans() {
+            document.querySelectorAll('.fin-module .bilan').forEach(bilan => {
+                const cle = bilan.getAttribute('data-module');
+                const exos = document.querySelectorAll('#exos-' + cle + ' .q-bloc');
+                let traites = 0, reussis = 0;
+                exos.forEach(b => {
+                    if (progression[b.id] === undefined) return;
+                    traites++;
+                    if (progression[b.id]) reussis++;
+                });
+                bilan.innerHTML = traites === 0
+                    ? 'Aucun exercice traité pour l’instant · <span>' + exos.length + ' à faire</span>'
+                    : 'Progression du module : <span>' + reussis + ' / ' + exos.length + '</span> réussis'
+                      + (traites < exos.length ? ' · ' + (exos.length - traites) + ' restants' : '');
+            });
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           BANQUE D'EXERCICES
+           Une entrée = un exercice. Pour en ajouter un, copiez une ligne
+           et modifiez-en le contenu ; la numérotation et le suivi de
+           progression se règlent tout seuls.
+           ═══════════════════════════════════════════════════════════════ */
+        const BANQUE_EXERCICES = {
+
+            /* ── Module 1 · Les indéfinis et les proportions ──────────── */
+            mod1: [
+                { type: 'qcm',
+                  q: '________ pays de la liste ne présente un taux de francophonie égal à 0&nbsp;%.',
+                  opt: ['Plusieurs', 'Aucun', 'Chaque'],
+                  rep: 1,
+                  fb: ["« Plusieurs » exige un verbe affirmatif : on ne peut pas l'associer à « ne ».",
+                       "Exact ! « Aucun » est toujours singulier et réclame « ne » devant le verbe.",
+                       "« Chaque » n'exprime pas la quantité nulle : il désigne les éléments un à un."] },
+
+                { type: 'qcm',
+                  q: '________ pays francophone possède sa propre richesse linguistique.',
+                  opt: ['Tous', 'Chaque', 'La plupart'],
+                  rep: 1,
+                  fb: ["« Tous » demande un nom au pluriel : « tous les pays ».",
+                       "Exact ! « Chaque » est suivi d'un nom au singulier et envisage les éléments un par un.",
+                       "« La plupart » se construit avec « de » et un pluriel : « la plupart des pays »."] },
+
+                { type: 'qcm',
+                  q: 'La plupart des étudiants ________ déjà passé le DELF.',
+                  opt: ['a', 'ont', 'avait'],
+                  rep: 1,
+                  fb: ["Piège classique : malgré le singulier de « la plupart », l'accord se fait avec le complément.",
+                       "Exact ! Après « la plupart des + pluriel », le verbe se met au pluriel.",
+                       "L'accord doit être au pluriel, et le passé composé convient mieux ici."] },
+
+                { type: 'qcm',
+                  q: 'Choisissez la forme correcte : « ________ les livres sont rangés. »',
+                  opt: ['Tout', 'Tous', 'Toute'],
+                  rep: 1,
+                  fb: ["« Tout » s'emploie devant un singulier : « tout le livre ».",
+                       "Exact ! « Tous » s'accorde avec « les livres », masculin pluriel.",
+                       "« Toute » est féminin singulier : « toute la classe »."] },
+
+                { type: 'qcm',
+                  q: '« ________ d\'entre eux a répondu correctement. » (un seul, pris isolément)',
+                  opt: ['Chacun', 'Chaque', 'Tous'],
+                  rep: 0,
+                  fb: ["Exact ! « Chacun » est un pronom : il s'emploie seul ou suivi de « d'entre ».",
+                       "« Chaque » est un adjectif : il lui faut un nom (« chaque étudiant »).",
+                       "« Tous » entraînerait un verbe au pluriel."] },
+
+                { type: 'qcm',
+                  q: 'Quelle proportion « les trois quarts » représente-t-il ?',
+                  opt: ['25 %', '75 %', '30 %'],
+                  rep: 1,
+                  fb: ["25 % correspond à « un quart ».",
+                       "Exact ! Trois parts sur quatre, soit 75 %.",
+                       "30 % ne correspond à aucune fraction usuelle en français."] },
+
+                { type: 'qcm',
+                  q: '« La moitié des candidats ________ reçue. » Quel accord ?',
+                  opt: ['a été', 'ont été', 'avaient'],
+                  rep: 0,
+                  fb: ["Exact ! Avec « la moitié », l'accord au singulier reste correct : c'est le collectif qui commande.",
+                       "L'accord au pluriel s'entend, mais le singulier est la forme attendue à l'écrit soigné.",
+                       "Le temps ne convient pas au contexte."] },
+
+                { type: 'qcm',
+                  q: 'Quelle phrase exprime une quantité <b>intermédiaire</b>, ni nulle ni totale ?',
+                  opt: ['Aucun étudiant n\'est venu.',
+                        'Certains étudiants sont venus.',
+                        'Tous les étudiants sont venus.'],
+                  rep: 1,
+                  fb: ["« Aucun » exprime la quantité nulle.",
+                       "Exact ! « Certains », comme « quelques » ou « plusieurs », désigne une partie indéterminée du groupe.",
+                       "« Tous » exprime la totalité."] },
+
+                { type: 'qcm',
+                  q: 'Complétez : « Il n\'y a ________ raison de s\'inquiéter. »',
+                  opt: ['aucune', 'aucun', 'nulle part'],
+                  rep: 0,
+                  fb: ["Exact ! « Raison » est féminin : « aucune raison », au singulier.",
+                       "« Aucun » est masculin ; « raison » demande le féminin.",
+                       "« Nulle part » est un adverbe de lieu, sans rapport ici."] },
+
+                { type: 'qcm',
+                  q: '« Quelques » et « plusieurs » : quelle différence ?',
+                  opt: ["« Quelques » suggère un petit nombre, « plusieurs » un nombre plus élevé.",
+                        "Les deux sont rigoureusement équivalents.",
+                        "« Quelques » est toujours singulier."],
+                  rep: 0,
+                  fb: ["Exact ! « Quelques » reste vague et modeste ; « plusieurs » insiste sur la pluralité, au-delà de deux.",
+                       "Ils se ressemblent, mais l'intensité diffère nettement.",
+                       "« Quelques » est toujours suivi d'un pluriel."] },
+
+                { type: 'saisie',
+                  q: 'Complétez avec l\'indéfini de totalité : « ________ les régions francophones ont participé. » (masculin pluriel)',
+                  rep: ['toutes', 'Toutes'],
+                  aide: 'un seul mot',
+                  fb: "« Régions » est féminin pluriel : l'accord donne « toutes ».",
+                  fbFaux: "Attention au genre : « les régions » est féminin pluriel." },
+
+                { type: 'saisie',
+                  q: 'Exprimez 50&nbsp;% en toutes lettres : « ________ des participants sont bilingues. »',
+                  rep: ['la moitié'],
+                  aide: 'la …',
+                  fb: "« La moitié » exprime exactement 50 %.",
+                  fbFaux: "On attend l'expression française de 50 %, en deux mots." },
+
+                { type: 'saisie',
+                  q: 'Réécrivez sans « ne… pas » : « Il n\'y a pas un seul étudiant absent. » ➔ ________ étudiant n\'est absent.',
+                  rep: ['aucun'],
+                  aide: 'un seul mot',
+                  fb: "« Aucun » condense la négation totale et s'accompagne toujours de « ne ».",
+                  fbFaux: "Employez l'indéfini de quantité nulle, au masculin singulier." },
+
+                { type: 'saisie',
+                  q: 'Complétez : « ________ des pays africains ont le français comme langue officielle. » (plus de la moitié, deux mots)',
+                  rep: ['la plupart'],
+                  aide: 'la …',
+                  fb: "« La plupart des » + pluriel : le verbe suit au pluriel.",
+                  fbFaux: "L'expression attendue signifie « la majorité » et se construit avec « des »." },
+
+                { type: 'saisie',
+                  q: 'Accordez : « Chaque candidat ________ (devoir) présenter une pièce d\'identité. »',
+                  rep: ['doit'],
+                  aide: 'verbe conjugué',
+                  fb: "« Chaque » impose le singulier : le verbe reste au singulier.",
+                  fbFaux: "« Chaque » est toujours suivi du singulier, verbe compris." }
+            ],
+
+            /* ── Module 2 · Cause et conséquence ──────────────────────── */
+            mod2: [
+                { type: 'qcm',
+                  q: 'Il faisait ________ froid que les étudiants sont restés chez eux.',
+                  opt: ['puisque', 'tellement', 'grâce à'],
+                  rep: 1,
+                  fb: ["« Puisque » introduit une cause, non une intensité.",
+                       "Exact ! « Tellement / si + adjectif + que » exprime l'intensité et sa conséquence.",
+                       "« Grâce à » introduit une cause positive suivie d'un nom."] },
+
+                { type: 'qcm',
+                  q: '________ son travail acharné, elle a obtenu son diplôme avec mention.',
+                  opt: ['À cause de', 'Grâce à', 'Faute de'],
+                  rep: 1,
+                  fb: ["« À cause de » annonce une conséquence fâcheuse : le résultat est ici favorable.",
+                       "Exact ! « Grâce à » signale une cause dont le résultat est heureux.",
+                       "« Faute de » exprime un manque : « faute de temps »."] },
+
+                { type: 'qcm',
+                  q: 'Le vol a été annulé ________ mauvais temps.',
+                  opt: ['grâce au', 'en raison du', 'malgré le'],
+                  rep: 1,
+                  fb: ["« Grâce à » est réservé aux causes favorables.",
+                       "Exact ! « En raison de » est neutre et convient au registre administratif ou journalistique.",
+                       "« Malgré » exprime la concession, c'est-à-dire l'inverse."] },
+
+                { type: 'qcm',
+                  q: 'Quel connecteur ne peut <b>pas</b> commencer une phrase ?',
+                  opt: ['Comme', 'Puisque', 'Car'],
+                  rep: 2,
+                  fb: ["« Comme » se place au contraire volontiers en tête : « Comme il pleut, je reste. »",
+                       "« Puisque » peut ouvrir la phrase : « Puisque tu insistes… »",
+                       "Exact ! « Car » relie deux propositions et ne peut jamais ouvrir la phrase. Il appartient de surcroît au registre écrit."] },
+
+                { type: 'qcm',
+                  q: '« ________ tu connais déjà la réponse, pourquoi poser la question ? » (cause connue de tous)',
+                  opt: ['Puisque', 'Parce que', 'Car'],
+                  rep: 0,
+                  fb: ["Exact ! « Puisque » présente une cause déjà connue de l'interlocuteur, souvent avec une nuance d'évidence.",
+                       "« Parce que » apporte une information nouvelle, en réponse à « pourquoi ? ».",
+                       "« Car » ne peut pas ouvrir la phrase."] },
+
+                { type: 'qcm',
+                  q: 'Il y avait ________ monde que nous n\'avons pas pu entrer.',
+                  opt: ['tellement de', 'tellement', 'si'],
+                  rep: 0,
+                  fb: ["Exact ! Devant un <b>nom</b>, on emploie « tellement de » ou « tant de ».",
+                       "« Tellement » seul se rapporte à un adjectif ou à un verbe, pas à un nom.",
+                       "« Si » ne se combine qu'avec un adjectif ou un adverbe."] },
+
+                { type: 'qcm',
+                  q: 'Quel connecteur relève du registre le plus <b>formel</b> ?',
+                  opt: ['Du coup', 'Par conséquent', 'Alors'],
+                  rep: 1,
+                  fb: ["« Du coup » est familier et à proscrire à l'écrit.",
+                       "Exact ! « Par conséquent » et « en conséquence » appartiennent au registre soutenu, courant dans les écrits administratifs.",
+                       "« Alors » est neutre à l'oral, mais peu adapté à un texte formel."] },
+
+                { type: 'qcm',
+                  q: 'Elle travaille beaucoup&nbsp;; ________, elle réussit.',
+                  opt: ['c\'est pourquoi', 'parce que', 'bien que'],
+                  rep: 0,
+                  fb: ["Exact ! « C'est pourquoi » introduit la conséquence de ce qui précède.",
+                       "« Parce que » introduirait une cause, or la cause est déjà énoncée.",
+                       "« Bien que » exprime la concession et exige le subjonctif."] },
+
+                { type: 'qcm',
+                  q: 'Après « étant donné que », quel mode employer ?',
+                  opt: ["L'indicatif", 'Le subjonctif', 'Le conditionnel'],
+                  rep: 0,
+                  fb: ["Exact ! Toutes les locutions de cause — parce que, puisque, comme, étant donné que, vu que — se construisent avec l'indicatif.",
+                       "Le subjonctif suit les locutions de but ou de concession, pas de cause.",
+                       "Le conditionnel n'est pas commandé par une locution de cause."] },
+
+                { type: 'qcm',
+                  q: 'Le train a été supprimé, ________ nous avons dû prendre le car.',
+                  opt: ['si bien que', 'à cause de', 'grâce à'],
+                  rep: 0,
+                  fb: ["Exact ! « Si bien que » introduit une conséquence et se construit avec une proposition complète.",
+                       "« À cause de » se construit avec un nom, non avec une proposition.",
+                       "« Grâce à » demande un nom et une nuance positive."] },
+
+                { type: 'saisie',
+                  q: 'Cause favorable&nbsp;: « ________ ton aide, j\'ai terminé à temps. » (deux mots)',
+                  rep: ['grâce à'],
+                  aide: 'grâce …',
+                  fb: "« Grâce à » + nom : la cause produit un résultat heureux.",
+                  fbFaux: "On attend la locution de cause à valeur positive, suivie d'un nom." },
+
+                { type: 'saisie',
+                  q: 'Cause défavorable&nbsp;: « Le match a été reporté ________ la pluie. » (trois mots)',
+                  rep: ['à cause de'],
+                  aide: 'à … de',
+                  fb: "« À cause de » + nom : la cause entraîne une conséquence fâcheuse.",
+                  fbFaux: "La locution attendue signale une cause aux effets négatifs." },
+
+                { type: 'saisie',
+                  q: 'Reliez par l\'intensité&nbsp;: « Le livre est passionnant. Je l\'ai lu en une nuit. » ➔ Le livre est ________ passionnant que je l\'ai lu en une nuit.',
+                  rep: ['si', 'tellement'],
+                  aide: 'un seul mot',
+                  fb: "« Si » ou « tellement » + adjectif + « que » : l'intensité appelle sa conséquence.",
+                  fbFaux: "Devant un adjectif, employez « si » ou « tellement »." },
+
+                { type: 'saisie',
+                  q: 'Registre soutenu&nbsp;: « Les résultats sont insuffisants&nbsp;; ________, la formation sera prolongée. » (deux mots)',
+                  rep: ['par conséquent', 'en conséquence'],
+                  aide: 'par …',
+                  fb: "« Par conséquent » convient au registre formel, à l'écrit administratif comme à l'argumentation.",
+                  fbFaux: "On attend une locution de conséquence de registre soutenu." },
+
+                { type: 'saisie',
+                  q: 'Transformez en cause&nbsp;: « Il pleuvait. Nous sommes rentrés. » ➔ ________ il pleuvait, nous sommes rentrés. (cause en tête de phrase)',
+                  rep: ['comme'],
+                  aide: 'un seul mot',
+                  fb: "« Comme » place la cause en tête et prépare la conséquence qui suit.",
+                  fbFaux: "Le connecteur attendu ouvre la phrase et annonce la cause avant sa conséquence." }
+            ],
+
+            /* ── Module 3 · La forme passive ─────────────────────────── */
+            mod3: [
+                { type: 'qcm',
+                  q: '« Le Comité international olympique <b>a choisi</b> un pays. » ➔ Un pays ________ par le Comité.',
+                  opt: ['a choisi', 'a été choisi', 'est choisissant'],
+                  rep: 1,
+                  fb: ["Non : « a choisi » reste la forme active, avec l'auxiliaire « avoir ».",
+                       "Exact ! Le passé composé actif « a choisi » donne au passif « a été choisi » : l'auxiliaire « être » se met au passé composé.",
+                       "Cette forme n'existe pas en français. Le passif se construit avec « être » + participe passé."] },
+
+                { type: 'qcm',
+                  q: 'La cérémonie ________ par le maire de la ville la semaine dernière.',
+                  opt: ['a été ouverte', 'a ouvert', 'est ouvrante'],
+                  rep: 0,
+                  fb: ["Parfait ! Passé composé passif, et le participe s'accorde avec « la cérémonie » : ouvert<b>e</b>.",
+                       "Non : ici, c'est la cérémonie qui subit l'action. Le maire est l'agent, introduit par « par ».",
+                       "Forme inexistante. Retenez : « être » conjugué + participe passé."] },
+
+                { type: 'qcm',
+                  q: 'Accord du participe : « Les nouvelles mesures ________ par le ministère. »',
+                  opt: ['a été annoncé', 'ont été annoncées', 'ont été annoncé'],
+                  rep: 1,
+                  fb: ["Le sujet est pluriel : l'auxiliaire doit être au pluriel, et le participe accordé.",
+                       "Exact ! « Les mesures » est féminin pluriel : ont été annoncé<b>es</b>. Le participe passé passif s'accorde toujours avec le sujet.",
+                       "L'auxiliaire est juste, mais le participe reste invariable ici : il faut « annoncées »."] },
+
+                { type: 'qcm',
+                  q: 'Complément d\'agent : « Ce professeur est respecté ________ tous ses étudiants. »',
+                  opt: ['par', 'de', 'avec'],
+                  rep: 1,
+                  fb: ["« Par » n'est pas faux à l'oral, mais la langue soignée préfère « de » après un verbe de sentiment.",
+                       "Exact ! Après les verbes de sentiment ou d'état (aimé, respecté, connu, apprécié, estimé), l'agent s'introduit par « de ».",
+                       "« Avec » n'introduit jamais le complément d'agent."] },
+
+                { type: 'qcm',
+                  q: '« La vallée était couverte ________ neige. »',
+                  opt: ['par la', 'de', 'pour la'],
+                  rep: 1,
+                  fb: ["Ici la neige n'agit pas : elle décrit un état. On emploie « de ».",
+                       "Exact ! Les verbes de description (couvert, entouré, bordé, rempli, précédé, suivi) prennent « de ».",
+                       "« Pour » n'introduit pas le complément d'agent."] },
+
+                { type: 'qcm',
+                  q: 'Quel énoncé relève du <b>registre journalistique</b> le plus courant ?',
+                  opt: ['On a arrêté trois suspects hier soir.',
+                        'Trois suspects ont été arrêtés hier soir.',
+                        'Trois suspects, ils les ont arrêtés hier soir.'],
+                  rep: 1,
+                  fb: ["Correct à l'oral, mais la presse écrite préfère le passif, qui met le fait en avant.",
+                       "Exact ! Le passif sans agent met l'événement au premier plan et laisse l'auteur de l'action dans l'ombre : c'est la marque du style journalistique.",
+                       "La dislocation appartient au registre familier oral."] },
+
+                { type: 'qcm',
+                  q: 'Futur simple passif : « Les résultats ________ la semaine prochaine. »',
+                  opt: ['seront publiés', 'auront publié', 'sont publiant'],
+                  rep: 0,
+                  fb: ["Exact ! « Être » au futur simple + participe passé accordé : seront publié<b>s</b>.",
+                       "« Auront publié » est un futur antérieur actif : quelqu'un publie quelque chose.",
+                       "Forme inexistante en français."] },
+
+                { type: 'qcm',
+                  q: 'Imparfait passif : « À cette époque, le courrier ________ à cheval. »',
+                  opt: ['était transporté', 'a été transporté', 'serait transporté'],
+                  rep: 0,
+                  fb: ["Exact ! L'imparfait décrit une habitude passée : « était » + participe passé.",
+                       "Le passé composé présenterait un fait ponctuel et achevé, non une habitude.",
+                       "Le conditionnel exprimerait une hypothèse, pas un usage habituel."] },
+
+                { type: 'qcm',
+                  q: 'Pourquoi l\'agent est-il absent dans « Ce pont a été construit en 1885 » ?',
+                  opt: ["Parce que la phrase est incorrecte sans agent.",
+                        "Parce que l'auteur de l'action est inconnu ou sans intérêt ici.",
+                        "Parce que le passif interdit le complément d'agent."],
+                  rep: 1,
+                  fb: ["Le passif se passe très bien d'agent : c'est même le cas le plus fréquent.",
+                       "Exact ! On omet l'agent quand il est inconnu, évident, ou quand seul le résultat compte. C'est la raison d'être principale du passif.",
+                       "Le complément d'agent est possible, simplement facultatif."] },
+
+                { type: 'qcm',
+                  q: 'Quelle phrase exprime le <b>même sens</b> que « On a volé son sac. » ?',
+                  opt: ["Il s'est fait voler son sac.",
+                        "Il a volé son sac.",
+                        "Son sac s'est volé."],
+                  rep: 0,
+                  fb: ["Exact ! « Se faire + infinitif » exprime un passif où le sujet subit l'action : très fréquent à l'oral.",
+                       "Cette phrase dit le contraire : ce serait lui le voleur.",
+                       "La forme pronominale de sens passif ne convient pas à ce verbe."] },
+
+                { type: 'saisie',
+                  q: 'Mettez au passif : « Le jury <b>remettra</b> le prix. » ➔ Le prix ________ par le jury.',
+                  rep: ['sera remis'],
+                  aide: 'sera + participe',
+                  fb: "Futur simple passif : « être » au futur + participe accordé au masculin singulier.",
+                  fbFaux: "Le verbe actif est au futur simple : l'auxiliaire « être » doit donc l'être aussi." },
+
+                { type: 'saisie',
+                  q: 'Mettez au passif : « Les élèves <b>ont écrit</b> ces lettres. » ➔ Ces lettres ________ par les élèves.',
+                  rep: ['ont été écrites'],
+                  aide: 'ont été + participe',
+                  fb: "Passé composé passif, avec accord au féminin pluriel : écrit<b>es</b>.",
+                  fbFaux: "Attention à l'accord : le sujet « ces lettres » est féminin pluriel." },
+
+                { type: 'saisie',
+                  q: 'Repassez à l\'actif : « Ce roman a été traduit par une universitaire. » ➔ Une universitaire ________ ce roman.',
+                  rep: ['a traduit'],
+                  aide: 'auxiliaire + participe',
+                  fb: "À l'actif, l'agent devient sujet et le participe ne s'accorde plus : « a traduit ».",
+                  fbFaux: "L'agent « une universitaire » devient le sujet ; le verbe reprend l'auxiliaire « avoir »." },
+
+                { type: 'saisie',
+                  q: 'Complétez au présent passif : « Chaque année, ce festival ________ (organiser) par la mairie. »',
+                  rep: ['est organisé'],
+                  aide: 'est + participe',
+                  fb: "Présent passif : « est » + participe passé, accordé au masculin singulier avec « ce festival ».",
+                  fbFaux: "Le présent passif se forme avec « être » au présent suivi du participe passé." },
+
+                { type: 'saisie',
+                  q: 'Évitez le passif avec « on » : « La décision a été prise hier. » ➔ ________ la décision hier.',
+                  rep: ['on a pris'],
+                  aide: 'on + verbe',
+                  fb: "« On » permet de garder l'agent indéterminé tout en revenant à une tournure active, plus naturelle à l'oral.",
+                  fbFaux: "Employez le pronom indéfini « on » suivi du verbe à l'actif." }
+            ],
+
+            /* ── Module 4 · Démonstratifs et possessifs ───────────────── */
+            mod4: [
+                { type: 'qcm',
+                  q: 'J\'ai oublié mes lunettes, tu peux me prêter ________&#8239;? (tes lunettes)',
+                  opt: ['celles', 'les tiennes', 'la tienne'],
+                  rep: 1,
+                  fb: ["« Celles » est démonstratif : il exigerait une suite (« celles de Paul »).",
+                       "Exact ! Possessif féminin pluriel : « les tiennes » remplace « tes lunettes ».",
+                       "Le singulier ne convient pas : « lunettes » est pluriel."] },
+
+                { type: 'qcm',
+                  q: 'Ce n\'est pas mon manteau, c\'est ________ de ma sœur.',
+                  opt: ['celui', 'celle', 'le sien'],
+                  rep: 0,
+                  fb: ["Exact ! « Celui de » remplace « le manteau de », masculin singulier.",
+                       "« Celle » est féminin : « manteau » est masculin.",
+                       "« Le sien » serait correct seul, mais il ne se construit pas avec « de »."] },
+
+                { type: 'qcm',
+                  q: 'Quelle forme complète correctement&nbsp;: « Les résultats de Marie sont meilleurs que ________ » ?',
+                  opt: ['les miens', 'le mien', 'la mienne'],
+                  rep: 0,
+                  fb: ["Exact ! « Les résultats » est masculin pluriel : « les miens ».",
+                       "Le singulier ne s'accorde pas avec « résultats ».",
+                       "Le féminin ne convient pas à « résultats »."] },
+
+                { type: 'qcm',
+                  q: 'À quoi sert le suffixe « -ci » dans « celui-ci » ?',
+                  opt: ["À désigner ce qui est proche ou vient d'être mentionné.",
+                        "À marquer le pluriel.",
+                        "À indiquer la possession."],
+                  rep: 0,
+                  fb: ["Exact ! « -ci » renvoie au proche ou au dernier élément cité ; « -là » au lointain ou au premier cité.",
+                       "Le nombre est déjà porté par « celui / ceux ».",
+                       "La possession relève des pronoms possessifs, pas des démonstratifs."] },
+
+                { type: 'qcm',
+                  q: 'Complétez&nbsp;: « ________ qui veulent participer doivent s\'inscrire. »',
+                  opt: ['Ceux', 'Celui', 'Ce'],
+                  rep: 0,
+                  fb: ["Exact ! « Ceux qui » désigne un ensemble de personnes, masculin pluriel.",
+                       "Le singulier ne s'accorde pas avec « veulent ».",
+                       "« Ce qui » ne désigne pas des personnes mais une chose ou une idée."] },
+
+                { type: 'qcm',
+                  q: '« Notre » ou « le nôtre » : quelle est la différence ?',
+                  opt: ["« Notre » accompagne un nom, « le nôtre » le remplace.",
+                        "Les deux sont interchangeables.",
+                        "« Le nôtre » accompagne un nom, « notre » le remplace."],
+                  rep: 0,
+                  fb: ["Exact ! « Notre voiture » (adjectif + nom) devient « la nôtre » (pronom, seul). Notez l'accent circonflexe du pronom.",
+                       "Leur emploi est strictement complémentaire.",
+                       "C'est exactement l'inverse."] },
+
+                { type: 'qcm',
+                  q: 'Ils ont perdu leurs clés et nous avons perdu ________.',
+                  opt: ['les nôtres', 'les leurs', 'la nôtre'],
+                  rep: 0,
+                  fb: ["Exact ! Le possesseur est « nous » : « les nôtres », féminin pluriel comme « clés ».",
+                       "« Les leurs » renverrait à eux, pas à nous.",
+                       "« Clés » est pluriel : il faut « les nôtres »."] },
+
+                { type: 'qcm',
+                  q: 'Quel pronom neutre convient&nbsp;: « ________ m\'étonne beaucoup. » (en parlant d\'un fait)',
+                  opt: ['Cela', 'Celui', 'Celle'],
+                  rep: 0,
+                  fb: ["Exact ! « Cela » (ou « ça » à l'oral) reprend une idée, un fait, jamais une personne.",
+                       "« Celui » remplace un nom masculin précis.",
+                       "« Celle » remplace un nom féminin précis."] },
+
+                { type: 'qcm',
+                  q: 'Repérez la forme correcte&nbsp;:',
+                  opt: ['C\'est le livre de Paul et celui de Marie.',
+                        'C\'est le livre de Paul et celui Marie.',
+                        'C\'est le livre de Paul et le sien de Marie.'],
+                  rep: 0,
+                  fb: ["Exact ! « Celui » exige un complément : « celui de Marie ».",
+                       "Il manque la préposition « de ».",
+                       "« Le sien » ne se construit jamais avec « de »."] },
+
+                { type: 'qcm',
+                  q: 'J\'hésite entre ces deux vestes&nbsp;: ________ est plus chaude, mais ________ est plus élégante.',
+                  opt: ['celle-ci … celle-là', 'celui-ci … celui-là', 'ceci … cela'],
+                  rep: 0,
+                  fb: ["Exact ! « Veste » est féminin : « celle-ci » désigne la plus proche, « celle-là » l'autre.",
+                       "Le masculin ne convient pas à « veste ».",
+                       "« Ceci / cela » sont neutres et ne remplacent pas un nom déterminé."] },
+
+                { type: 'saisie',
+                  q: 'Remplacez « ma voiture »&nbsp;: « Ta voiture est plus rapide que ________. » (deux mots)',
+                  rep: ['la mienne'],
+                  aide: 'la …',
+                  fb: "Possessif féminin singulier, avec l'article : « la mienne ».",
+                  fbFaux: "N'oubliez pas l'article défini devant le pronom possessif." },
+
+                { type: 'saisie',
+                  q: 'Complétez avec un démonstratif&nbsp;: « Prends ce dossier et donne-moi ________ qui est sur le bureau. »',
+                  rep: ['celui'],
+                  aide: 'un seul mot',
+                  fb: "« Celui qui » reprend « dossier », masculin singulier.",
+                  fbFaux: "Employez le démonstratif masculin singulier, suivi de « qui »." },
+
+                { type: 'saisie',
+                  q: 'Évitez la répétition&nbsp;: « Les problèmes de la ville et les problèmes de la campagne. » ➔ Les problèmes de la ville et ________ de la campagne. (deux mots)',
+                  rep: ['ceux'],
+                  aide: 'un seul mot',
+                  fb: "« Ceux de » évite la répétition du nom masculin pluriel.",
+                  fbFaux: "Le démonstratif masculin pluriel remplace « les problèmes »." },
+
+                { type: 'saisie',
+                  q: 'Possessif de la 3ᵉ personne du pluriel&nbsp;: « Nos enfants jouent avec ________. » (les enfants d\'eux, deux mots)',
+                  rep: ['les leurs'],
+                  aide: 'les …',
+                  fb: "« Les leurs » : plusieurs possesseurs, objet possédé au pluriel.",
+                  fbFaux: "Le possesseur est « eux » et l'objet possédé est au pluriel." },
+
+                { type: 'saisie',
+                  q: 'Neutre&nbsp;: « Il est arrivé en retard, et ________ ne m\'a pas surpris. » (un mot)',
+                  rep: ['cela', 'ça'],
+                  aide: 'un seul mot',
+                  fb: "« Cela » reprend l'ensemble du fait qui précède ; « ça » convient à l'oral.",
+                  fbFaux: "Employez le démonstratif neutre, celui qui reprend une idée entière." }
+            ],
+
+            /* ── Module 5 · Conditionnel et expression du but ─────────── */
+            mod5: [
+                { type: 'qcm',
+                  q: 'Il travaille dur ________ ses parents soient fiers de lui.',
+                  opt: ['pour', 'pour que', 'afin de'],
+                  rep: 1,
+                  fb: ["« Pour » + infinitif suppose un seul sujet ; ici les sujets diffèrent.",
+                       "Exact ! Sujets différents (il / ses parents) ➔ « pour que » + subjonctif.",
+                       "« Afin de » exige l'infinitif, donc un sujet unique."] },
+
+                { type: 'qcm',
+                  q: 'Il économise ________ acheter un appartement.',
+                  opt: ['pour que', 'afin de', 'pour qu\'il'],
+                  rep: 1,
+                  fb: ["« Pour que » demande un second sujet et le subjonctif.",
+                       "Exact ! Même sujet (il économise, il achète) ➔ infinitif après « afin de » ou « pour ».",
+                       "Répéter le sujet serait maladroit : l'infinitif s'impose."] },
+
+                { type: 'qcm',
+                  q: 'Dans une classe idéale, il ________ des tables à roulettes.',
+                  opt: ['y aura', 'y aurait', 'y avait'],
+                  rep: 1,
+                  fb: ["Le futur présenterait le fait comme certain, or il s'agit d'une situation imaginée.",
+                       "Exact ! Le conditionnel présent exprime l'hypothèse et le souhait.",
+                       "L'imparfait situerait le fait dans le passé."] },
+
+                { type: 'qcm',
+                  q: 'Comment se forme le conditionnel présent ?',
+                  opt: ["Radical du futur + terminaisons de l'imparfait.",
+                        "Radical du présent + terminaisons du futur.",
+                        "Radical de l'imparfait + terminaisons du présent."],
+                  rep: 0,
+                  fb: ["Exact ! <b>je ser-ais, tu ser-ais, il ser-ait</b> : le radical vient du futur, les terminaisons de l'imparfait.",
+                       "C'est la formation du futur simple.",
+                       "Cette combinaison n'existe pas."] },
+
+                { type: 'qcm',
+                  q: '« Si j\'avais le temps, je ________ ce roman. »',
+                  opt: ['lirais', 'lirai', 'lirais eu'],
+                  rep: 0,
+                  fb: ["Exact ! <b>Si + imparfait ➔ conditionnel présent.</b> Jamais de conditionnel après « si ».",
+                       "« Lirai » est le futur simple : il suivrait « si + présent ».",
+                       "Cette forme n'existe pas."] },
+
+                { type: 'qcm',
+                  q: 'Quel emploi du conditionnel reconnaissez-vous dans « Le suspect aurait quitté le pays » ?',
+                  opt: ['Un souhait', 'Une information non confirmée', 'Une hypothèse irréelle'],
+                  rep: 1,
+                  fb: ["Le souhait s'exprimerait par « j'aimerais », « je voudrais ».",
+                       "Exact ! C'est le conditionnel journalistique : il rapporte une information sans l'assumer.",
+                       "L'hypothèse supposerait une proposition en « si »."] },
+
+                { type: 'qcm',
+                  q: 'Formule de politesse&nbsp;: laquelle convient à une demande à un professeur ?',
+                  opt: ['Je veux un rendez-vous.',
+                        'Je voudrais un rendez-vous.',
+                        'Je vais vouloir un rendez-vous.'],
+                  rep: 1,
+                  fb: ["« Je veux » est abrupt et peut sembler impoli.",
+                       "Exact ! Le conditionnel atténue la demande : c'est son emploi le plus courant au quotidien.",
+                       "Cette tournure relève d'un français relâché."] },
+
+                { type: 'qcm',
+                  q: 'Après « pour que », quel mode est obligatoire ?',
+                  opt: ['Le subjonctif', "L'indicatif", 'Le conditionnel'],
+                  rep: 0,
+                  fb: ["Exact ! Toutes les locutions de but suivies d'une proposition — pour que, afin que, de peur que — commandent le subjonctif.",
+                       "L'indicatif suit les locutions de cause, pas de but.",
+                       "Le conditionnel n'est jamais commandé par une conjonction de but."] },
+
+                { type: 'qcm',
+                  q: 'Elle a fermé la fenêtre ________ les enfants n\'attrapent froid.',
+                  opt: ['de peur que', 'grâce à', 'si bien que'],
+                  rep: 0,
+                  fb: ["Exact ! « De peur que » (ou « de crainte que ») exprime un but négatif, ce qu'on cherche à éviter.",
+                       "« Grâce à » introduit une cause favorable, suivie d'un nom.",
+                       "« Si bien que » introduit une conséquence, non un but."] },
+
+                { type: 'qcm',
+                  q: 'Quelle phrase exprime un <b>but</b>, et non une cause ?',
+                  opt: ["Il est parti parce qu'il était fatigué.",
+                        "Il est parti afin de se reposer.",
+                        "Il est parti, si bien qu'il a manqué la fin."],
+                  rep: 1,
+                  fb: ["« Parce que » introduit la cause, ce qui précède l'action.",
+                       "Exact ! Le but est visé, il se situe après l'action et n'est pas encore réalisé.",
+                       "« Si bien que » introduit la conséquence effective."] },
+
+                { type: 'saisie',
+                  q: 'Conditionnel présent&nbsp;: « Si nous avions plus de place, nous ________ (organiser) des ateliers. »',
+                  rep: ['organiserions'],
+                  aide: 'verbe conjugué',
+                  fb: "Radical du futur « organiser- » + terminaison « -ions » de l'imparfait.",
+                  fbFaux: "Après « si + imparfait », le verbe principal se met au conditionnel présent." },
+
+                { type: 'saisie',
+                  q: 'Politesse&nbsp;: transformez « Je veux vous parler. » ➔ « Je ________ vous parler. »',
+                  rep: ['voudrais'],
+                  aide: 'verbe conjugué',
+                  fb: "« Je voudrais » : le conditionnel transforme l'exigence en demande.",
+                  fbFaux: "Mettez « vouloir » au conditionnel présent, première personne." },
+
+                { type: 'saisie',
+                  q: 'Même sujet&nbsp;: « Elle révise. Elle veut réussir. » ➔ Elle révise ________ réussir. (deux mots)',
+                  rep: ['afin de', 'pour'],
+                  aide: 'afin …',
+                  fb: "Un seul sujet : la locution de but est suivie de l'infinitif.",
+                  fbFaux: "Avec un sujet unique, employez « pour » ou « afin de » + infinitif." },
+
+                { type: 'saisie',
+                  q: 'Sujets différents&nbsp;: « Le professeur répète ________ tous comprennent. » (deux mots)',
+                  rep: ['pour que', 'afin que'],
+                  aide: 'pour …',
+                  fb: "Deux sujets distincts : « pour que » impose le subjonctif — « comprennent ».",
+                  fbFaux: "Quand les sujets diffèrent, il faut une conjonction suivie du subjonctif." },
+
+                { type: 'saisie',
+                  q: 'Subjonctif après le but&nbsp;: « Je t\'explique afin que tu ________ (pouvoir) travailler seul. »',
+                  rep: ['puisses'],
+                  aide: 'verbe conjugué',
+                  fb: "« Pouvoir » au subjonctif présent, deuxième personne : « que tu puisses ».",
+                  fbFaux: "« Afin que » commande le subjonctif : révisez la forme de « pouvoir »." }
+            ]
+        };
+
+        /* Vingt questions, quatre par module, dans l'ordre du dossier. */
         const dataEval = [
+            // Module 1 · indéfinis et proportions
             { q: "________ des pays francophones se trouvent en Afrique.", opt: ["La plupart", "Chaque", "Aucun"], rep: 0 },
+            { q: "________ candidat doit présenter une pièce d'identité.", opt: ["Tous", "Chaque", "Plusieurs"], rep: 1 },
+            { q: "Il n'y a ________ raison de s'inquiéter.", opt: ["aucune", "aucun", "nulle"], rep: 0 },
+            { q: "La plupart des étudiants ________ déjà répondu.", opt: ["a", "ont", "avait"], rep: 1 },
+
+            // Module 2 · cause et conséquence
             { q: "Il faisait ________ froid qu'ils sont restés cloîtrés chez eux.", opt: ["puisque", "tellement", "grâce à"], rep: 1 },
+            { q: "Le vol a été annulé ________ mauvais temps.", opt: ["grâce au", "en raison du", "malgré le"], rep: 1 },
+            { q: "Il y avait ________ monde que nous sommes repartis.", opt: ["si", "tellement de", "tellement"], rep: 1 },
+            { q: "Les résultats sont insuffisants\u202f; ________, la formation sera prolongée.", opt: ["du coup", "par conséquent", "parce que"], rep: 1 },
+
+            // Module 3 · la forme passive
             { q: "Le prix ________ par un jury international.", opt: ["a été remis", "a remis", "est remis"], rep: 0 },
-            { q: "J'ai perdu mon dictionnaire, tu peux me prêter ________ ?", opt: ["celui", "le tien", "la sienne"], rep: 1 },
+            { q: "Les nouvelles mesures ________ par le ministère.", opt: ["a été annoncé", "ont été annoncées", "ont été annoncé"], rep: 1 },
+            { q: "Ce professeur est respecté ________ tous ses étudiants.", opt: ["par", "de", "avec"], rep: 1 },
+            { q: "À cette époque, le courrier ________ à cheval.", opt: ["était transporté", "a été transporté", "serait transporté"], rep: 0 },
+
+            // Module 4 · démonstratifs et possessifs
+            { q: "J'ai perdu mon dictionnaire, tu peux me prêter ________\u202f?", opt: ["celui", "le tien", "la sienne"], rep: 1 },
+            { q: "Ce n'est pas mon manteau, c'est ________ de ma sœur.", opt: ["celui", "celle", "le sien"], rep: 0 },
+            { q: "Ils ont perdu leurs clés et nous avons perdu ________.", opt: ["les nôtres", "les leurs", "la nôtre"], rep: 0 },
+            { q: "________ qui veulent participer doivent s'inscrire.", opt: ["Ceux", "Celui", "Ce"], rep: 0 },
+
+            // Module 5 · conditionnel et but
             { q: "Dans une classe idéale, il ________ des tables à roulettes.", opt: ["y aura", "y avait", "y aurait"], rep: 2 },
-            { q: "Il travaille dur ________ réussir son examen DELF.", opt: ["pour que", "afin de", "bien que"], rep: 1 }
+            { q: "Il travaille dur ________ réussir son examen DELF.", opt: ["pour que", "afin de", "bien que"], rep: 1 },
+            { q: "Si j'avais le temps, je ________ ce roman.", opt: ["lirais", "lirai", "aurais lu"], rep: 0 },
+            { q: "Je t'explique afin que tu ________ travailler seul.", opt: ["peux", "puisses", "pourras"], rep: 1 }
         ];
 
         let scoreEval = 0; let nbReponduesEval = 0;
@@ -518,8 +1877,9 @@
                     document.getElementById('score-affichage').innerText = `${scoreEval} / ${dataEval.length}`;
                     
                     let msg = "";
-                    if (scoreEval === dataEval.length) msg = "Maîtrise absolue des fondations B2. Excellent travail !";
-                    else if (scoreEval >= 4) msg = "Solide parcours. Quelques révisions ciblées vous permettront d'atteindre la perfection.";
+                    if (scoreEval === dataEval.length) msg = "Maîtrise absolue des fondations B2. Excellent travail\u202f!";
+                    else if (scoreEval >= dataEval.length * 0.8) msg = "Solide parcours. Quelques révisions ciblées vous permettront d'atteindre la perfection.";
+                    else if (scoreEval >= dataEval.length * 0.6) msg = "Les bases sont là. Reprenez les modules où les erreurs se concentrent avant de retenter l'épreuve.";
                     else msg = "Il est recommandé de reprendre l'étude des modules théoriques.";
                     
                     document.getElementById('message-affichage').innerText = msg;
@@ -527,7 +1887,11 @@
             }
         };
         
+        initialiserExercices();
+        restituerProgression();
+        majBilans();
         initialiserEval();
+        initialiserDepot();
         majProgressionGlobale();
     </script>
 </body>
