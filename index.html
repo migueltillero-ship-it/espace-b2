@@ -1375,9 +1375,17 @@
              saisie — transformation à rédiger ; « rep » liste les formes
                       acceptées, la première servant de correction affichée.
            ──────────────────────────────────────────────────────────────── */
+        /* Les intitulés d'options sont échappés avant d'être insérés : une
+           entité y resterait visible à l'écran. Les deux espaces insécables
+           sont donc convertis en caractères avant l'échappement, de sorte
+           qu'on puisse écrire la banque d'exercices d'une seule façon,
+           entités comprises, sans avoir à se souvenir du champ concerné. */
         function echapper(t) {
-            return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;')
-                            .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+            return String(t)
+                .replace(/&nbsp;/g, '\u00a0')
+                .replace(/&#8239;/g, '\u202f')
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
         }
 
         function rendreExercice(id, numero, ex) {
@@ -2254,7 +2262,7 @@
 
                 { type: 'qcm',
                   q: 'Quelle formule appartient au registre <b>familier</b>&nbsp;?',
-                  opt: ['Je ne partage pas ton avis.', 'C\'est n\'importe quoi&#8239;!', 'Je ne suis pas de ton avis.'],
+                  opt: ['Je ne partage pas ton avis.', 'C\'est n\'importe quoi !', 'Je ne suis pas de ton avis.'],
                   rep: 1,
                   fb: ["Formule neutre, utilisable partout.",
                        "Exact&#8239;! À réserver aux échanges entre proches&nbsp;: elle est trop abrupte pour un débat ou un examen.",
