@@ -191,6 +191,8 @@
         .btn-depot:hover { background: var(--graphite); }
         .btn-depot[aria-disabled="true"] { background: var(--gris-doux); color: #999; cursor: not-allowed; pointer-events: none; }
         .note-depot { text-align: center; font-size: 0.95rem; color: #888; }
+        .adresse-depot { margin-top: 1.5rem; font-size: 0.95rem; color: #6B6B6B; }
+        .adresse-depot b { color: var(--graphite); }
 
         @media (max-width: 600px) {
             .etapes li { padding-left: 3.2rem; }
@@ -277,7 +279,7 @@
                 <div class="carte-hub devoirs" onclick="naviguer('vue-devoirs')">
                     <div>
                         <h2>Dépôt des Devoirs</h2>
-                        <p>Remettez vos travaux et vos activités&nbsp;: tous les formats sont acceptés, en autant d'envois que nécessaire. Vos corrections vous seront renvoyées personnellement.</p>
+                        <p>Remettez vos travaux et vos activités par courriel, en un clic&nbsp;: tous les formats sont acceptés, sans inscription. Vos corrections vous reviennent personnellement.</p>
                     </div>
                     <button class="btn-prim">Déposer un travail</button>
                 </div>
@@ -1217,25 +1219,35 @@
             <button class="btn-retour" onclick="naviguer('vue-hub')">Menu Principal</button>
             <div class="titre-professeur">Travaux et Activités</div>
             <h1>Espace de Dépôt</h1>
-            <p>Remettez ici vos devoirs, vos rédactions et vos activités. Le professeur est prévenu dès la réception et vous renvoie votre correction personnalisée.</p>
+            <p>Remettez ici vos devoirs, vos rédactions et vos activités. Le professeur vous renvoie votre correction personnalisée par retour de courrier.</p>
         </header>
 
         <div class="conteneur">
             <div class="section-cours">
-                <h3>Déposer un travail</h3>
+                <h3>Envoyer un travail</h3>
 
                 <ol class="etapes">
-                    <li><b>Identifiez-vous</b>Indiquez votre nom complet et votre groupe, puis précisez le module ou l'activité concernée.</li>
-                    <li><b>Ajoutez vos fichiers</b>Tous les formats sont acceptés (PDF, Word, images, audio, vidéo…). Joignez plusieurs fichiers à la fois et renouvelez l'envoi autant de fois que nécessaire.</li>
-                    <li><b>Validez l'envoi</b>Une confirmation s'affiche et le professeur reçoit immédiatement une notification.</li>
+                    <li><b>Préparez vos fichiers</b>Tous les formats sont acceptés&nbsp;: PDF, Word, images, audio, vidéo. Nommez-les clairement, par exemple <code>Dupont_Module3_Passif</code>.</li>
+                    <li><b>Ouvrez le message pré-rempli</b>Le bouton ci-dessous ouvre votre messagerie avec l'adresse, l'objet et le formulaire déjà écrits. Complétez votre nom, votre groupe et le module concerné.</li>
+                    <li><b>Joignez vos fichiers, puis envoyez</b>N'oubliez pas la pièce jointe&nbsp;: le bouton prépare le message, mais il ne peut pas attacher vos fichiers à votre place.</li>
                 </ol>
 
                 <div class="zone-depot">
-                    <div class="icone">📎</div>
-                    <p id="texte-depot">Vous serez redirigé vers l'espace sécurisé de dépôt. La connexion à un compte Google est nécessaire pour garantir la traçabilité de votre remise.</p>
-                    <a id="lien-depot" class="btn-depot" href="#" target="_blank" rel="noopener">Ouvrir l'espace de dépôt</a>
+                    <div class="icone">✉️</div>
+                    <p>Votre travail part directement dans la boîte du professeur. Aucun compte à créer, aucune inscription&nbsp;: votre adresse habituelle suffit.</p>
+                    <a id="lien-depot" class="btn-depot" href="#">Préparer mon envoi</a>
+                    <p class="adresse-depot">ou écrivez directement à <b id="adresse-visible">…</b></p>
                 </div>
-                <p class="note-depot">Plusieurs fichiers par envoi · Tous les types de fichiers acceptés · Envois multiples possibles</p>
+                <p class="note-depot">Tous les types de fichiers · Envois multiples possibles · Pièces jointes jusqu'à 25 Mo par message</p>
+
+                <div class="encadre-grammaire" style="margin-top:2.5rem; margin-bottom:0;">
+                    <h4>Si vos fichiers dépassent 25 Mo</h4>
+                    <p>C'est la limite d'une pièce jointe, souvent atteinte par les vidéos et les enregistrements longs. Deux solutions&nbsp;:</p>
+                    <ul>
+                        <li>envoyer les fichiers en <b>plusieurs messages</b> successifs, en numérotant l'objet&nbsp;: <i>(1/3)</i>, <i>(2/3)</i>…&nbsp;;</li>
+                        <li>déposer le fichier sur votre propre espace de stockage — Drive, OneDrive, Dropbox — et <b>coller le lien de partage</b> dans le message.</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="section-cours">
@@ -1243,15 +1255,15 @@
                 <div class="grille-infos">
                     <div class="encadre-grammaire">
                         <h4>Correction personnelle</h4>
-                        <p>Votre travail annoté vous est renvoyé individuellement, à l'adresse utilisée lors du dépôt. Vos corrections ne sont jamais visibles par les autres étudiants.</p>
+                        <p>Votre travail annoté vous revient à l'adresse depuis laquelle vous avez écrit. Vos corrections ne sont jamais visibles par les autres étudiants.</p>
                     </div>
                     <div class="encadre-grammaire">
                         <h4>Délai de retour</h4>
-                        <p>Comptez quelques jours après la date de remise. En cas de doute sur un devoir déposé, adressez-vous directement au professeur.</p>
+                        <p>Comptez quelques jours après la date de remise. Conservez votre message dans les éléments envoyés&nbsp;: il fait foi de votre dépôt.</p>
                     </div>
                     <div class="encadre-grammaire">
                         <h4>Conseil de méthode</h4>
-                        <p>Nommez vos fichiers de façon explicite&nbsp;: <code>Nom_Module2_Rédaction</code>. Vous retrouverez ainsi plus facilement chaque retour.</p>
+                        <p>Gardez le même objet de message pour un même devoir&nbsp;: la correction restera attachée à votre envoi dans la même conversation.</p>
                     </div>
                 </div>
             </div>
@@ -1271,19 +1283,43 @@
            comme « bientôt disponible » et aucun lien mort n'est proposé
            aux étudiants.
            ═══════════════════════════════════════════════════════════════ */
-        const LIEN_DEPOT = "";
+        /* L'adresse est écrite en deux morceaux et assemblée à l'affichage :
+           elle n'apparaît nulle part en clair dans le code source, ce qui
+           la met à l'abri des robots qui moissonnent les pages pour le
+           démarchage. Pour la changer, modifiez les deux valeurs. */
+        const DEPOT_COURRIEL = { boite: 'migueltillero', domaine: 'gmail.com' };
+
+        const OBJET_DEPOT = "Devoir B2 — [votre nom] — [module]";
+
+        const CORPS_DEPOT = [
+            "Bonjour Monsieur Tillero,",
+            "",
+            "Veuillez trouver ci-joint mon travail.",
+            "",
+            "Nom et prénom : ",
+            "Groupe : ",
+            "Module ou activité : ",
+            "Remarque éventuelle : ",
+            "",
+            "— N'oubliez pas de joindre vos fichiers avant d'envoyer ce message. —",
+            "",
+            "Cordialement,"
+        ].join("\n");
 
         function initialiserDepot() {
+            const adresse = DEPOT_COURRIEL.boite + '@' + DEPOT_COURRIEL.domaine;
+
             const lien = document.getElementById('lien-depot');
-            if (LIEN_DEPOT) {
-                lien.href = LIEN_DEPOT;
-                return;
+            if (lien) {
+                lien.href = 'mailto:' + adresse
+                    + '?subject=' + encodeURIComponent(OBJET_DEPOT)
+                    + '&body=' + encodeURIComponent(CORPS_DEPOT);
             }
-            lien.setAttribute('aria-disabled', 'true');
-            lien.removeAttribute('href');
-            lien.textContent = "Bientôt disponible";
-            document.getElementById('texte-depot').textContent =
-                "L'espace de dépôt est en cours d'ouverture. Vos travaux pourront être remis ici très prochainement.";
+
+            const visible = document.getElementById('adresse-visible');
+            if (visible) {
+                visible.textContent = adresse;
+            }
         }
 
         function naviguer(id) {
