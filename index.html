@@ -154,6 +154,13 @@
         .exemple b { color: var(--graphite); }
         .exemple .fleche { color: var(--sauge); font-weight: 700; margin: 0 0.4rem; }
 
+        /* Discours modèles : les connecteurs y sont mis en évidence */
+        .discours { background: #FFFFFF; border: 1px solid var(--gris-doux); border-radius: 6px; padding: 2rem 2.2rem; margin: 1.8rem 0; }
+        .discours p { margin-bottom: 1rem; }
+        .discours p:last-child { margin-bottom: 0; }
+        .discours-etiquette { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--or-academique); margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--gris-doux); }
+        .cx { background: #F4EDDC; color: var(--or-academique); font-weight: 700; padding: 2px 7px; border-radius: 3px; }
+
         /* Tâches de production, à rendre dans l'espace de dépôt */
         .tache { background: #F1F5F2; border-left: 5px solid var(--sauge); border-radius: 0 8px 8px 0; padding: 2.5rem; margin: 3rem 0; }
         .tache-etiquette { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: var(--sauge); margin-bottom: 1rem; }
@@ -272,6 +279,14 @@
                     <div>
                         <h2>Module 7&nbsp;: Exprimer son Opinion</h2>
                         <p>Prenez position et nuancez&nbsp;: l'accord, le désaccord, et la bascule <b>indicatif / subjonctif</b> après <b>je pense que</b>.</p>
+                    </div>
+                    <button class="btn-prim">Accéder</button>
+                </div>
+
+                <div class="carte-hub" onclick="naviguer('vue-mod8')">
+                    <div>
+                        <h2>Module 8&nbsp;: Le Discours Argumenté</h2>
+                        <p>Structurez votre prise de parole&nbsp;: trois discours modèles sur les anglicismes, les connecteurs classés par fonction, et le plan à mémoriser.</p>
                     </div>
                     <button class="btn-prim">Accéder</button>
                 </div>
@@ -1204,6 +1219,192 @@
 
                 <div class="fin-module">
                     <div class="bilan" data-module="mod7"></div>
+                    <div class="actions">
+                        <button class="btn-secondaire" onclick="naviguer('vue-hub')">Menu principal</button>
+                        <button class="btn-suivant" onclick="naviguer('vue-eval')">Passer à l'évaluation ➔</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= MODULE 8 : DISCOURS ARGUMENTÉ ================= -->
+    <div id="vue-mod8" class="vue">
+        <header>
+            <button class="btn-retour" onclick="naviguer('vue-hub')">Menu Principal</button>
+            <div class="titre-professeur">Module 8</div>
+            <h1>Le Discours Argumenté</h1>
+        </header>
+
+        <div class="conteneur">
+            <div class="section-cours">
+                <h3>Règles et Usages</h3>
+
+                <div class="encadre-grammaire">
+                    <button class="btn-traduction" onclick="toggleTrad('trad-8')">🇪🇸 Ver en español</button>
+                    <h4>Le plan qui tient debout</h4>
+                    <p>Un discours argumenté n'est pas une suite d'idées&nbsp;: c'est un parcours. Chaque étape appelle la suivante, et c'est le connecteur qui rend ce lien audible. Retenez ce plan&nbsp;: il vaut pour l'oral comme pour l'écrit.</p>
+
+                    <div class="schema" role="img" aria-label="Plan du discours argumenté en six étapes, de l'introduction à la conclusion, avec le connecteur propre à chaque étape.">
+                        <svg viewBox="0 0 620 290" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <marker id="pointe-plan" viewBox="0 0 10 10" refX="9" refY="5"
+                                        markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+                                    <path d="M 0 0 L 10 5 L 0 10 z" fill="var(--or-academique)"/>
+                                </marker>
+                            </defs>
+
+                            <rect x="0" y="6" width="200" height="34" rx="4" class="s-objet"/>
+                            <text x="100" y="28" class="s-mot">Tout d'abord</text>
+                            <text x="215" y="21" class="s-ex s-petit">j'annonce mon opinion</text>
+                            <text x="215" y="37" class="s-connecteurs">l'introduction</text>
+                            <line x1="100" y1="42" x2="100" y2="54" class="s-lien" marker-end="url(#pointe-plan)"/>
+
+                            <rect x="0" y="56" width="200" height="34" rx="4" class="s-sujet"/>
+                            <text x="100" y="78" class="s-mot">En effet</text>
+                            <text x="215" y="71" class="s-ex s-petit">je justifie</text>
+                            <text x="215" y="87" class="s-connecteurs">pourquoi je pense cela</text>
+                            <line x1="100" y1="92" x2="100" y2="104" class="s-lien" marker-end="url(#pointe-plan)"/>
+
+                            <rect x="0" y="106" width="200" height="34" rx="4" class="s-sujet"/>
+                            <text x="100" y="128" class="s-mot">De plus</text>
+                            <text x="215" y="121" class="s-ex s-petit">j'ajoute un argument</text>
+                            <text x="215" y="137" class="s-connecteurs">une deuxième raison</text>
+                            <line x1="100" y1="142" x2="100" y2="154" class="s-lien" marker-end="url(#pointe-plan)"/>
+
+                            <rect x="0" y="156" width="200" height="34" rx="4" class="s-sujet"/>
+                            <text x="100" y="178" class="s-mot">Par exemple</text>
+                            <text x="215" y="171" class="s-ex s-petit">j'illustre</text>
+                            <text x="215" y="187" class="s-connecteurs">un cas concret, vécu ou connu</text>
+                            <line x1="100" y1="192" x2="100" y2="204" class="s-lien" marker-end="url(#pointe-plan)"/>
+
+                            <rect x="0" y="206" width="200" height="34" rx="4" class="s-sujet"/>
+                            <text x="100" y="228" class="s-mot">Donc</text>
+                            <text x="215" y="221" class="s-ex s-petit">j'en tire la conséquence</text>
+                            <text x="215" y="237" class="s-connecteurs">ce qu'il faudrait faire</text>
+                            <line x1="100" y1="242" x2="100" y2="254" class="s-lien" marker-end="url(#pointe-plan)"/>
+
+                            <rect x="0" y="256" width="200" height="34" rx="4" class="s-agent"/>
+                            <text x="100" y="278" class="s-mot">Finalement</text>
+                            <text x="215" y="271" class="s-ex s-petit">je conclus</text>
+                            <text x="215" y="287" class="s-connecteurs">je rappelle ma position, nuancée</text>
+                        </svg>
+                    </div>
+
+                    <p>Six étapes, six connecteurs. Un discours d'une minute tient dans ce plan&nbsp;; un discours de trois minutes aussi, en développant chaque étape.</p>
+
+                    <div id="trad-8" class="texte-espanol">
+                        <b>Traducción explicativa :</b><br>
+                        El esquema a memorizar es: <i>Tout d'abord</i> (anuncio mi opinión) → <i>En effet</i> (la justifico) → <i>De plus</i> (añado un segundo argumento) → <i>Par exemple</i> (ilustro) → <i>Donc</i> (saco la consecuencia) → <i>Finalement</i> (concluyo).<br><br>
+                        La lógica es la misma que en español, pero hay una diferencia de <b>densidad</b>: el francés argumentado marca cada paso con un conector explícito, mientras que en español se encadena más por yuxtaposición. En un examen oral, callarse los conectores se percibe como un discurso pobre, aunque las ideas sean buenas. Dicho de otro modo: <b>los conectores no son adorno, son la nota del examen</b>.<br><br>
+                        Cuidado con dos falsos amigos frecuentes: <i>finalement</i> no significa "finalmente" en el sentido de "por fin", sino "en conclusión"; y <i>en effet</i> no es "en efecto" como muletilla, sino que introduce una justificación.
+                    </div>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Les connecteurs classés par fonction</h4>
+                    <p>Choisir un connecteur, c'est annoncer ce qu'on va faire. Voici les plus rentables, avec leurs équivalents&nbsp;: variez-les pour éviter la répétition.</p>
+                    <div class="enveloppe-tableau">
+                        <table class="tableau-temps">
+                            <thead><tr><th>Fonction</th><th>Connecteurs</th></tr></thead>
+                            <tbody>
+                                <tr><td>Introduire</td><td>tout d'abord, premièrement, pour commencer, d'abord</td></tr>
+                                <tr><td>Justifier</td><td>en effet, car, en fait, c'est pourquoi</td></tr>
+                                <tr><td>Ajouter</td><td>de plus, en plus, ensuite, puis, deuxièmement, par ailleurs</td></tr>
+                                <tr><td>Illustrer</td><td>par exemple, ainsi, notamment, comme</td></tr>
+                                <tr><td>Préciser</td><td>c'est-à-dire, autrement dit, en d'autres termes</td></tr>
+                                <tr><td>Conséquence</td><td>donc, alors, par conséquent, c'est pourquoi</td></tr>
+                                <tr><td>Nuancer</td><td>cependant, toutefois, néanmoins, en revanche, certes… mais</td></tr>
+                                <tr><td>Conclure</td><td>finalement, pour conclure, en conclusion, en somme</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p><b>Un conseil d'oral&nbsp;:</b> marquez une courte pause après le connecteur. L'auditeur entend alors la structure, et vous gagnez une seconde pour préparer la suite.</p>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Trois discours modèles</h4>
+                    <p>Même sujet — <i>faut-il dénoncer l'usage des anglicismes&nbsp;?</i> — et trois degrés de développement. Les connecteurs sont mis en évidence&nbsp;: c'est l'ossature à reprendre, en changeant les idées.</p>
+
+                    <div class="discours">
+                        <div class="discours-etiquette">Modèle 1 · discours simple</div>
+                        <p>Bonjour à tous.</p>
+                        <p><span class="cx">Tout d'abord</span>, je pense que l'utilisation excessive des anglicismes pose un problème. <span class="cx">En effet</span>, beaucoup de personnes utilisent des mots anglais alors qu'il existe déjà des mots français.</p>
+                        <p><span class="cx">Deuxièmement</span>, cette habitude peut rendre la communication plus difficile pour certaines personnes. <span class="cx">Par exemple</span>, les personnes âgées ne comprennent pas toujours des termes comme <i>week-end</i>, <i>streaming</i> ou <i>challenge</i>.</p>
+                        <p><span class="cx">Donc</span>, il est important de privilégier les mots français quand c'est possible.</p>
+                        <p><span class="cx">Finalement</span>, les anglicismes peuvent être utiles dans certains contextes, mais il faut les utiliser avec modération.</p>
+                        <p>Merci de votre attention.</p>
+                    </div>
+
+                    <div class="discours">
+                        <div class="discours-etiquette">Modèle 2 · discours argumenté</div>
+                        <p>Bonjour.</p>
+                        <p><span class="cx">Premièrement</span>, les anglicismes prennent une place de plus en plus importante dans la langue française. <span class="cx">C'est pourquoi</span> certaines personnes s'inquiètent pour la richesse du français.</p>
+                        <p><span class="cx">Ensuite</span>, de nombreux mots anglais remplacent des mots français déjà existants. <span class="cx">Par exemple</span>, on dit parfois <i>mail</i> au lieu de <i>courriel</i>.</p>
+                        <p><span class="cx">En plus</span>, cette tendance influence particulièrement les jeunes qui utilisent ces termes dans leur vie quotidienne.</p>
+                        <p><span class="cx">Alors</span>, il est nécessaire de valoriser le vocabulaire français tout en restant ouvert aux échanges internationaux.</p>
+                        <p><span class="cx">Finalement</span>, je pense qu'il faut trouver un équilibre entre modernité et respect de la langue française.</p>
+                        <p>Merci.</p>
+                    </div>
+
+                    <div class="discours">
+                        <div class="discours-etiquette">Modèle 3 · discours élaboré</div>
+                        <p>Bonjour à tous.</p>
+                        <p><span class="cx">Tout d'abord</span>, les anglicismes sont très présents dans les médias, la publicité et les réseaux sociaux. <span class="cx">En fait</span>, ils sont souvent perçus comme modernes et attractifs.</p>
+                        <p><span class="cx">Deuxièmement</span>, leur utilisation excessive peut affaiblir certains mots français. <span class="cx">C'est-à-dire que</span> des expressions françaises disparaissent peu à peu de l'usage quotidien.</p>
+                        <p><span class="cx">De plus</span>, certaines personnes ne comprennent pas toujours ces mots étrangers. <span class="cx">Par exemple</span>, dans le monde du travail, des termes anglais peuvent créer de la confusion.</p>
+                        <p><span class="cx">Donc</span>, il serait préférable d'encourager l'emploi d'équivalents français lorsque cela est possible.</p>
+                        <p><span class="cx">Puis</span>, les écoles et les médias pourraient sensibiliser le public à cette question.</p>
+                        <p><span class="cx">Finalement</span>, je ne suis pas contre tous les anglicismes, mais je pense qu'il faut protéger la diversité et la richesse de la langue française.</p>
+                        <p>Merci de votre attention.</p>
+                    </div>
+
+                    <p><b>Observez la dernière phrase des trois modèles&nbsp;:</b> chacune nuance la position au lieu de la durcir. C'est ce que valorise le jury — une opinion tenue, mais qui reconnaît la part de vrai chez l'autre.</p>
+                </div>
+
+                <div class="encadre-grammaire">
+                    <h4>Expressions utiles</h4>
+                    <p>À garder sous la main pendant la préparation. Une expression par fonction suffit&nbsp;; l'essentiel est de ne pas répéter la même.</p>
+                    <div class="enveloppe-tableau">
+                        <table class="tableau-temps">
+                            <thead><tr><th>Pour…</th><th>Vous pouvez dire</th></tr></thead>
+                            <tbody>
+                                <tr><td>Introduire une opinion</td><td>à mon avis, selon moi, personnellement, je pense que, il me semble que</td></tr>
+                                <tr><td>Ajouter une idée</td><td>de plus, par ailleurs, il faut aussi rappeler que, ajoutons que</td></tr>
+                                <tr><td>Justifier</td><td>en effet, la raison en est simple, cela s'explique par</td></tr>
+                                <tr><td>Donner un exemple</td><td>par exemple, ainsi, prenons le cas de, on peut citer</td></tr>
+                                <tr><td>Exprimer une conséquence</td><td>donc, par conséquent, c'est pourquoi, il en résulte que</td></tr>
+                                <tr><td>Nuancer</td><td>certes… mais, il est vrai que… cependant, dans une certaine mesure</td></tr>
+                                <tr><td>Conclure</td><td>pour conclure, en somme, finalement, je dirais que</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="titre-exo">Exercices&nbsp;: quinze applications sur les connecteurs et la structure.</div>
+                <div id="exos-mod8"></div>
+
+                <div class="tache">
+                    <div class="tache-etiquette">Production écrite — à déposer</div>
+                    <h4>Les réseaux sociaux et la langue</h4>
+                    <p>Rédigez un mini-discours de 80 à 120 mots sur le sujet&nbsp;:</p>
+                    <p class="tache-consigne"><i>Les réseaux sociaux ont-ils une influence positive ou négative sur la langue&#8239;?</i><br><br>
+                    Employez au moins&nbsp;: un connecteur d'introduction, un de justification, un exemple, une conséquence et une conclusion. Suivez le plan en six étapes.</p>
+                    <button class="btn-secondaire" onclick="naviguer('vue-devoirs')">Aller à l'espace de dépôt</button>
+                </div>
+
+                <div class="tache">
+                    <div class="tache-etiquette">Production orale — à déposer</div>
+                    <h4>Une minute au micro</h4>
+                    <p>Enregistrez-vous — un mémo vocal de téléphone suffit — sur le sujet&nbsp;:</p>
+                    <p class="tache-consigne"><i>Faut-il limiter l'utilisation des anglicismes&#8239;?</i><br><br>
+                    Une minute, six étapes&nbsp;: <code>tout d'abord</code> · <code>en effet</code> · <code>de plus</code> · <code>par exemple</code> · <code>donc</code> · <code>finalement</code>. Marquez une pause après chaque connecteur.</p>
+                    <p><b>Défi&nbsp;:</b> refaites l'enregistrement en remplaçant chaque connecteur par un équivalent de même fonction — <i>premièrement</i>, <i>en fait</i>, <i>par ailleurs</i>, <i>ainsi</i>, <i>par conséquent</i>, <i>pour conclure</i>.</p>
+                    <button class="btn-secondaire" onclick="naviguer('vue-devoirs')">Aller à l'espace de dépôt</button>
+                </div>
+
+                <div class="fin-module">
+                    <div class="bilan" data-module="mod8"></div>
                     <div class="actions">
                         <button class="btn-secondaire" onclick="naviguer('vue-hub')">Menu principal</button>
                         <button class="btn-suivant" onclick="naviguer('vue-eval')">Passer à l'évaluation ➔</button>
@@ -2398,6 +2599,128 @@
                   aide: 'il est …',
                   fb: "«&#8239;Il est vrai que… mais…&#8239;» concède un point avant de rétablir sa position.",
                   fbFaux: "On attend une formule de concession qui reconnaît d'abord la validité de l'argument adverse." }
+            ],
+
+            /* ── Module 8 · Le discours argumenté ─────────────────────── */
+            mod8: [
+                { type: 'qcm',
+                  q: 'Quelle est la fonction de <b>«&#8239;en effet&#8239;»</b>&nbsp;?',
+                  opt: ['Conclure', 'Justifier', 'Donner un exemple'],
+                  rep: 1,
+                  fb: ["Pour conclure, on emploie «&#8239;finalement&#8239;» ou «&#8239;pour conclure&#8239;».",
+                       "Exact&#8239;! «&#8239;En effet&#8239;» appuie ce qu'on vient d'affirmer&nbsp;: il donne la raison. Attention, ce n'est pas la béquille «&#8239;en efecto&#8239;» de l'espagnol.",
+                       "L'exemple s'introduit par «&#8239;par exemple&#8239;» ou «&#8239;ainsi&#8239;»."] },
+
+                { type: 'qcm',
+                  q: 'Quelle est la fonction de <b>«&#8239;finalement&#8239;»</b> dans un discours argumenté&nbsp;?',
+                  opt: ['Conclusion', 'Addition', 'Justification'],
+                  rep: 0,
+                  fb: ["Exact&#8239;! Ici «&#8239;finalement&#8239;» annonce la conclusion — non pas «&#8239;por fin&#8239;», mais «&#8239;en conclusion&#8239;».",
+                       "L'addition se marque par «&#8239;de plus&#8239;» ou «&#8239;par ailleurs&#8239;».",
+                       "La justification se marque par «&#8239;en effet&#8239;» ou «&#8239;car&#8239;»."] },
+
+                { type: 'qcm',
+                  q: 'Quelle est la fonction de <b>«&#8239;donc&#8239;»</b>&nbsp;?',
+                  opt: ['Exemple', 'Conséquence', 'Opposition'],
+                  rep: 1,
+                  fb: ["L'exemple appelle «&#8239;par exemple&#8239;».",
+                       "Exact&#8239;! «&#8239;Donc&#8239;» tire les conséquences de ce qui précède, comme «&#8239;par conséquent&#8239;».",
+                       "L'opposition appelle «&#8239;cependant&#8239;» ou «&#8239;en revanche&#8239;»."] },
+
+                { type: 'qcm',
+                  q: 'Quelle est la fonction de <b>«&#8239;c\'est-à-dire&#8239;»</b>&nbsp;?',
+                  opt: ['Préciser une idée', 'Ajouter un argument', 'Conclure'],
+                  rep: 0,
+                  fb: ["Exact&#8239;! «&#8239;C'est-à-dire&#8239;» reformule pour lever une ambiguïté, comme «&#8239;autrement dit&#8239;».",
+                       "Pour ajouter, employez «&#8239;de plus&#8239;» ou «&#8239;ensuite&#8239;».",
+                       "Pour conclure, employez «&#8239;pour conclure&#8239;» ou «&#8239;en somme&#8239;»."] },
+
+                { type: 'qcm',
+                  q: 'Complétez&nbsp;: «&#8239;Les anglicismes sont très présents dans les réseaux sociaux. ________, les jeunes les utilisent tous les jours.&#8239;»',
+                  opt: ['En effet', 'Cependant', 'Pour conclure'],
+                  rep: 0,
+                  fb: ["Exact&#8239;! La deuxième phrase justifie la première&nbsp;: elle en apporte la preuve.",
+                       "«&#8239;Cependant&#8239;» annoncerait une opposition, or les deux phrases vont dans le même sens.",
+                       "Rien n'est encore conclu à ce stade du discours."] },
+
+                { type: 'qcm',
+                  q: 'Complétez&nbsp;: «&#8239;Certains mots anglais remplacent des mots français. ________, on dit <i>mail</i> au lieu de <i>courriel</i>.&#8239;»',
+                  opt: ['Donc', 'Par exemple', 'En revanche'],
+                  rep: 1,
+                  fb: ["Aucune conséquence n'est tirée&nbsp;: on illustre.",
+                       "Exact&#8239;! La phrase donne un cas concret&nbsp;: c'est une illustration.",
+                       "Il n'y a pas d'opposition entre les deux phrases."] },
+
+                { type: 'qcm',
+                  q: 'Complétez&nbsp;: «&#8239;Cette situation pose des problèmes de compréhension. ________, il faut encourager l\'usage du français.&#8239;»',
+                  opt: ['Par exemple', 'Donc', 'En effet'],
+                  rep: 1,
+                  fb: ["La seconde phrase n'illustre pas la première&nbsp;: elle en découle.",
+                       "Exact&#8239;! On passe du constat à ce qu'il faudrait faire&nbsp;: c'est la conséquence.",
+                       "«&#8239;En effet&#8239;» justifierait le constat au lieu d'en tirer les conclusions."] },
+
+                { type: 'qcm',
+                  q: 'Quel est l\'ordre correct d\'un discours argumenté&nbsp;?',
+                  opt: ['Exemple ➔ introduction ➔ conclusion ➔ argument',
+                        'Introduction ➔ argument ➔ exemple ➔ conclusion',
+                        'Conclusion ➔ argument ➔ introduction ➔ exemple'],
+                  rep: 1,
+                  fb: ["L'exemple ne peut pas ouvrir un discours&nbsp;: il illustre une idée déjà posée.",
+                       "Exact&#8239;! On annonce, on argumente, on illustre, puis on conclut. C'est le plan à mémoriser.",
+                       "La conclusion ferme le discours&nbsp;: elle ne peut pas l'ouvrir."] },
+
+                { type: 'qcm',
+                  q: 'Dans ce début de discours, quelle phrase vient <b>juste après</b>&nbsp;? «&#8239;Tout d\'abord, je pense que les anglicismes posent un problème.&#8239;»',
+                  opt: ["En effet, beaucoup de mots français existent déjà.",
+                        "Merci de votre attention.",
+                        "Finalement, il faut trouver un équilibre."],
+                  rep: 0,
+                  fb: ["Exact&#8239;! Après avoir annoncé son opinion, on la justifie&nbsp;: c'est la deuxième étape du plan.",
+                       "La formule de politesse termine le discours.",
+                       "On ne conclut pas avant d'avoir argumenté."] },
+
+                { type: 'qcm',
+                  q: 'Quel connecteur <b>ne convient pas</b> pour conclure&nbsp;?',
+                  opt: ['En somme', 'Pour conclure', 'Par ailleurs'],
+                  rep: 2,
+                  fb: ["«&#8239;En somme&#8239;» conclut correctement.",
+                       "«&#8239;Pour conclure&#8239;» conclut correctement.",
+                       "Exact&#8239;! «&#8239;Par ailleurs&#8239;» ajoute un argument&nbsp;: l'employer pour conclure laisserait le discours ouvert."] },
+
+                { type: 'saisie',
+                  q: 'Remplacez par un équivalent&nbsp;: «&#8239;<b>Premièrement</b>, les anglicismes sont partout.&#8239;» ➔ ________, les anglicismes sont partout. (trois mots, le plus courant à l\'oral)',
+                  rep: ["tout d'abord"],
+                  aide: 'tout …',
+                  fb: "«&#8239;Tout d'abord&#8239;» et «&#8239;premièrement&#8239;» ouvrent tous deux le discours&nbsp;: variez-les d'un paragraphe à l'autre.",
+                  fbFaux: "On attend le connecteur d'introduction le plus fréquent à l'oral, en trois mots." },
+
+                { type: 'saisie',
+                  q: 'Complétez avec un connecteur d\'addition (deux mots)&nbsp;: «&#8239;Les anglicismes sont utiles au travail. ________, ils facilitent les échanges internationaux.&#8239;»',
+                  rep: ['de plus', 'en plus', 'par ailleurs'],
+                  aide: 'de …',
+                  fb: "«&#8239;De plus&#8239;», «&#8239;en plus&#8239;» ou «&#8239;par ailleurs&#8239;» ajoutent un second argument de même sens.",
+                  fbFaux: "Les deux phrases vont dans le même sens&nbsp;: il faut un connecteur qui ajoute." },
+
+                { type: 'saisie',
+                  q: 'Complétez avec un connecteur de conclusion (deux mots)&nbsp;: «&#8239;________, il faut trouver un équilibre entre modernité et respect du français.&#8239;»',
+                  rep: ['pour conclure', 'en conclusion', 'en somme'],
+                  aide: 'pour …',
+                  fb: "«&#8239;Pour conclure&#8239;», «&#8239;en conclusion&#8239;» ou «&#8239;en somme&#8239;» annoncent la dernière étape.",
+                  fbFaux: "La phrase ferme le discours&nbsp;: employez une formule de conclusion en deux mots." },
+
+                { type: 'saisie',
+                  q: 'Nuancez la conclusion&nbsp;: «&#8239;Je ne suis pas contre tous les anglicismes, ________ je pense qu\'il faut protéger le français.&#8239;» (un mot)',
+                  rep: ['mais'],
+                  aide: 'un seul mot',
+                  fb: "La concession suivie de «&#8239;mais&#8239;» est la marque d'une position tenue mais ouverte&nbsp;: c'est ce que valorise le jury.",
+                  fbFaux: "On concède d'abord un point, puis on rétablit sa position avec un mot d'opposition." },
+
+                { type: 'saisie',
+                  q: 'Quelle fonction remplit «&#8239;par ailleurs&#8239;»&nbsp;? Répondez en un mot&nbsp;: justification, addition ou conclusion&nbsp;?',
+                  rep: ['addition'],
+                  aide: 'un seul mot',
+                  fb: "«&#8239;Par ailleurs&#8239;» ajoute un argument, comme «&#8239;de plus&#8239;» et «&#8239;ensuite&#8239;».",
+                  fbFaux: "Ce connecteur introduit un argument supplémentaire, sans le justifier ni conclure." }
             ]
         };
 
@@ -2443,7 +2766,13 @@
             { q: "Je pense que cette réforme ________ nécessaire.", opt: ["soit", "est", "ait été"], rep: 1 },
             { q: "Je ne pense pas que cette réforme ________ nécessaire.", opt: ["est", "soit", "sera"], rep: 1 },
             { q: "Il est vrai que le débat est ancien, ________ il reste actuel.", opt: ["cependant", "parce que", "afin que"], rep: 0 },
-            { q: "Bien que l'emprunt ________ naturel, son rythme interroge.", opt: ["est", "soit", "sera"], rep: 1 }
+            { q: "Bien que l'emprunt ________ naturel, son rythme interroge.", opt: ["est", "soit", "sera"], rep: 1 },
+
+            // Module 8 · le discours argumenté
+            { q: "Quelle est la fonction de « en effet » ?", opt: ["Conclure", "Justifier", "Illustrer"], rep: 1 },
+            { q: "Les mots anglais remplacent des mots français. ________, on dit « mail » au lieu de « courriel ».", opt: ["Donc", "Par exemple", "Cependant"], rep: 1 },
+            { q: "Quel connecteur ne convient pas pour conclure ?", opt: ["En somme", "Pour conclure", "Par ailleurs"], rep: 2 },
+            { q: "Quel est l'ordre correct d'un discours argumenté ?", opt: ["Exemple, introduction, conclusion", "Introduction, argument, exemple, conclusion", "Conclusion, introduction, argument"], rep: 1 }
         ];
 
         let scoreEval = 0; let nbReponduesEval = 0;
