@@ -212,6 +212,21 @@
         .grille-infos .encadre-grammaire { margin-bottom: 0; }
         .grille-infos h4 { font-size: 1.2rem; }
         .grille-infos p { font-size: 1rem; color: #5C5C5C; }
+            /* Cahier de Textes / Assignations */
+        .carte-hub.assignations { border-top-color: var(--or-academique); }
+        .carousel-seances { display: flex; gap: 2rem; overflow-x: auto; padding: 1rem 0 3rem; scroll-snap-type: x mandatory; align-items: stretch; }
+        .fiche-seance { background: #fff; border-radius: 8px; min-width: 360px; max-width: 400px; flex: 0 0 auto; box-shadow: var(--shadow-subtile); border-top: 6px solid var(--or-academique); scroll-snap-align: start; display: flex; flex-direction: column; transition: transform 0.3s; }
+        .fiche-seance:hover { transform: translateY(-5px); }
+        .fiche-entete { background: #FDFCF8; padding: 1.5rem; border-bottom: 1px solid var(--gris-doux); border-radius: 8px 8px 0 0; }
+        .fiche-date { font-family: var(--font-titre); font-size: 1.4rem; color: var(--graphite); font-weight: 700; }
+        .fiche-contenu { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .fiche-contenu h4 { color: var(--sauge); font-size: 1.05rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
+        .carousel-seances::-webkit-scrollbar { height: 10px; }
+        .carousel-seances::-webkit-scrollbar-track { background: #EAE6E1; border-radius: 5px; }
+        .carousel-seances::-webkit-scrollbar-thumb { background: #8F6A1F; border-radius: 5px; border: 2px solid #EAE6E1; }
+        .fiche-seance.future { border-top-color: var(--gris-doux); opacity: 0.8; }
+        .fiche-seance.future .fiche-entete { background: #F5F5F5; }
+        .fiche-seance.future .fiche-date { color: #888; }
     </style>
 </head>
 <body>
@@ -299,6 +314,14 @@
                     <button class="btn-prim">Déposer un travail</button>
                 </div>
 
+                                <div class="carte-hub assignations" onclick="naviguer('vue-assignations')">
+                    <div>
+                        <h2>Cahier de Textes</h2>
+                        <p>Consultez le journal de nos séances (lundis et mercredis) ainsi que les devoirs et tâches assignés pour chaque cours.</p>
+                    </div>
+                    <button class="btn-prim">Consulter les tâches</button>
+                </div>
+
                 <div class="carte-hub eval" onclick="naviguer('vue-eval')">
                     <div>
                         <h2>Évaluation Finale B2</h2>
@@ -308,32 +331,7 @@
                 </div>
             </div>
 
-            <div class="tache" id="devoir-b2">
-                <div class="tache-etiquette">Production écrite individuelle — à déposer</div>
-                <h2>Devoir B2 — Rédaction argumentative individuelle</h2>
-                <p><b>Objectif&#8239;:</b> Rédiger un court texte argumentatif (140 à 180 mots) en mobilisant les acquis des modules fondamentaux&#8239;: connecteurs de cause et de conséquence (Module 2), expression de l'opinion et de la nuance (Module 7) et expression des proportions (Module 1). Veillez à proscrire les tournures pléonastiques (telles que «&#8239;comme par exemple&#8239;») ainsi que le registre familier (notamment «&#8239;du coup&#8239;»).</p>
-
-                <ul class="sujets-individuels">
-                    <li class="sujet-individuel">
-                        <h3>1. Melissa — Le télétravail à 100&nbsp;%</h3>
-                        <p><b>Sujet&#8239;:</b> <em>«&#8239;Selon certains sociologues, la généralisation du travail à distance à 100&nbsp;% isole les salariés et nuit à la cohésion d'équipe. D'autres soutiennent au contraire qu'il améliore sensiblement l'équilibre de vie.&#8239;»</em></p>
-                        <p class="tache-consigne"><b>Consigne&#8239;:</b> Défendez votre position en développant deux arguments étayés par des exemples concrets et des connecteurs logiques formels.</p>
-                    </li>
-                    <li class="sujet-individuel">
-                        <h3>2. Montserrat — Les réseaux sociaux et l'actualité</h3>
-                        <p><b>Sujet&#8239;:</b> <em>«&#8239;De plus en plus de jeunes s'informent exclusivement par l'intermédiaire des réseaux sociaux au détriment de la presse traditionnelle. Faut-il s'en réjouir ou le redouter&#8239;?&#8239;»</em></p>
-                        <p class="tache-consigne"><b>Consigne&#8239;:</b> Développez une argumentation nuancée à l'aide d'articulateurs logiques d'opposition et de gradation.</p>
-                    </li>
-                    <li class="sujet-individuel">
-                        <h3>3. Rodman — La suppression de la notation chiffrée</h3>
-                        <p><b>Sujet&#8239;:</b> <em>«&#8239;Convient-il de supprimer définitivement les notes chiffrées dans le système scolaire au profit d'évaluations qualitatives par compétences afin d'atténuer le stress des apprenants&#8239;?&#8239;»</em></p>
-                        <p class="tache-consigne"><b>Consigne&#8239;:</b> Prenez position nettement en exploitant notamment l'expression de l'intensité entraînant une conséquence (tellement... que, au point que).</p>
-                    </li>
-                </ul>
-
-                <p class="devoir-mention">Travail à remettre via la section «&#8239;Dépôt des Devoirs&#8239;» du dossier interactif.</p>
-                <button class="btn-secondaire" onclick="naviguer('vue-devoirs')">Aller à l'espace de dépôt</button>
-            </div>
+            
         </div>
             
         <p style="margin-top: 20px; font-size: 0.9em; color: #64748b; text-align: right;">
@@ -341,6 +339,82 @@
         </p>
     </div>
 <footer>>>
+            <button class="btn-reinitialiser" onclick="reinitialiserProgression()">Réinitialiser ma progression</button><br><br>
+            © 2026 Dossier de Révision B2 &nbsp;|&nbsp; Direction Pédagogique&nbsp;: Professeur Miguel Tillero
+        </footer>
+    </div>
+
+        <!-- ================= CAHIER DE TEXTES ================= -->
+    <div id="vue-assignations" class="vue">
+        <header style="background: linear-gradient(135deg, var(--graphite) 0%, #4A3B2C 100%);">
+            <button class="btn-retour" onclick="naviguer('vue-hub')">Menu Principal</button>
+            <div class="titre-professeur">Suivi Pédagogique B2</div>
+            <h1>Cahier de Textes & Devoirs</h1>
+            <p>Retrouvez ici le journal de nos séances bimensuelles (lundis et mercredis). Glissez vers la droite pour consulter les assignations de chaque cours.</p>
+        </header>
+
+        <div class="conteneur">
+            <div class="carousel-seances">
+                
+                <!-- SÉANCE 1 -->
+                <div class="fiche-seance">
+                    <div class="fiche-entete">
+                        <div class="fiche-date">Mercredi 3 septembre</div>
+                        <div style="font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; font-weight: 700;">Séance 1</div>
+                    </div>
+                    <div class="fiche-contenu">
+                        <h4>À préparer pour le prochain cours</h4>
+                        <p style="font-size: 0.95rem; margin-bottom: 1.5rem; color: #4A4A4A; line-height: 1.5;"><b>Objectif&#8239;:</b> Rédiger un court texte argumentatif (140 à 180 mots) en mobilisant les connecteurs logiques formels et l'expression de la nuance. Registre familier proscrit.</p>
+                        
+                        <ul class="sujets-individuels" style="margin-top: 0; margin-bottom: auto; border-top: 1px solid var(--gris-doux); padding-top: 1rem;">
+                            <li class="sujet-individuel" style="padding: 0 0 1rem 0;">
+                                <h3 style="font-size: 1.1rem; color: var(--or-academique);">Melissa</h3>
+                                <p style="font-size: 0.9rem; margin-bottom: 0.4rem;"><b>Thème&#8239;:</b> Le télétravail à 100&nbsp;%</p>
+                                <p class="tache-consigne" style="font-size: 0.85rem; padding: 0.8rem; margin: 0;">Développer deux arguments étayés par des exemples concrets.</p>
+                            </li>
+                            <li class="sujet-individuel" style="padding: 1rem 0;">
+                                <h3 style="font-size: 1.1rem; color: var(--or-academique);">Montserrat</h3>
+                                <p style="font-size: 0.9rem; margin-bottom: 0.4rem;"><b>Thème&#8239;:</b> Les réseaux sociaux et l'actualité</p>
+                                <p class="tache-consigne" style="font-size: 0.85rem; padding: 0.8rem; margin: 0;">Argumentation nuancée (articulateurs d'opposition et de gradation).</p>
+                            </li>
+                            <li class="sujet-individuel" style="padding: 1rem 0 0 0; border-bottom: none;">
+                                <h3 style="font-size: 1.1rem; color: var(--or-academique);">Rodman</h3>
+                                <p style="font-size: 0.9rem; margin-bottom: 0.4rem;"><b>Thème&#8239;:</b> Fin de la notation chiffrée</p>
+                                <p class="tache-consigne" style="font-size: 0.85rem; padding: 0.8rem; margin: 0;">Exploiter l'expression de l'intensité entraînant une conséquence.</p>
+                            </li>
+                        </ul>
+                        
+                        <div style="margin-top: 2rem;">
+                            <button class="btn-secondaire" style="width: 100%; padding: 0.8rem; font-size: 0.9rem;" onclick="naviguer('vue-devoirs')">Déposer ce devoir</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SÉANCE 2 (Future) -->
+                <div class="fiche-seance future">
+                    <div class="fiche-entete">
+                        <div class="fiche-date">Lundi 7 septembre</div>
+                        <div style="font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; font-weight: 700;">Séance 2</div>
+                    </div>
+                    <div class="fiche-contenu" style="display: flex; align-items: center; justify-content: center; text-align: center; min-height: 250px;">
+                        <p style="color: #888; font-style: italic; font-size: 0.95rem;">Les assignations et le résumé de cette séance seront disponibles après le cours.</p>
+                    </div>
+                </div>
+                
+                <!-- SÉANCE 3 (Future) -->
+                <div class="fiche-seance future">
+                    <div class="fiche-entete">
+                        <div class="fiche-date">Mercredi 9 septembre</div>
+                        <div style="font-size: 0.85rem; color: #888; text-transform: uppercase; letter-spacing: 2px; margin-top: 5px; font-weight: 700;">Séance 3</div>
+                    </div>
+                    <div class="fiche-contenu" style="display: flex; align-items: center; justify-content: center; text-align: center; min-height: 250px;">
+                        <p style="color: #888; font-style: italic; font-size: 0.95rem;">En attente de la tenue du cours.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <footer>
             <button class="btn-reinitialiser" onclick="reinitialiserProgression()">Réinitialiser ma progression</button><br><br>
             © 2026 Dossier de Révision B2 &nbsp;|&nbsp; Direction Pédagogique&nbsp;: Professeur Miguel Tillero
         </footer>
@@ -2863,6 +2937,7 @@
     </script>
 </body>
 </html>
+
 
 
 
